@@ -17,9 +17,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="es" className={cn("h-full", "font-sans", geist.variable)}>
-      {/* Anti-flash: set theme synchronously before first paint */}
       <head>
-        <script dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('gf-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();` }} />
+        {/* eslint-disable-next-line @next/next/no-sync-scripts */}
+        <script suppressHydrationWarning dangerouslySetInnerHTML={{ __html: `(function(){try{var t=localStorage.getItem('gf-theme');if(t)document.documentElement.setAttribute('data-theme',t);}catch(e){}})();` }} />
       </head>
       <body className="flex flex-col h-screen overflow-hidden bg-bg text-text antialiased relative">
         <ThemeWrapper>

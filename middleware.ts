@@ -2,12 +2,14 @@
 import { NextResponse } from 'next/server';
 
 const PUBLIC_ROUTES = ['/login', '/register'];
+const PENDING_ROUTE  = '/pending';
 const DEFAULT_REDIRECT = '/dashboard';
 
 export default auth((req) => {
   const { nextUrl } = req;
   const session = req.auth;
   const isPublicRoute = PUBLIC_ROUTES.includes(nextUrl.pathname);
+  const isPendingRoute = nextUrl.pathname === PENDING_ROUTE;
 
   // Si el refresh token falló, forzar re-login
   if (session?.error === 'RefreshTokenError') {
@@ -15,14 +17,19 @@ export default auth((req) => {
   }
 
   // Sin sesión en ruta protegida → login
-  if (!session && !isPublicRoute) {
+  if (!session && !isPublicRoute && !isPendingRoute) {
     const loginUrl = new URL('/login', nextUrl);
     loginUrl.searchParams.set('callbackUrl', nextUrl.pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  // Con sesión en ruta pública → dashboard
-  if (session && isPublicRoute) {
+  // Usuario PENDING: solo puede ver /pending
+  if (session?.user?.status === 'PENDING' && !isPendingRoute) {
+    return NextResponse.redirect(new URL(PENDING_ROUTE, nextUrl));
+  }
+
+  // Con sesión activa (no PENDING) en ruta pública → dashboard
+  if (session && isPublicRoute && session.user?.status !== 'PENDING') {
     return NextResponse.redirect(new URL(DEFAULT_REDIRECT, nextUrl));
   }
 

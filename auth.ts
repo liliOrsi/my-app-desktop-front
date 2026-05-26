@@ -1,10 +1,15 @@
 import NextAuth, { type NextAuthConfig } from 'next-auth';
 import Credentials from 'next-auth/providers/credentials';
+import Google from 'next-auth/providers/google';
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
 
 const config: NextAuthConfig = {
   providers: [
+    Google({
+      clientId: process.env.GOOGLE_CLIENT_ID!,
+      clientSecret: process.env.GOOGLE_CLIENT_SECRET!,
+    }),
     Credentials({
       credentials: {
         email: { label: 'Email', type: 'email' },
@@ -31,6 +36,7 @@ const config: NextAuthConfig = {
             name: `${data.user.firstName} ${data.user.lastName}`,
             email: data.user.email,
             role: data.user.role,
+            status: data.user.status,
             accessToken: data.access_token,
             refreshToken: data.refresh_token,
             expiresAt: data.expires_at,
@@ -43,14 +49,49 @@ const config: NextAuthConfig = {
   ],
 
   callbacks: {
-    async jwt({ token, user }) {
-      // Primer login: copiar datos del usuario al token
+    async jwt({ token, user, account, trigger, session }) {
+      // Session update (e.g. status re-check from pending page)
+      if (trigger === 'update' && session?.status) {
+        token.status = session.status;
+        return token;
+      }
+
+      // Credentials login
       if (user) {
-        token.id          = user.id;
-        token.role        = user.role;
-        token.accessToken = user.accessToken;
-        token.refreshToken= user.refreshToken;
-        token.expiresAt   = user.expiresAt;
+        token.id           = user.id;
+        token.role         = user.role;
+        token.status       = user.status;
+        token.accessToken  = user.accessToken;
+        token.refreshToken = user.refreshToken;
+        token.expiresAt    = user.expiresAt;
+      }
+
+      // Google login: exchange id_token with our backend
+      if (account?.provider === 'google' && account.id_token) {
+        try {
+          const res = await fetch(`${API}/auth/google/sign-in`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json' },
+            body: JSON.stringify({ id_token: account.id_token }),
+          });
+
+          if (res.ok) {
+            const data = await res.json();
+            token.id           = data.user.id;
+            token.role         = data.user.role;
+            token.status       = data.user.status;
+            token.accessToken  = data.access_token;
+            token.refreshToken = data.refresh_token;
+            token.expiresAt    = data.expires_at;
+          } else {
+            const body = await res.text().catch(() => '');
+            console.error('[Google auth] backend error:', res.status, body);
+            token.error = 'GoogleAuthError';
+          }
+        } catch (e) {
+          console.error('[Google auth] fetch failed:', e);
+          token.error = 'GoogleAuthError';
+        }
       }
 
       // Si el access token expiró, hacer refresh
@@ -79,8 +120,9 @@ const config: NextAuthConfig = {
     },
 
     async session({ session, token }) {
-      session.user.id    = token.id as string;
-      session.user.role  = token.role as string;
+      session.user.id      = token.id as string;
+      session.user.role    = token.role as string;
+      session.user.status  = token.status as string;
       session.accessToken  = token.accessToken as string;
       session.refreshToken = token.refreshToken as string;
       session.expiresAt    = token.expiresAt as string;

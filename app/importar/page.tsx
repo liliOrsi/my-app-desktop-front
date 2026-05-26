@@ -1,6 +1,7 @@
 'use client';
 
 import { useCallback, useRef, useState } from 'react';
+import { authFetch } from '@/lib/auth-fetch';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Upload, CheckCircle, AlertTriangle, XCircle, Loader2, FileSpreadsheet, ArrowRight, RotateCcw } from 'lucide-react';
 import { Button } from '@/components/ui/button';
@@ -57,7 +58,7 @@ export default function ImportarPage() {
     form.append('file', file);
 
     try {
-      const res = await fetch(`${API}/import/preview`, { method: 'POST', body: form });
+      const res = await authFetch(`${API}/import/preview`, { method: 'POST', body: form, headers: {} });
       if (!res.ok) {
         const err = await res.json().catch(() => ({}));
         throw new Error(err.message ?? `Error ${res.status}`);
@@ -104,9 +105,8 @@ export default function ImportarPage() {
         .filter((_, i) => selected.has(`i-${i}`) && preview.incomes[i].status !== 'duplicate')
         .map(it => it.data);
 
-      const res = await fetch(`${API}/import/confirm`, {
+      const res = await authFetch(`${API}/import/confirm`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ expenses, incomes, defaultCategoryId: 1 }),
       });
       if (!res.ok) throw new Error(`Error ${res.status}`);

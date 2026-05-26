@@ -1,5 +1,6 @@
 'use client';
 import { useState, useEffect, useCallback, useMemo } from 'react';
+import { authFetch } from '@/lib/auth-fetch';
 import { createPortal } from 'react-dom';
 import Link from 'next/link';
 import { motion, AnimatePresence, useReducedMotion, type Variants } from 'framer-motion';
@@ -42,13 +43,13 @@ function useBalance() {
   const [history,  setHistory]  = useState<BalanceSnapshot[]>([]);
 
   const refresh = useCallback(() => {
-    fetch(`${API}/balance`)
+    authFetch(`${API}/balance`)
       .then(r => r.json())
       .then((d: { banco: BalanceSnapshot | null; efectivo: BalanceSnapshot | null }) => {
         setBanco(d?.banco ?? null);
         setEfectivo(d?.efectivo ?? null);
       }).catch(() => {});
-    fetch(`${API}/balance/history`)
+    authFetch(`${API}/balance/history`)
       .then(r => r.json()).then(setHistory).catch(() => {});
   }, []);
 
@@ -982,7 +983,7 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
     setSelectedBatch(null);
     setLoadingBatches(true);
     try {
-      const batches: ImportBatch[] = await fetch(`${API}/import/batches`).then(r => r.json());
+      const batches: ImportBatch[] = await authFetch(`${API}/import/batches`).then(r => r.json());
       setBatchList(batches);
     } catch { /* ignore */ }
     setLoadingBatches(false);
@@ -993,7 +994,7 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
     setLoadingBatchTx(true);
     try {
       const batchId = batch.batchId ?? 'legacy';
-      const { expenses, incomes } = await fetch(`${API}/import/batches/${batchId}/transactions`).then(r => r.json());
+      const { expenses, incomes } = await authFetch(`${API}/import/batches/${batchId}/transactions`).then(r => r.json());
       const all = [
         ...(expenses as any[]).map(e => ({ key: `exp-${e.id}`, id: e.id, date: e.date, description: e.description, amount: Number(e.amount), kind: 'expense' as const })),
         ...(incomes as any[]).map(i => ({ key: `inc-${i.id}`, id: i.id, date: i.date, description: i.description, amount: Number(i.amount), kind: 'income' as const })),
@@ -1012,7 +1013,7 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
   }
 
   async function handleDeleteBatch(batchId: string) {
-    await fetch(`${API}/import/batches/${batchId}`, { method: 'DELETE' });
+    await authFetch(`${API}/import/batches/${batchId}`, { method: 'DELETE' });
     setBatchList(prev => prev.filter(b => (b.batchId ?? 'legacy') !== batchId));
     setSelectedBatch(null);
     refreshBalance();
@@ -1023,9 +1024,8 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
     if (!balanceForm.amount || Number(balanceForm.amount) <= 0 || !editingAccount) return;
     setSavingBalance(true);
     try {
-      await fetch(`${API}/balance`, {
+      await authFetch(`${API}/balance`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ amount: Number(balanceForm.amount), date: balanceForm.date, source: 'manual', account: editingAccount }),
       });
       refreshBalance();

@@ -1,9 +1,21 @@
+import { getSession } from 'next-auth/react';
+import { authFetch } from '@/lib/auth-fetch';
 import type { Category, CreateCategoryDto, Expense, CreateExpenseDto, UpdateExpenseDto, QueryExpenseDto, DashboardSummary, DayPoint, Income, CreateIncomeDto, Reminder, CreateReminderDto } from '@/lib/types';
 
 const BASE = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:3000';
 
 async function request<T>(path: string, init?: RequestInit): Promise<T> {
-  const res = await fetch(`${BASE}${path}`, init);
+  const session = await getSession();
+  const token = (session as any)?.accessToken as string | undefined;
+
+  const res = await fetch(`${BASE}${path}`, {
+    ...init,
+    headers: {
+      'Content-Type': 'application/json',
+      ...(token ? { Authorization: `Bearer ${token}` } : {}),
+      ...init?.headers,
+    },
+  });
   if (!res.ok) {
     const text = await res.text().catch(() => res.statusText);
     throw new Error(text);
@@ -15,7 +27,6 @@ async function request<T>(path: string, init?: RequestInit): Promise<T> {
 }
 
 const json = (body: unknown): RequestInit => ({
-  headers: { 'Content-Type': 'application/json' },
   body: JSON.stringify(body),
 });
 
@@ -156,52 +167,28 @@ export const dashboardService = {
 
 export const remindersService = {
   async getAll(): Promise<Reminder[]> {
-    const res = await fetch(`${BASE}/reminders`, {
-      cache: 'no-store',
-    });
-
-    if (!res.ok) {
-      throw new Error('Error obteniendo recordatorios');
-    }
-
+    const res = await authFetch(`${BASE}/reminders`);
+    if (!res.ok) throw new Error('Error obteniendo recordatorios');
     return res.json();
   },
 
   async create(dto: CreateReminderDto): Promise<Reminder> {
-    const res = await fetch(`${BASE}/reminders`, {
+    const res = await authFetch(`${BASE}/reminders`, {
       method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
       body: JSON.stringify(dto),
     });
-
-    if (!res.ok) {
-      throw new Error('Error creando recordatorio');
-    }
-
+    if (!res.ok) throw new Error('Error creando recordatorio');
     return res.json();
   },
 
   async remove(id: string): Promise<void> {
-    const res = await fetch(`${BASE}/reminders/${id}`, {
-      method: 'DELETE',
-    });
-
-    if (!res.ok) {
-      throw new Error('Error eliminando recordatorio');
-    }
+    const res = await authFetch(`${BASE}/reminders/${id}`, { method: 'DELETE' });
+    if (!res.ok) throw new Error('Error eliminando recordatorio');
   },
 
   async cancel(id: string): Promise<Reminder> {
-    const res = await fetch(`${BASE}/reminders/${id}/cancel`, {
-      method: 'PATCH',
-    });
-
-    if (!res.ok) {
-      throw new Error('Error cancelando recordatorio');
-    }
-
+    const res = await authFetch(`${BASE}/reminders/${id}/cancel`, { method: 'PATCH' });
+    if (!res.ok) throw new Error('Error cancelando recordatorio');
     return res.json();
   },
 };

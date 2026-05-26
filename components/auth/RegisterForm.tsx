@@ -53,7 +53,7 @@ export function RegisterForm() {
       }
       const login = await signIn('credentials', { email: form.email, password: form.password, redirect: false });
       if (login?.error) { router.push('/login'); return; }
-      router.push('/dashboard');
+      router.push('/pending');
       router.refresh();
     } catch {
       setError('Ocurrió un error. Intentá de nuevo.');

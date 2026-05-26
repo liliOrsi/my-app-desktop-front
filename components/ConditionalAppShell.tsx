@@ -3,7 +3,7 @@
 import { usePathname } from 'next/navigation';
 import { AppShell } from './AppShell';
 
-const AUTH_ROUTES = ['/login', '/register'];
+const AUTH_ROUTES = ['/login', '/register', '/pending'];
 
 export function ConditionalAppShell({ children }: { children: React.ReactNode }) {
   const pathname = usePathname();
