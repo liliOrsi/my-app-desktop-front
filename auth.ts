@@ -4,6 +4,12 @@ import Google from 'next-auth/providers/google';
 
 const API = process.env.NEXT_PUBLIC_API_URL ?? 'http://localhost:3000';
 
+// Railway corre Next.js en localhost:8080 internamente, por lo que trustHost
+// detecta el host incorrecto. AUTH_URL lo fuerza al dominio público.
+if (!process.env.AUTH_URL && process.env.NEXT_PUBLIC_WEB_URL) {
+  process.env.AUTH_URL = process.env.NEXT_PUBLIC_WEB_URL;
+}
+
 const config: NextAuthConfig = {
   providers: [
     Google({
