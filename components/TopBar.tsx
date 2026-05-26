@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { usePathname } from 'next/navigation';
+import { usePathname, useRouter } from 'next/navigation';
 import { useEffect, useRef, useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Download, Sparkles, LogOut, ChevronDown, Palette } from 'lucide-react';
@@ -70,6 +70,7 @@ function UserMenu() {
   const [open, setOpen] = useState(false);
   const ref = useRef<HTMLDivElement>(null);
   const downloadInfo = useDownloadInfo();
+  const router = useRouter();
 
   useEffect(() => {
     function onDown(e: MouseEvent) {
@@ -177,7 +178,7 @@ function UserMenu() {
 
             {/* Sign out */}
             <button
-              onClick={() => signOut({ callbackUrl: '/login' })}
+              onClick={async () => { await signOut({ redirect: false }); router.push('/login'); }}
               className="w-full flex items-center gap-2.5 px-4 py-3 text-xs text-text-soft hover:text-danger hover:bg-danger/[0.07] transition-colors"
             >
               <LogOut className="w-3.5 h-3.5" />

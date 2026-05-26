@@ -81,7 +81,7 @@ export default function PendingPage() {
           </div>
 
           <button
-            onClick={() => signOut({ callbackUrl: '/login' })}
+            onClick={async () => { await signOut({ redirect: false }); router.push('/login'); }}
             className="text-xs text-text-dim/40 hover:text-text-dim transition-colors mx-auto"
           >
             Cerrar sesión
