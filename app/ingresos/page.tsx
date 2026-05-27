@@ -12,7 +12,7 @@ import { NativeDelete } from '@/components/ui/native-delete';
 import { AnimatedCheckbox } from '@/components/ui/animated-checkbox';
 import { useToast } from '@/components/ui/toaster';
 import { incomesService } from '@/service';
-import { fmtARS, cn } from '@/lib/utils';
+import { fmtARS, fmtNum, cn } from '@/lib/utils';
 import type { Income, CreateIncomeDto, IncomeSource, MoneyType } from '@/lib/types';
 
 function fmtDate(d: string) {
@@ -531,7 +531,10 @@ export default function IngresosPage() {
                               USD {Number(inc.amount).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}
                             </span>
                           ) : (
-                            <span className="text-emerald-400 text-sm font-bold num">{fmtARS(Number(inc.amount))}</span>
+                            <span className="inline-flex items-baseline justify-end gap-1">
+                              <span className="text-emerald-400/60 text-xs font-medium">$</span>
+                              <span className="text-emerald-400 text-sm font-bold num">{new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Number(inc.amount))}</span>
+                            </span>
                           )}
                         </td>
                         <td className="px-3 py-4">

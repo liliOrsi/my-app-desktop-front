@@ -13,7 +13,7 @@ import { AnimatedCheckbox } from '@/components/ui/animated-checkbox';
 import { useToast } from '@/components/ui/toaster';
 import { CategoryGlyph } from '@/components/CategoryGlyph';
 import { expensesService, categoriesService } from '@/service';
-import { fmtARS, cn } from '@/lib/utils';
+import { fmtARS, fmtNum, cn } from '@/lib/utils';
 import type { Category, Expense, CreateExpenseDto } from '@/lib/types';
 
 function fmtDate(d: string) {
@@ -536,7 +536,7 @@ export default function GastosPage() {
                         })()}
                       </th>
                       {['Fecha', 'Descripción', 'Categoría', 'Tipo', 'Tipo Moneda', 'Monto', ''].map(h => (
-                        <th key={h} className={cn('text-[10px] font-bold text-text-dim uppercase tracking-[0.10em] px-0 py-3.5', h === 'Monto' ? 'text-right' : 'text-left', h === '' ? 'w-36' : '')}>{h}</th>
+                        <th key={h} className={cn('text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] px-6 py-3.5', h === 'Monto' ? 'text-right' : 'text-left', h === '' ? 'w-36' : '')}>{h}</th>
                       ))}
                     </tr>
                   </thead>
@@ -567,9 +567,13 @@ export default function GastosPage() {
                                 <div className="flex flex-col items-end gap-0.5">
                                   <span className="text-emerald-400 text-sm font-bold num">USD {Number(g.amount).toLocaleString('es-AR', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}</span>
                                   <span className="text-text-muted text-xs num">≈ {fmtARS(Number(g.amount) * Number(g.usdToArsRate))}</span>
+                                  <span className="text-text-dim/50 text-[10px] num">{fmtARS(Number(g.usdToArsRate))}/USD</span>
                                 </div>
                               ) : (
-                                <span className="text-text text-sm font-bold num">{fmtARS(Number(g.amount))}</span>
+                                <span className="inline-flex items-baseline justify-end gap-1">
+                                  <span className="text-text-dim text-xs font-medium">$</span>
+                                  <span className="text-text text-sm font-bold num">{new Intl.NumberFormat('es-AR', { maximumFractionDigits: 0 }).format(Number(g.amount))}</span>
+                                </span>
                               )}
                             </td>
                             <td className="px-3 py-4 w-36">
