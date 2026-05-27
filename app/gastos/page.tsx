@@ -548,7 +548,7 @@ export default function GastosPage() {
                           <motion.tr key={g.id} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.22, delay: i * 0.025 }} onClick={() => { if (!isImported(g)) openEdit(g); }} className={cn('group border-b border-line last:border-0 hover:bg-white/[0.02] transition-colors', isImported(g) ? 'cursor-default' : 'cursor-pointer', selectedIds.has(g.id) && 'bg-accent/[0.05]')}>
                             <td className="pl-5 pr-2 py-4 w-10" onClick={e => e.stopPropagation()}>
                               {isImported(g)
-                                ? <span title="Registro del resumen BBVA" className="flex justify-center"><Lock className="w-3.5 h-3.5 text-text-dim" /></span>
+                                ? <span title="Registro importado" className="flex justify-center"><Lock className="w-3.5 h-3.5 text-text-dim" /></span>
                                 : <AnimatedCheckbox checked={selectedIds.has(g.id)} onChange={() => toggleSelect(g.id)} onClick={e => e.stopPropagation()} />
                               }
                             </td>

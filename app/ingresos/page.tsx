@@ -512,7 +512,7 @@ export default function IngresosPage() {
                         className={cn('group border-b border-line last:border-0 hover:bg-white/[0.02] cursor-default transition-colors', selectedIds.has(inc.id) && 'bg-accent/[0.05]')}>
                         <td className="pl-5 pr-2 py-4 w-10" onClick={e => e.stopPropagation()}>
                           {isImported(inc)
-                            ? <span title="Registro del resumen BBVA" className="flex justify-center"><Lock className="w-3.5 h-3.5 text-text-dim" /></span>
+                            ? <span title="Registro importado" className="flex justify-center"><Lock className="w-3.5 h-3.5 text-text-dim" /></span>
                             : <AnimatedCheckbox checked={selectedIds.has(inc.id)} onChange={() => toggleSelect(inc.id)} onClick={e => e.stopPropagation()} />
                           }
                         </td>

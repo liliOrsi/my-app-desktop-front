@@ -11,9 +11,12 @@ export default auth((req) => {
   const isPublicRoute = PUBLIC_ROUTES.includes(nextUrl.pathname);
   const isPendingRoute = nextUrl.pathname === PENDING_ROUTE;
 
-  // Si el refresh token falló, forzar re-login
+  // Si el refresh token falló, forzar re-login (solo desde rutas protegidas para evitar loop)
   if (session?.error === 'RefreshTokenError') {
-    return NextResponse.redirect(new URL('/login', nextUrl));
+    if (!isPublicRoute && !isPendingRoute) {
+      return NextResponse.redirect(new URL('/login', nextUrl));
+    }
+    return NextResponse.next();
   }
 
   // Sin sesión en ruta protegida → login
@@ -28,8 +31,8 @@ export default auth((req) => {
     return NextResponse.redirect(new URL(PENDING_ROUTE, nextUrl));
   }
 
-  // Con sesión activa (no PENDING) en ruta pública → dashboard
-  if (session && isPublicRoute && session.user?.status !== 'PENDING') {
+  // Con sesión activa (sin error, no PENDING) en ruta pública → dashboard
+  if (session && !session.error && isPublicRoute && session.user?.status !== 'PENDING') {
     return NextResponse.redirect(new URL(DEFAULT_REDIRECT, nextUrl));
   }
 

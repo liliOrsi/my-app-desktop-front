@@ -1,4 +1,4 @@
-const { app, BrowserWindow, shell } = require('electron');
+const { app, BrowserWindow, shell, session } = require('electron');
 
 let mainWindow = null;
 
@@ -20,6 +20,10 @@ function createWindow() {
     },
   });
 
+  // Remove 'Electron' from user-agent so Google OAuth doesn't block with disallowed_useragent
+  const ua = mainWindow.webContents.getUserAgent().replace(/\sElectron\/[\d.]+/, '');
+  mainWindow.webContents.setUserAgent(ua);
+
   mainWindow.once('ready-to-show', () => {
     mainWindow.show();
   });
@@ -29,8 +33,19 @@ function createWindow() {
     return { action: 'deny' };
   });
 
-  mainWindow.webContents.on('did-fail-load', (_event, errorCode, errorDescription) => {
+  mainWindow.webContents.on('did-fail-load', async (_event, errorCode, errorDescription) => {
     console.error('Failed to load app:', errorCode, errorDescription);
+
+    // Stale/invalid session cookies can cause a redirect loop — clear and retry once
+    if (errorCode === -310) {
+      try {
+        await session.defaultSession.clearStorageData({ storages: ['cookies'] });
+        mainWindow.loadURL(APP_URL).catch(console.error);
+      } catch (e) {
+        console.error('Failed to clear cookies:', e);
+      }
+      return;
+    }
 
     mainWindow.loadURL(
       `data:text/html;charset=utf-8,${encodeURIComponent(`

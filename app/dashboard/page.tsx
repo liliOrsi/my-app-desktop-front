@@ -642,7 +642,7 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                           <div className="text-center space-y-1.5">
                             <p className="text-sm font-semibold text-text">Sin resúmenes importados</p>
                             <p className="text-xs text-text-dim max-w-[260px] leading-relaxed">
-                              Importá tu resumen bancario BBVA para ver tus movimientos automáticamente
+                              Importá tu resumen bancario para ver tus movimientos automáticamente
                             </p>
                           </div>
                           <div className="flex items-center gap-4 mt-1 text-[11px] text-text-dim/50">
@@ -1078,7 +1078,7 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
                 <Landmark className="w-5 h-5 text-emerald-400" />
               </div>
               <div className="flex-1 min-w-0">
-                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted">Banco (BBVA)</p>
+                <p className="text-[10px] font-bold uppercase tracking-[0.22em] text-text-muted">Banco</p>
                 {balanceBanco ? (
                   <>
                     <p className="text-2xl font-bold tracking-tight num mt-0.5 text-emerald-300">
@@ -1087,11 +1087,11 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
                     <div className="flex items-center gap-1 text-text-dim text-[10px] mt-1">
                       <Clock className="w-2.5 h-2.5" />
                       {new Date(balanceBanco.date).toLocaleDateString('es-AR', { day: 'numeric', month: 'short' })}
-                      {' · '}{balanceBanco.source === 'bbva_import' ? 'BBVA import' : 'Manual'}
+                      {' · '}{balanceBanco.source === 'bbva_import' ? 'Importado' : 'Manual'}
                     </div>
                   </>
                 ) : (
-                  <p className="text-sm text-text-dim mt-0.5">Sin configurar · subí un resumen BBVA</p>
+                  <p className="text-sm text-text-dim mt-0.5">Sin configurar · subí un resumen bancario</p>
                 )}
               </div>
               <div className="w-7 h-7 rounded-lg border border-emerald-500/20 bg-emerald-500/[0.06] flex items-center justify-center flex-shrink-0 text-emerald-500/40 group-hover:text-emerald-400 group-hover:bg-emerald-500/20 transition-colors mt-0.5 flex-shrink-0">
@@ -1195,7 +1195,7 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
                       <p className="text-text-dim text-xs">
                         {s.account === 'banco' ? 'Banco' : 'Efectivo'}
                         {' · '}
-                        {s.source === 'bbva_import' ? 'BBVA import' : 'Manual'}
+                        {s.source === 'bbva_import' ? 'Importado' : 'Manual'}
                       </p>
                     </div>
                   </div>
