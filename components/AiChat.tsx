@@ -268,6 +268,8 @@ const SUGGESTIONS = [
 export default function AiChat() {
   const { close } = useChatOpen();
   const { data: session } = useSession();
+  const authToken = (session as any)?.accessToken as string | undefined;
+  const authHeaders = authToken ? { Authorization: `Bearer ${authToken}` } : {};
 
   const [messages,        setMessages]        = useState<Message[]>([]);
   const [history,         setHistory]         = useState<HistoryMessage[]>([]);
@@ -344,7 +346,7 @@ export default function AiChat() {
     try {
       const res = await fetch(`${PYTHON_API}/api/chat`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify({ message: trimmed, history, messages_history: messagesHistory }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -436,7 +438,7 @@ export default function AiChat() {
     try {
       const res = await fetch(`${PYTHON_API}/api/chat/confirm`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify(expense),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
@@ -466,7 +468,7 @@ export default function AiChat() {
     try {
       const res = await fetch(`${PYTHON_API}/api/chat/confirm-reminder`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify({ ...reminder, email: session?.user?.email }),
       });
       if (!res.ok) throw new Error(`HTTP ${res.status}`);
