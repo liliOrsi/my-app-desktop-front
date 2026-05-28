@@ -269,7 +269,7 @@ export default function AiChat() {
   const { close } = useChatOpen();
   const { data: session } = useSession();
   const authToken = (session as any)?.accessToken as string | undefined;
-  const authHeaders = authToken ? { Authorization: `Bearer ${authToken}` } : {};
+  const authHeaders: Record<string, string> = authToken ? { Authorization: `Bearer ${authToken}` } : {};
 
   const [messages,        setMessages]        = useState<Message[]>([]);
   const [history,         setHistory]         = useState<HistoryMessage[]>([]);
