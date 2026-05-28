@@ -84,6 +84,8 @@ const EMPTY_FORM: FormState = {
 
 const PAGE_SIZES = [5, 10, 20, 50];
 
+const MotionButton = motion.create(Button);
+
 export default function RecordatoriosPage() {
   const { toast } = useToast();
   const { data: session } = useSession();
@@ -404,10 +406,10 @@ export default function RecordatoriosPage() {
           </div>
 
           <div className="flex items-center gap-2 flex-wrap">
-            <Button onClick={openNew}>
-              <Plus className="w-4 h-4" />
+            <MotionButton whileHover="hov" onClick={openNew}>
+              <motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span>
               Nuevo recordatorio
-            </Button>
+            </MotionButton>
           </div>
         </motion.div>
 
@@ -589,10 +591,10 @@ export default function RecordatoriosPage() {
             </p>
 
             {!query && !hasActiveFilters && (
-              <Button onClick={openNew}>
-                <Plus className="w-4 h-4" />
+              <MotionButton whileHover="hov" onClick={openNew}>
+                <motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span>
                 Nuevo recordatorio
-              </Button>
+              </MotionButton>
             )}
 
             {hasActiveFilters && (

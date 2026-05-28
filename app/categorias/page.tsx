@@ -28,6 +28,8 @@ const PRESET_COLORS = [
   '#F472B6', '#EC4899', '#14B8A6', '#F97316',
 ];
 
+const MotionButton = motion.create(Button);
+
 export default function CategoriasPage() {
   const { toast } = useToast();
   const [cats, setCats] = useState<Category[]>([]);
@@ -112,7 +114,7 @@ export default function CategoriasPage() {
             <h1 className="text-3xl font-bold tracking-tight text-text">Categorías</h1>
             <p className="text-text-muted text-sm mt-1">Organizá tus gastos en grupos para verlos por tipo.</p>
           </div>
-          <Button onClick={openForm}><Plus className="w-4 h-4" /> Nueva categoría</Button>
+          <MotionButton whileHover="hov" onClick={openForm}><motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Nueva categoría</MotionButton>
         </motion.div>
 
         {loading ? (
@@ -126,7 +128,7 @@ export default function CategoriasPage() {
             </div>
             <p className="text-text-soft text-sm font-semibold mb-1">No hay categorías todavía</p>
             <p className="text-text-muted text-xs mb-5">Creá una para empezar a clasificar tus gastos.</p>
-            <Button onClick={openForm}><Plus className="w-4 h-4" /> Crear primera categoría</Button>
+            <MotionButton whileHover="hov" onClick={openForm}><motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Crear primera categoría</MotionButton>
           </motion.div>
         ) : (
           <div className="grid grid-cols-3 xl:grid-cols-4 gap-4">

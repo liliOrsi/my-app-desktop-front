@@ -125,6 +125,8 @@ function printPDF(rows: Income[], monthLabel: string, totalFiltered: number) {
   w.document.close();
 }
 
+const MotionButton = motion.create(Button);
+
 export default function IngresosPage() {
   const { toast } = useToast();
   const [incomes,      setIncomes]      = useState<Income[]>([]);
@@ -323,9 +325,9 @@ export default function IngresosPage() {
               className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl border border-line bg-surface/60 text-text-muted hover:text-text hover:border-line-2 text-xs font-semibold transition-all">
               <Printer className="w-3.5 h-3.5" /> PDF
             </button>
-            <Button onClick={() => { setForm(EMPTY_FORM); setErrors({}); setPanelOpen(true); }}>
-              <Plus className="w-4 h-4" /> Nuevo ingreso
-            </Button>
+            <MotionButton whileHover="hov" onClick={() => { setForm(EMPTY_FORM); setErrors({}); setPanelOpen(true); }}>
+              <motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Nuevo ingreso
+            </MotionButton>
           </div>
         </motion.div>
 
@@ -475,9 +477,9 @@ export default function IngresosPage() {
               {query || hasActiveFilters ? 'Probá con otra búsqueda o ajustá los filtros.' : 'Empezá agregando tu primer ingreso del mes.'}
             </p>
             {!query && !hasActiveFilters && (
-              <Button onClick={() => { setForm(EMPTY_FORM); setErrors({}); setPanelOpen(true); }}>
-                <Plus className="w-4 h-4" /> Nuevo ingreso
-              </Button>
+              <MotionButton whileHover="hov" onClick={() => { setForm(EMPTY_FORM); setErrors({}); setPanelOpen(true); }}>
+                <motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Nuevo ingreso
+              </MotionButton>
             )}
             {hasActiveFilters && (
               <button onClick={clearFilters} className="inline-flex items-center gap-1.5 text-xs text-accent-soft hover:underline">

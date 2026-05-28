@@ -133,6 +133,8 @@ function printPDF(
   w.document.close();
 }
 
+const MotionButton = motion.create(Button);
+
 export default function GastosPage() {
   const { toast } = useToast();
   const [gastos, setGastos] = useState<Expense[]>([]);
@@ -359,7 +361,7 @@ export default function GastosPage() {
                 className="inline-flex items-center gap-1.5 h-9 px-3 rounded-xl border border-line bg-surface/60 text-text-muted hover:text-text hover:border-line-2 text-xs font-semibold transition-all">
                 <Printer className="w-3.5 h-3.5" /> PDF
               </button>
-              <Button onClick={openNew}><Plus className="w-4 h-4" /> Nuevo gasto</Button>
+              <MotionButton whileHover="hov" onClick={openNew}><motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Nuevo gasto</MotionButton>
             </div>
           </motion.div>
 
@@ -508,7 +510,7 @@ export default function GastosPage() {
               <p className="text-text-muted text-xs mb-5">
                 {query || hasActiveFilters ? 'Probá con otra búsqueda o ajustá los filtros.' : 'Empezá agregando tu primer movimiento del mes.'}
               </p>
-              {!query && !hasActiveFilters && <Button onClick={openNew}><Plus className="w-4 h-4" /> Nuevo gasto</Button>}
+              {!query && !hasActiveFilters && <MotionButton whileHover="hov" onClick={openNew}><motion.span variants={{ hov: { rotate: 90 } }} transition={{ duration: 0.18, ease: 'easeInOut' }} style={{ display: 'inline-flex' }}><Plus className="w-4 h-4" /></motion.span> Nuevo gasto</MotionButton>}
               {hasActiveFilters && (
                 <button onClick={clearFilters} className="inline-flex items-center gap-1.5 text-xs text-accent-soft hover:underline">
                   <FilterX className="w-3 h-3" /> Limpiar filtros

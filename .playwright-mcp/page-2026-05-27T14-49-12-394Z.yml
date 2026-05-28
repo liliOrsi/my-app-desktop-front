@@ -1,0 +1,102 @@
+- generic [active] [ref=e1]:
+  - banner [ref=e2]:
+    - link "GastoFácil GastoFácil" [ref=e4] [cursor=pointer]:
+      - /url: /dashboard
+      - img "GastoFácil" [ref=e6]
+      - paragraph [ref=e8]: GastoFácil
+    - generic [ref=e10]:
+      - generic [ref=e11]: Movimientos
+      - generic [ref=e12]: /
+      - generic [ref=e13]: Gastos
+    - button "Abrir asistente" [ref=e15] [cursor=pointer]:
+      - img [ref=e16]
+      - generic [ref=e18]: IA
+  - generic [ref=e19]:
+    - complementary [ref=e20]:
+      - generic [ref=e21]:
+        - img [ref=e23]
+        - generic [ref=e25]:
+          - paragraph [ref=e26]: Asistente IA
+          - paragraph [ref=e29]: GastoFácil AI · listo
+        - button [ref=e31]:
+          - img [ref=e32]
+      - log [ref=e36]:
+        - generic [ref=e37]:
+          - generic [ref=e38]:
+            - img [ref=e40]
+            - paragraph [ref=e42]: ¿En qué te ayudo?
+            - paragraph [ref=e43]: Consultá tus finanzas, registrá gastos o creá recordatorios con texto o voz.
+          - generic [ref=e44]:
+            - paragraph [ref=e45]: Sugerencias
+            - button [ref=e46]:
+              - img [ref=e48]
+              - generic [ref=e51]: ¿Cuánto gasté este mes?
+            - button [ref=e52]:
+              - img [ref=e54]
+              - generic [ref=e57]: ¿En qué categoría gasto más?
+            - button [ref=e58]:
+              - img [ref=e60]
+              - generic [ref=e63]: Registrá un gasto por mí
+      - generic [ref=e64]:
+        - generic [ref=e65]:
+          - textbox [ref=e66]:
+            - /placeholder: Escribí o hablá…
+          - button [ref=e67]:
+            - img [ref=e68]
+          - button [disabled]:
+            - img
+        - paragraph [ref=e71]: GastoFácil AI · Claude
+    - main [ref=e72]:
+      - generic [ref=e74]:
+        - generic [ref=e75]:
+          - generic [ref=e76]:
+            - paragraph [ref=e77]: Movimientos
+            - heading "Gastos" [level=1] [ref=e78]
+            - paragraph [ref=e79]: Todas tus transacciones del mes seleccionado.
+          - generic [ref=e80]:
+            - button "Excel" [ref=e81]:
+              - img [ref=e82]
+              - text: Excel
+            - button "PDF" [ref=e85]:
+              - img [ref=e86]
+              - text: PDF
+            - button "Nuevo gasto" [ref=e90]:
+              - img [ref=e91]
+              - text: Nuevo gasto
+        - generic [ref=e92]:
+          - generic [ref=e93]:
+            - button [ref=e94]:
+              - img [ref=e95]
+            - generic [ref=e97]: mayo de 2026
+            - button [ref=e98]:
+              - img [ref=e99]
+          - button "Todos" [ref=e101]
+          - button "Filtros" [ref=e102]:
+            - img [ref=e103]
+            - text: Filtros
+          - generic [ref=e104]:
+            - img [ref=e105]
+            - textbox "Buscar gasto…" [ref=e108]
+  - navigation [ref=e164]:
+    - link "Dashboard" [ref=e165] [cursor=pointer]:
+      - /url: /dashboard
+      - generic: Dashboard
+      - img [ref=e167]
+    - link "Gastos" [ref=e172] [cursor=pointer]:
+      - /url: /gastos
+      - generic: Gastos
+      - img [ref=e175]
+    - link "Ingresos" [ref=e179] [cursor=pointer]:
+      - /url: /ingresos
+      - generic: Ingresos
+      - img [ref=e181]
+    - link "Categorías" [ref=e184] [cursor=pointer]:
+      - /url: /categorias
+      - generic: Categorías
+      - img [ref=e186]
+    - link "Recordatorios" [ref=e189] [cursor=pointer]:
+      - /url: /recordatorios
+      - generic: Recordatorios
+      - img [ref=e191]
+  - button "Open Next.js Dev Tools" [ref=e199] [cursor=pointer]:
+    - img [ref=e200]

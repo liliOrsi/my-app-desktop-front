@@ -107,12 +107,14 @@ function ToastCard({ item, onDismiss }: { item: ToastItem; onDismiss: () => void
         </div>
 
         {/* dismiss */}
-        <button
+        <motion.button
+          whileHover={{ rotate: 90 }}
+          whileTap={{ scale: 0.9 }}
           onClick={onDismiss}
           className="text-[#424761] hover:text-[#6B7188] transition-colors mt-0.5 p-0.5 rounded-md hover:bg-white/[0.05]"
         >
           <X className="w-3.5 h-3.5" />
-        </button>
+        </motion.button>
       </div>
 
       {/* progress bar */}

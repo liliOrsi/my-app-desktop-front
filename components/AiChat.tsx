@@ -845,9 +845,9 @@ export default function AiChat() {
               transition={{ duration: 0.8, repeat: Infinity }}
             />
             <p className="text-red-400 text-[11px] flex-1 min-w-0">Escuchando… hablá ahora</p>
-            <button onClick={stopRec} className="text-red-400/60 hover:text-red-400 transition-colors">
+            <motion.button whileHover={{ rotate: 90 }} whileTap={{ scale: 0.9 }} onClick={stopRec} className="text-red-400/60 hover:text-red-400 transition-colors">
               <X className="w-3 h-3" />
-            </button>
+            </motion.button>
           </motion.div>
         )}
       </AnimatePresence>

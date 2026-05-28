@@ -54,8 +54,8 @@ export function NativeDelete({
           : { opacity: 0, scale: 0.7, pointerEvents: "none" as const }}
       transition={spring}
       style={{ overflow: "hidden", pointerEvents: isExpanded ? "auto" : "none" }}
-      whileHover={isExpanded ? { scale: 1.06 } : undefined}
-      whileTap={isExpanded ? { scale: 0.94 } : undefined}
+      whileHover={isExpanded ? { rotate: 90 } : undefined}
+      whileTap={isExpanded ? { scale: 0.9 } : undefined}
     >
       <Button
         variant="outline"

@@ -331,12 +331,12 @@ function ConfigurableBarChart({ byCat, byDate, monthExpenses, mesLabel, fmt, toA
     { key: 'records' as ChartView,    label: 'Registros'   },
   ];
   const bars: BarItem[] = useMemo(() => {
-    if (view === 'categories') return byCat.map(c => ({ id: c.id, label: c.name?.slice(0, 3) || '?', value: c.total, color: c.color, tooltipTitle: c.name, tooltipRows: [{ label: 'Total', value: fmt(c.total) }] }));
+    if (view === 'categories') return [...byCat].sort((a, b) => a.total - b.total).map(c => ({ id: c.id, label: c.name?.slice(0, 3) || '?', value: c.total, color: c.color, tooltipTitle: c.name, tooltipRows: [{ label: 'Total', value: fmt(c.total) }] }));
     if (view === 'dates') return byDate.map(d => ({ id: d.date, label: String(d.day), value: d.total, color: '#6C63FF', tooltipTitle: d.label, tooltipRows: [{ label: 'Total', value: fmt(d.total) }, { label: 'Fijos', value: fmt(d.fijos), color: '#6C63FF' }, { label: 'Variables', value: fmt(d.variables), color: '#38BDF8' }] }));
     return monthExpenses.slice(0, 22).map(e => { const amt = toAmt(e); return { id: e.id, label: fmtDate(e.date), value: amt, color: getCatColor(e), tooltipTitle: e.description, tooltipRows: [{ label: 'Monto', value: fmt(amt) }, { label: 'Categoría', value: getCatName(e) }, { label: 'Tipo', value: e.type === 'FIXED' ? 'Fijo' : 'Variable' }] }; });
   }, [view, byCat, byDate, monthExpenses, fmt, toAmt]);
   const maxValue = Math.max(...bars.map(b => b.value), 1);
-  const CHART_H = 220;
+  const CHART_H = 280;
   const total = bars.reduce((s, b) => s + b.value, 0);
   return (
     <motion.div variants={itemVariants} className="col-span-2 group relative overflow-hidden rounded-2xl glass p-6 flex flex-col hover:border-line-2 transition-all">
@@ -360,24 +360,25 @@ function ConfigurableBarChart({ byCat, byDate, monthExpenses, mesLabel, fmt, toA
         <div className="flex-1 flex items-center justify-center min-h-[220px]"><EmptyState message="Sin datos para este período" /></div>
       ) : (
         <div className="overflow-x-auto flex-1 -mx-2 px-2">
-          <div className="relative" style={{ height: CHART_H + 28, minWidth: Math.max(bars.length * 38, 200) }}>
-            <div className="absolute inset-0 flex flex-col justify-between pb-7 pointer-events-none">
-              {[0,1,2,3].map(i => <div key={i} className="border-t border-white/[0.04]" />)}
+          <div className="relative" style={{ height: CHART_H + 32, minWidth: Math.max(bars.length * 50, 200) }}>
+            <div className="absolute inset-0 flex flex-col justify-between pb-8 pointer-events-none">
+              {[0,1,2,3,4].map(i => <div key={i} className="border-t border-white/[0.05]" />)}
             </div>
             <div className="relative flex items-end gap-2 h-full">
               {bars.map((bar, i) => {
-                const barH = Math.max((bar.value / maxValue) * (CHART_H - 4), 3);
+                const barH = Math.max((bar.value / maxValue) * (CHART_H - 4), 4);
                 const isHov = hoveredBar === i;
                 return (
-                  <div key={`${view}-${bar.id}`} style={{ width: 36 }} className="relative flex flex-col items-center justify-end h-full flex-shrink-0 cursor-default"
+                  <div key={`${view}-${bar.id}`} style={{ width: 44 }} className="relative flex flex-col items-center justify-end h-full flex-shrink-0 cursor-default"
                     onMouseEnter={(e) => { setHovered(i); const rect = e.currentTarget.getBoundingClientRect(); setTooltipData({ x: rect.left + rect.width / 2, y: rect.top, bar }); }}
                     onMouseLeave={() => { setHovered(null); setTooltipData(null); }}>
-                    <motion.div key={`bar-${view}-${bar.id}`} initial={shouldAnimate ? { height: 0 } : false} animate={{ height: barH }} transition={{ duration: 0.6, delay: i * 0.025, ease: [0.32, 0.72, 0, 1] }} className="w-full rounded-t-md relative overflow-hidden"
-                      style={{ backgroundColor: bar.color, opacity: hoveredBar === null ? 0.7 : isHov ? 1 : 0.35, transition: 'opacity 150ms' }}>
-                      <div className="absolute inset-0 opacity-50" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.25), transparent 60%)' }} />
+                    <motion.div key={`bar-${view}-${bar.id}`} initial={shouldAnimate ? { height: 0 } : false} animate={{ height: barH }} transition={{ duration: 0.55, delay: i * 0.04, ease: [0.32, 0.72, 0, 1] }} className="w-full rounded-t-xl relative overflow-hidden"
+                      style={{ backgroundColor: bar.color, opacity: hoveredBar === null ? 0.75 : isHov ? 1 : 0.3, boxShadow: isHov ? `0 -4px 20px -4px ${bar.color}88` : 'none', transition: 'opacity 150ms, box-shadow 150ms' }}>
+                      <div className="absolute inset-0" style={{ background: 'linear-gradient(180deg, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.08) 40%, transparent 100%)' }} />
+                      <div className="absolute inset-x-0 bottom-0 h-px opacity-40" style={{ background: `linear-gradient(90deg, transparent, ${bar.color}, transparent)` }} />
                     </motion.div>
-                    <div className="h-7 w-full flex items-start justify-center pt-2">
-                      <span className="text-[9px] text-text-dim truncate text-center leading-none">{bar.label}</span>
+                    <div className="h-8 w-full flex items-start justify-center pt-2">
+                      <span className="text-[9px] text-text-dim truncate text-center leading-none font-medium">{bar.label}</span>
                     </div>
                   </div>
                 );
@@ -613,9 +614,9 @@ function BancoModal({ open, onClose, snap, batchList, loadingBatches, selectedBa
                     )}
                   </div>
                 </div>
-                <button onClick={onClose} className="w-8 h-8 grid place-items-center rounded-xl border border-line text-text-muted hover:text-text hover:bg-white/[0.06] transition-colors flex-shrink-0">
+                <motion.button whileHover={{ rotate: 90 }} whileTap={{ scale: 0.9 }} onClick={onClose} className="w-8 h-8 grid place-items-center rounded-xl border border-line text-text-muted hover:text-text hover:bg-white/[0.06] transition-colors flex-shrink-0">
                   <XIcon className="w-4 h-4" />
-                </button>
+                </motion.button>
               </div>
 
               {/* ── Body ── */}
@@ -1121,10 +1122,10 @@ const sparkVar   = sparkDays.slice(-14).map(d => d.variables);
                     className="flex-1 h-8 rounded-xl bg-amber-600 hover:bg-amber-500 text-white text-xs font-semibold flex items-center justify-center gap-1 disabled:opacity-50 transition-colors">
                     <Check className="w-3.5 h-3.5" /> Guardar
                   </button>
-                  <button onClick={() => setEditingAccount(null)}
+                  <motion.button whileHover={{ rotate: 90 }} whileTap={{ scale: 0.9 }} onClick={() => setEditingAccount(null)}
                     className="h-8 px-3 rounded-xl border border-line text-text-muted hover:text-text-soft transition-colors">
                     <XIcon className="w-3.5 h-3.5" />
-                  </button>
+                  </motion.button>
                 </div>
               </div>
             ) : (

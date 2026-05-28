@@ -2,7 +2,7 @@
 
 import { createContext, useContext, useEffect, useState } from 'react';
 
-export type Theme = 'dark' | 'dim' | 'blue' | 'light';
+export type Theme = 'dark' | 'dim' | 'blue' | 'light' | 'cobalt' | 'steel' | 'glacier' | 'daylight' | 'frost' | 'powder';
 
 interface ThemeCtx {
   theme: Theme;
@@ -22,7 +22,7 @@ export function ThemeWrapper({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     setMounted(true);
     const saved = localStorage.getItem('gf-theme') as Theme | null;
-    const valid: Theme[] = ['dark', 'dim', 'blue', 'light'];
+    const valid: Theme[] = ['dark', 'dim', 'blue', 'light', 'cobalt', 'steel', 'glacier', 'daylight', 'frost', 'powder'];
     if (saved && valid.includes(saved)) setThemeState(saved);
   }, []);
 

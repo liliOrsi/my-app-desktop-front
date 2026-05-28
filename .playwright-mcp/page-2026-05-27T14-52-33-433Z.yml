@@ -1,0 +1,461 @@
+- generic [ref=e1]:
+  - generic [ref=e198] [cursor=pointer]:
+    - button "Open Next.js Dev Tools" [ref=e199]:
+      - img [ref=e200]
+    - generic [ref=e203]:
+      - button "Open issues overlay" [ref=e204]:
+        - generic [ref=e205]:
+          - generic [ref=e206]: "1"
+          - generic [ref=e207]: "2"
+        - generic [ref=e208]:
+          - text: Issue
+          - generic [ref=e209]: s
+      - button "Collapse issues badge" [ref=e210]:
+        - img [ref=e211]
+  - banner [ref=e213]:
+    - link "GastoFácil GastoFácil" [ref=e215] [cursor=pointer]:
+      - /url: /dashboard
+      - img "GastoFácil" [ref=e217]
+      - paragraph [ref=e219]: GastoFácil
+    - generic [ref=e221]:
+      - generic [ref=e222]: Movimientos
+      - generic [ref=e223]: /
+      - generic [ref=e224]: Gastos
+    - generic [ref=e226]:
+      - generic [ref=e228]: USD
+      - generic [ref=e229]: $1.430
+    - button "Abrir asistente" [ref=e231] [cursor=pointer]:
+      - img [ref=e232]
+      - generic [ref=e234]: IA
+    - button "IG Ignacio" [ref=e236]:
+      - generic [ref=e238]: IG
+      - generic [ref=e240]: Ignacio
+      - img [ref=e241]
+  - generic [ref=e243]:
+    - complementary [ref=e244]:
+      - generic [ref=e245]:
+        - img [ref=e247]
+        - generic [ref=e249]:
+          - paragraph [ref=e250]: Asistente IA
+          - paragraph [ref=e253]: GastoFácil AI · listo
+        - generic [ref=e254]:
+          - button [ref=e255]:
+            - img [ref=e256]
+          - button [ref=e260]:
+            - img [ref=e261]
+      - log [ref=e265]:
+        - generic [ref=e266]:
+          - generic [ref=e267]:
+            - img [ref=e269]
+            - paragraph [ref=e271]: ¿En qué te ayudo?
+            - paragraph [ref=e272]: Consultá tus finanzas, registrá gastos o creá recordatorios con texto o voz.
+            - generic [ref=e273]:
+              - img [ref=e274]
+              - text: Podés usar el micrófono
+          - generic [ref=e277]:
+            - paragraph [ref=e278]: Sugerencias
+            - button [ref=e279]:
+              - img [ref=e281]
+              - generic [ref=e284]: ¿Cuánto gasté este mes?
+            - button [ref=e285]:
+              - img [ref=e287]
+              - generic [ref=e290]: ¿En qué categoría gasto más?
+            - button [ref=e291]:
+              - img [ref=e293]
+              - generic [ref=e296]: Registrá un gasto por mí
+      - generic [ref=e297]:
+        - generic [ref=e298]:
+          - textbox [ref=e299]:
+            - /placeholder: Escribí o hablá…
+          - button [ref=e300]:
+            - img [ref=e301]
+          - button [ref=e304]:
+            - img [ref=e305]
+          - button [disabled]:
+            - img
+        - paragraph [ref=e308]: GastoFácil AI · Claude
+    - main [ref=e309]:
+      - generic [ref=e310]:
+        - generic [ref=e311]:
+          - generic [ref=e312]:
+            - generic [ref=e313]:
+              - paragraph [ref=e314]: Movimientos
+              - heading "Gastos" [level=1] [ref=e315]
+              - paragraph [ref=e316]: Todas tus transacciones del mes seleccionado.
+            - generic [ref=e317]:
+              - button "Excel" [ref=e318]:
+                - img [ref=e319]
+                - text: Excel
+              - button "PDF" [ref=e322]:
+                - img [ref=e323]
+                - text: PDF
+              - button "Nuevo gasto" [ref=e327]:
+                - img [ref=e328]
+                - text: Nuevo gasto
+          - generic [ref=e329]:
+            - generic [ref=e330]:
+              - button [ref=e331]:
+                - img [ref=e332]
+              - generic [ref=e334]: mayo de 2026
+              - button [ref=e335]:
+                - img [ref=e336]
+            - button "Todos" [ref=e338]
+            - generic [ref=e339]:
+              - generic [ref=e340]: 23 gastos
+              - generic [ref=e341]: ·
+              - generic [ref=e342]: $ 1.564.127
+            - button "Filtros" [ref=e343]:
+              - img [ref=e344]
+              - text: Filtros
+            - generic [ref=e345]:
+              - img [ref=e346]
+              - textbox "Buscar gasto…" [ref=e349]
+          - table [ref=e351]:
+            - rowgroup [ref=e352]:
+              - row "Fecha Descripción Categoría Tipo Tipo Moneda Monto" [ref=e353]:
+                - columnheader [ref=e354]:
+                  - checkbox [ref=e355] [cursor=pointer]
+                - columnheader "Fecha" [ref=e356]
+                - columnheader "Descripción" [ref=e357]
+                - columnheader "Categoría" [ref=e358]
+                - columnheader "Tipo" [ref=e359]
+                - columnheader "Tipo Moneda" [ref=e360]
+                - columnheader "Monto" [ref=e361]
+                - columnheader [ref=e362]
+            - rowgroup [ref=e363]:
+              - row "14 may 2026 Pantalones Ropa Variable ARS $ 100.000 Editar Cancelar" [ref=e364] [cursor=pointer]:
+                - cell [ref=e365]:
+                  - checkbox [ref=e366]
+                - cell "14 may 2026" [ref=e367]
+                - cell "Pantalones" [ref=e368]
+                - cell "Ropa" [ref=e369]:
+                  - generic [ref=e370]:
+                    - img [ref=e373]
+                    - generic [ref=e375]: Ropa
+                - cell "Variable" [ref=e376]:
+                  - generic [ref=e377]: Variable
+                - cell "ARS" [ref=e379]:
+                  - generic [ref=e380]: ARS
+                - cell "$ 100.000" [ref=e382]:
+                  - generic [ref=e383]:
+                    - generic [ref=e384]: $
+                    - generic [ref=e385]: "100.000"
+                - cell "Editar Cancelar" [ref=e386]:
+                  - generic [ref=e387]:
+                    - button "Editar" [ref=e388]:
+                      - img [ref=e389]
+                    - generic [ref=e392]:
+                      - generic:
+                        - button "Cancelar":
+                          - img
+                      - button [ref=e394]:
+                        - img [ref=e396]
+              - row "4 may 2026 Transferencia inmediata Bancos Variable ARS $ 128.000" [ref=e399]:
+                - cell [ref=e400]:
+                  - generic "Registro importado" [ref=e401]:
+                    - img [ref=e402]
+                - cell "4 may 2026" [ref=e405]
+                - cell "Transferencia inmediata" [ref=e406]
+                - cell "Bancos" [ref=e407]:
+                  - generic [ref=e408]:
+                    - img [ref=e411]
+                    - generic [ref=e413]: Bancos
+                - cell "Variable" [ref=e414]:
+                  - generic [ref=e415]: Variable
+                - cell "ARS" [ref=e417]:
+                  - generic [ref=e418]: ARS
+                - cell "$ 128.000" [ref=e420]:
+                  - generic [ref=e421]:
+                    - generic [ref=e422]: $
+                    - generic [ref=e423]: "128.000"
+                - cell [ref=e424]
+              - row "8 may 2026 PAGO DE TARJETA VISA Nro:00340905 Bancos Variable ARS $ 46.596" [ref=e425]:
+                - cell [ref=e426]:
+                  - generic "Registro importado" [ref=e427]:
+                    - img [ref=e428]
+                - cell "8 may 2026" [ref=e431]
+                - cell "PAGO DE TARJETA VISA Nro:00340905" [ref=e432]
+                - cell "Bancos" [ref=e433]:
+                  - generic [ref=e434]:
+                    - img [ref=e437]
+                    - generic [ref=e439]: Bancos
+                - cell "Variable" [ref=e440]:
+                  - generic [ref=e441]: Variable
+                - cell "ARS" [ref=e443]:
+                  - generic [ref=e444]: ARS
+                - cell "$ 46.596" [ref=e446]:
+                  - generic [ref=e447]:
+                    - generic [ref=e448]: $
+                    - generic [ref=e449]: "46.596"
+                - cell [ref=e450]
+              - row "8 may 2026 PAGO DE TARJETA MASTERCARD Nro:00340905 Bancos Variable ARS $ 80.110" [ref=e451]:
+                - cell [ref=e452]:
+                  - generic "Registro importado" [ref=e453]:
+                    - img [ref=e454]
+                - cell "8 may 2026" [ref=e457]
+                - cell "PAGO DE TARJETA MASTERCARD Nro:00340905" [ref=e458]
+                - cell "Bancos" [ref=e459]:
+                  - generic [ref=e460]:
+                    - img [ref=e463]
+                    - generic [ref=e465]: Bancos
+                - cell "Variable" [ref=e466]:
+                  - generic [ref=e467]: Variable
+                - cell "ARS" [ref=e469]:
+                  - generic [ref=e470]: ARS
+                - cell "$ 80.110" [ref=e472]:
+                  - generic [ref=e473]:
+                    - generic [ref=e474]: $
+                    - generic [ref=e475]: "80.110"
+                - cell [ref=e476]
+              - row "8 may 2026 PAGO SERVICIOS Nro:466330 Bancos Variable ARS $ 44.315" [ref=e477]:
+                - cell [ref=e478]:
+                  - generic "Registro importado" [ref=e479]:
+                    - img [ref=e480]
+                - cell "8 may 2026" [ref=e483]
+                - cell "PAGO SERVICIOS Nro:466330" [ref=e484]
+                - cell "Bancos" [ref=e485]:
+                  - generic [ref=e486]:
+                    - img [ref=e489]
+                    - generic [ref=e491]: Bancos
+                - cell "Variable" [ref=e492]:
+                  - generic [ref=e493]: Variable
+                - cell "ARS" [ref=e495]:
+                  - generic [ref=e496]: ARS
+                - cell "$ 44.315" [ref=e498]:
+                  - generic [ref=e499]:
+                    - generic [ref=e500]: $
+                    - generic [ref=e501]: "44.315"
+                - cell [ref=e502]
+              - row "8 may 2026 PAGO SERVICIOS Nro:074114 Bancos Variable ARS $ 300.000" [ref=e503]:
+                - cell [ref=e504]:
+                  - generic "Registro importado" [ref=e505]:
+                    - img [ref=e506]
+                - cell "8 may 2026" [ref=e509]
+                - cell "PAGO SERVICIOS Nro:074114" [ref=e510]
+                - cell "Bancos" [ref=e511]:
+                  - generic [ref=e512]:
+                    - img [ref=e515]
+                    - generic [ref=e517]: Bancos
+                - cell "Variable" [ref=e518]:
+                  - generic [ref=e519]: Variable
+                - cell "ARS" [ref=e521]:
+                  - generic [ref=e522]: ARS
+                - cell "$ 300.000" [ref=e524]:
+                  - generic [ref=e525]:
+                    - generic [ref=e526]: $
+                    - generic [ref=e527]: "300.000"
+                - cell [ref=e528]
+              - row "9 may 2026 Agua Remedios Variable ARS $ 60.000 Editar Cancelar" [ref=e529] [cursor=pointer]:
+                - cell [ref=e530]:
+                  - checkbox [ref=e531]
+                - cell "9 may 2026" [ref=e532]
+                - cell "Agua" [ref=e533]
+                - cell "Remedios" [ref=e534]:
+                  - generic [ref=e535]:
+                    - img [ref=e538]
+                    - generic [ref=e541]: Remedios
+                - cell "Variable" [ref=e542]:
+                  - generic [ref=e543]: Variable
+                - cell "ARS" [ref=e545]:
+                  - generic [ref=e546]: ARS
+                - cell "$ 60.000" [ref=e548]:
+                  - generic [ref=e549]:
+                    - generic [ref=e550]: $
+                    - generic [ref=e551]: "60.000"
+                - cell "Editar Cancelar" [ref=e552]:
+                  - generic [ref=e553]:
+                    - button "Editar" [ref=e554]:
+                      - img [ref=e555]
+                    - generic [ref=e558]:
+                      - generic:
+                        - button "Cancelar":
+                          - img
+                      - button [ref=e560]:
+                        - img [ref=e562]
+              - row "7 may 2026 Zapatillas Ropa Variable ARS $ 200.000 Editar Cancelar" [ref=e565] [cursor=pointer]:
+                - cell [ref=e566]:
+                  - checkbox [ref=e567]
+                - cell "7 may 2026" [ref=e568]
+                - cell "Zapatillas" [ref=e569]
+                - cell "Ropa" [ref=e570]:
+                  - generic [ref=e571]:
+                    - img [ref=e574]
+                    - generic [ref=e576]: Ropa
+                - cell "Variable" [ref=e577]:
+                  - generic [ref=e578]: Variable
+                - cell "ARS" [ref=e580]:
+                  - generic [ref=e581]: ARS
+                - cell "$ 200.000" [ref=e583]:
+                  - generic [ref=e584]:
+                    - generic [ref=e585]: $
+                    - generic [ref=e586]: "200.000"
+                - cell "Editar Cancelar" [ref=e587]:
+                  - generic [ref=e588]:
+                    - button "Editar" [ref=e589]:
+                      - img [ref=e590]
+                    - generic [ref=e593]:
+                      - generic:
+                        - button "Cancelar":
+                          - img
+                      - button [ref=e595]:
+                        - img [ref=e597]
+              - row "7 may 2026 Ibuprofeno Remedios Variable ARS $ 10.000 Editar Cancelar" [ref=e600] [cursor=pointer]:
+                - cell [ref=e601]:
+                  - checkbox [ref=e602]
+                - cell "7 may 2026" [ref=e603]
+                - cell "Ibuprofeno" [ref=e604]
+                - cell "Remedios" [ref=e605]:
+                  - generic [ref=e606]:
+                    - img [ref=e609]
+                    - generic [ref=e612]: Remedios
+                - cell "Variable" [ref=e613]:
+                  - generic [ref=e614]: Variable
+                - cell "ARS" [ref=e616]:
+                  - generic [ref=e617]: ARS
+                - cell "$ 10.000" [ref=e619]:
+                  - generic [ref=e620]:
+                    - generic [ref=e621]: $
+                    - generic [ref=e622]: "10.000"
+                - cell "Editar Cancelar" [ref=e623]:
+                  - generic [ref=e624]:
+                    - button "Editar" [ref=e625]:
+                      - img [ref=e626]
+                    - generic [ref=e629]:
+                      - generic:
+                        - button "Cancelar":
+                          - img
+                      - button [ref=e631]:
+                        - img [ref=e633]
+              - row "7 may 2026 Entradas de cine Cine Variable ARS $ 30.000 Editar Cancelar" [ref=e636] [cursor=pointer]:
+                - cell [ref=e637]:
+                  - checkbox [ref=e638]
+                - cell "7 may 2026" [ref=e639]
+                - cell "Entradas de cine" [ref=e640]
+                - cell "Cine" [ref=e641]:
+                  - generic [ref=e642]:
+                    - img [ref=e645]
+                    - generic [ref=e647]: Cine
+                - cell "Variable" [ref=e648]:
+                  - generic [ref=e649]: Variable
+                - cell "ARS" [ref=e651]:
+                  - generic [ref=e652]: ARS
+                - cell "$ 30.000" [ref=e654]:
+                  - generic [ref=e655]:
+                    - generic [ref=e656]: $
+                    - generic [ref=e657]: "30.000"
+                - cell "Editar Cancelar" [ref=e658]:
+                  - generic [ref=e659]:
+                    - button "Editar" [ref=e660]:
+                      - img [ref=e661]
+                    - generic [ref=e664]:
+                      - generic:
+                        - button "Cancelar":
+                          - img
+                      - button [ref=e666]:
+                        - img [ref=e668]
+          - generic [ref=e671]:
+            - generic [ref=e672]:
+              - generic [ref=e673]: Filas por página
+              - generic [ref=e674]:
+                - button "5" [ref=e675]
+                - button "10" [ref=e676]
+                - button "20" [ref=e677]
+                - button "50" [ref=e678]
+            - generic [ref=e679]:
+              - generic [ref=e680]: 1–10 de 23
+              - generic [ref=e681]:
+                - button [disabled]:
+                  - img
+                - button "1" [ref=e682]
+                - button "2" [ref=e683]
+                - button "3" [ref=e684]
+                - button [ref=e685]:
+                  - img [ref=e686]
+        - complementary [ref=e688]:
+          - generic [ref=e689]:
+            - generic [ref=e690]:
+              - paragraph [ref=e691]: Crear
+              - heading "Nuevo gasto" [level=2] [ref=e692]
+            - button [ref=e693]:
+              - img [ref=e694]
+          - generic [ref=e697]:
+            - generic [ref=e698]:
+              - generic [ref=e699]: Monto *
+              - generic [ref=e700]:
+                - generic [ref=e701]: $
+                - spinbutton [active] [ref=e702]
+            - generic [ref=e703]:
+              - generic [ref=e704]: Descripción *
+              - 'textbox "Ej: Almuerzo, Netflix, Expensas…" [ref=e705]'
+            - generic [ref=e706]:
+              - generic [ref=e707]: Fecha *
+              - button "27 de mayo, 2026" [ref=e708]:
+                - img [ref=e709]
+                - generic [ref=e711]: 27 de mayo, 2026
+            - generic [ref=e712]:
+              - generic [ref=e713]: Tipo
+              - generic [ref=e714]:
+                - button "Fijo" [ref=e715]:
+                  - img [ref=e716]
+                  - text: Fijo
+                - button "Variable" [ref=e719]:
+                  - img [ref=e720]
+                  - text: Variable
+            - generic [ref=e722]:
+              - generic [ref=e723]: Moneda
+              - generic [ref=e724]:
+                - button "$ARS" [ref=e725]
+                - button "$USD" [ref=e726]
+            - generic [ref=e727]:
+              - generic [ref=e728]: Categoría *
+              - generic [ref=e729]:
+                - button "Bancos" [ref=e730]:
+                  - img [ref=e733]
+                  - generic [ref=e735]: Bancos
+                - button "Cine" [ref=e736]:
+                  - img [ref=e739]
+                  - generic [ref=e741]: Cine
+                - button "Delivery" [ref=e742]:
+                  - img [ref=e745]
+                  - generic [ref=e748]: Delivery
+                - button "Gym" [ref=e749]:
+                  - img [ref=e752]
+                  - generic [ref=e758]: Gym
+                - button "Remedios" [ref=e759]:
+                  - img [ref=e762]
+                  - generic [ref=e765]: Remedios
+                - button "Ropa" [ref=e766]:
+                  - img [ref=e769]
+                  - generic [ref=e771]: Ropa
+                - button "Supermercado" [ref=e772]:
+                  - img [ref=e775]
+                  - generic [ref=e779]: Supermercado
+                - button "Transporte" [ref=e780]:
+                  - img [ref=e783]
+                  - generic [ref=e787]: Transporte
+                - button "Viajes" [ref=e788]:
+                  - img [ref=e791]
+                  - generic [ref=e793]: Viajes
+          - button "Agregar gasto" [ref=e795]
+  - navigation [ref=e796]:
+    - link "Dashboard" [ref=e797] [cursor=pointer]:
+      - /url: /dashboard
+      - generic: Dashboard
+      - img [ref=e799]
+    - link "Gastos" [ref=e804] [cursor=pointer]:
+      - /url: /gastos
+      - generic: Gastos
+      - img [ref=e807]
+    - link "Ingresos" [ref=e811] [cursor=pointer]:
+      - /url: /ingresos
+      - generic: Ingresos
+      - img [ref=e813]
+    - link "Categorías" [ref=e816] [cursor=pointer]:
+      - /url: /categorias
+      - generic: Categorías
+      - img [ref=e818]
+    - link "Recordatorios" [ref=e821] [cursor=pointer]:
+      - /url: /recordatorios
+      - generic: Recordatorios
+      - img [ref=e823]
+  - alert [ref=e826]
