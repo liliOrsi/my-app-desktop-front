@@ -426,7 +426,10 @@ export default function AiChat() {
         headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify({ expenses, incomes, defaultCategoryId: importCatId ?? 1, balanceAmount: preview.balanceAmount, balanceDate: preview.balanceDate }),
       });
-      if (!res.ok) throw new Error(`Error ${res.status}`);
+      if (!res.ok) {
+        const body = await res.text().catch(() => '');
+        throw new Error(`Error ${res.status}: ${body}`);
+      }
       const result = await res.json();
       setMessages(prev => prev.map(m =>
         m.id === msgId
@@ -434,8 +437,12 @@ export default function AiChat() {
           : m,
       ));
       window.dispatchEvent(new CustomEvent('gf:expense-created'));
-    } catch {
-      setMessages(prev => prev.map(m => m.id === msgId ? { ...m, importPreview: null } : m));
+    } catch (e: unknown) {
+      setMessages(prev => prev.map(m =>
+        m.id === msgId
+          ? { ...m, importPreview: null, text: `Error al registrar: ${(e as Error).message}` }
+          : m,
+      ));
     } finally {
       setConfirmingId(null);
     }
