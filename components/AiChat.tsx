@@ -284,7 +284,8 @@ export default function AiChat() {
   const [importCatId,     setImportCatId]     = useState<number | null>(null);
 
   useEffect(() => {
-    fetch(`${NESTJS_API}/categories`)
+    if (!authToken) return;
+    fetch(`${NESTJS_API}/categories`, { headers: authHeaders })
       .then(r => r.json())
       .then((cats: { id: number; name: string }[]) => {
         setAllCategories(cats);
@@ -292,7 +293,7 @@ export default function AiChat() {
       })
       .catch(() => {});
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  }, [authToken]);
 
   const scrollRef    = useRef<HTMLDivElement>(null);
   const inputRef     = useRef<HTMLInputElement>(null);
