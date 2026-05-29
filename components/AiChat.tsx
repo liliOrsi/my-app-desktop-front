@@ -388,8 +388,15 @@ export default function AiChat() {
     try {
       const form = new FormData();
       form.append('file', file);
-      const res = await fetch(`${NESTJS_API}/import/preview`, { method: 'POST', body: form });
-      if (!res.ok) throw new Error(`Error ${res.status}`);
+      const res = await fetch(`${NESTJS_API}/import/preview`, {
+        method: 'POST',
+        body: form,
+        ...(authToken ? { headers: { Authorization: `Bearer ${authToken}` } } : {}),
+      });
+      if (!res.ok) {
+        const body = await res.text().catch(() => '');
+        throw new Error(`Error ${res.status}: ${body}`);
+      }
       const preview: ImportPreviewData = await res.json();
       const total    = preview.expenses.length + preview.incomes.length;
       const newCount = [...preview.expenses, ...preview.incomes].filter(i => i.status === 'new').length;
@@ -416,7 +423,7 @@ export default function AiChat() {
       const incomes  = preview.incomes.filter(i => i.status !== 'duplicate').map(i => i.data);
       const res = await fetch(`${NESTJS_API}/import/confirm`, {
         method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
         body: JSON.stringify({ expenses, incomes, defaultCategoryId: importCatId ?? 1, balanceAmount: preview.balanceAmount, balanceDate: preview.balanceDate }),
       });
       if (!res.ok) throw new Error(`Error ${res.status}`);
