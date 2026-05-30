@@ -4,24 +4,29 @@ const PYTHON_URL = process.env.PYTHON_API_INTERNAL_URL ?? 'http://localhost:8000
 
 async function proxy(req: NextRequest, params: { path: string[] }) {
   const path = params.path.join('/');
-  const target = `${PYTHON_URL}/${path}`;
+  const url = new URL(req.url);
+  const target = `${PYTHON_URL}/${path}${url.search}`;
 
-  const headers: Record<string, string> = {
-    'Content-Type': 'application/json',
-  };
+  const contentType = req.headers.get('content-type') ?? 'application/json';
+  const authorization = req.headers.get('authorization');
 
-  const body = req.method !== 'GET' ? await req.text() : undefined;
+  const headers: Record<string, string> = { 'content-type': contentType };
+  if (authorization) headers['authorization'] = authorization;
 
-  const upstream = await fetch(target, {
-    method: req.method,
-    headers,
-    body,
-  });
+  let body: BodyInit | undefined;
+  if (req.method !== 'GET' && req.method !== 'HEAD') {
+    // Preserve binary body for multipart uploads; text for JSON
+    body = contentType.includes('multipart/form-data')
+      ? await req.arrayBuffer()
+      : await req.text();
+  }
+
+  const upstream = await fetch(target, { method: req.method, headers, body });
 
   const data = await upstream.text();
   return new NextResponse(data, {
     status: upstream.status,
-    headers: { 'Content-Type': 'application/json' },
+    headers: { 'Content-Type': upstream.headers.get('content-type') ?? 'application/json' },
   });
 }
 

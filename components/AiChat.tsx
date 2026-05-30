@@ -163,6 +163,23 @@ type ParsedRow = { date: string; description: string; amount: number; kind: 'exp
 type ImportPreviewItem = { status: ImportStatus; data: ParsedRow; existingDescription?: string };
 type ImportPreviewData = { expenses: ImportPreviewItem[]; incomes: ImportPreviewItem[]; balanceAmount?: number; balanceDate?: string };
 
+type StatementTransaction = {
+  description: string;
+  amount: number;
+  date: string;
+  isExpense: boolean;
+  moneyType: 'ARS' | 'USD';
+  type: 'FIXED' | 'VARIABLE';
+  categoryId: number | null;
+  categoryName: string | null;
+  fromAccount: string;
+  source: string | null;
+  needsNewCategory: boolean;
+  suggestedCategoryName: string | null;
+  suggestedCategoryIcon: string | null;
+  suggestedCategoryColor: string | null;
+};
+
 type Message = {
   id: number;
   text: string;
@@ -172,6 +189,7 @@ type Message = {
   pendingExpense?: PendingExpense | null;
   pendingReminder?: PendingReminder | null;
   importPreview?: ImportPreviewData | null;
+  pendingStatement?: StatementTransaction[] | null;
 };
 
 /* ─── STT ─── */
@@ -388,7 +406,8 @@ export default function AiChat() {
     try {
       const form = new FormData();
       form.append('file', file);
-      const res = await fetch(`${NESTJS_API}/import/preview`, {
+      form.append('user_email', session?.user?.email ?? '');
+      const res = await fetch(`${PYTHON_API}/api/chat/analyze-statement`, {
         method: 'POST',
         body: form,
         ...(authToken ? { headers: { Authorization: `Bearer ${authToken}` } } : {}),
@@ -397,19 +416,19 @@ export default function AiChat() {
         const body = await res.text().catch(() => '');
         throw new Error(`Error ${res.status}: ${body}`);
       }
-      const preview: ImportPreviewData = await res.json();
-      const total    = preview.expenses.length + preview.incomes.length;
-      const newCount = [...preview.expenses, ...preview.incomes].filter(i => i.status === 'new').length;
-      const dupCount = [...preview.expenses, ...preview.incomes].filter(i => i.status === 'possible_duplicate').length;
+      const data: { transactions: StatementTransaction[] } = await res.json();
+      const txs = data.transactions ?? [];
+      const expenses = txs.filter(t => t.isExpense).length;
+      const incomes  = txs.filter(t => !t.isExpense).length;
       setMessages(prev => [...prev, {
         id: Date.now() + 1,
-        text: `Encontré ${total} movimiento${total !== 1 ? 's' : ''}: ${newCount} nuevo${newCount !== 1 ? 's' : ''}${dupCount > 0 ? `, ${dupCount} posible${dupCount !== 1 ? 's' : ''} duplicado${dupCount !== 1 ? 's' : ''}` : ''}. ¿Los registro?`,
+        text: `Analicé el resumen bancario y encontré ${expenses} gasto${expenses !== 1 ? 's' : ''} y ${incomes} ingreso${incomes !== 1 ? 's' : ''}, cada uno categorizado por IA. Revisá y confirmá.`,
         sender: 'bot',
         timestamp: new Date(),
-        importPreview: preview,
+        pendingStatement: txs,
       }]);
     } catch (e: unknown) {
-      setMessages(prev => [...prev, { id: Date.now() + 1, text: `No pude leer el archivo: ${(e as Error).message}`, sender: 'bot', timestamp: new Date() }]);
+      setMessages(prev => [...prev, { id: Date.now() + 1, text: `No pude analizar el archivo: ${(e as Error).message}`, sender: 'bot', timestamp: new Date() }]);
     } finally {
       setIsTyping(false);
       if (fileInputRef.current) fileInputRef.current.value = '';
@@ -499,6 +518,95 @@ export default function AiChat() {
 
   function cancelReminder(msgId: number) {
     setMessages(prev => prev.map(m => m.id === msgId ? { ...m, pendingReminder: null } : m));
+  }
+
+  function updateStatementCategory(msgId: number, txIdx: number, catId: number) {
+    const cat = allCategories.find(c => c.id === catId);
+    setMessages(prev => prev.map(m =>
+      m.id === msgId && m.pendingStatement
+        ? {
+            ...m,
+            pendingStatement: m.pendingStatement.map((tx, i) =>
+              i === txIdx
+                ? { ...tx, categoryId: catId, categoryName: cat?.name ?? tx.categoryName, needsNewCategory: false }
+                : tx
+            ),
+          }
+        : m,
+    ));
+  }
+
+  async function confirmStatement(msgId: number, transactions: StatementTransaction[]) {
+    setConfirmingId(msgId);
+
+    // Pre-create any new categories deduped by name
+    const newCatMap: Record<string, number> = {};
+    let latestCats = allCategories;
+    try {
+      const r = await fetch(`${NESTJS_API}/categories`, { headers: authHeaders });
+      if (r.ok) latestCats = await r.json();
+    } catch { /* use cached */ }
+
+    for (const tx of transactions) {
+      if (tx.needsNewCategory && tx.categoryId === null && tx.suggestedCategoryName) {
+        const key = tx.suggestedCategoryName;
+        if (key in newCatMap) continue;
+        const existing = latestCats.find(c => c.name.toLowerCase() === key.toLowerCase());
+        if (existing) { newCatMap[key] = existing.id; continue; }
+        try {
+          const catRes = await fetch(`${NESTJS_API}/categories`, {
+            method: 'POST',
+            headers: { 'Content-Type': 'application/json', ...authHeaders },
+            body: JSON.stringify({ name: key, icon: tx.suggestedCategoryIcon ?? '💰', color: tx.suggestedCategoryColor ?? '#6C63FF' }),
+          });
+          if (catRes.ok) { newCatMap[key] = (await catRes.json()).id; }
+          else {
+            const r2 = await fetch(`${NESTJS_API}/categories`, { headers: authHeaders });
+            if (r2.ok) {
+              const found = (await r2.json()).find((c: { name: string; id: number }) => c.name.toLowerCase() === key.toLowerCase());
+              if (found) newCatMap[key] = found.id;
+            }
+          }
+        } catch { /* skip */ }
+      }
+    }
+
+    // Build ParsedRow arrays for /import/confirm — one call, creates batch + registers in Resumenes
+    const expenses = transactions
+      .filter(tx => tx.isExpense)
+      .map(tx => {
+        let catId = tx.categoryId;
+        if (tx.needsNewCategory && catId === null && tx.suggestedCategoryName) catId = newCatMap[tx.suggestedCategoryName] ?? null;
+        return { date: tx.date, description: tx.description, amount: tx.amount, kind: 'expense' as const, categoryId: catId ?? undefined, type: tx.type };
+      })
+      .filter(tx => tx.categoryId !== undefined);
+
+    const incomes = transactions
+      .filter(tx => !tx.isExpense)
+      .map(tx => ({ date: tx.date, description: tx.description, amount: tx.amount, kind: 'income' as const, source: tx.source ?? 'OTHER' }));
+
+    const fallbackCatId = latestCats[0]?.id ?? 1;
+
+    try {
+      const res = await fetch(`${NESTJS_API}/import/confirm`, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json', ...authHeaders },
+        body: JSON.stringify({ expenses, incomes, defaultCategoryId: fallbackCatId }),
+      });
+      const result = res.ok ? await res.json() : null;
+      const created  = (result?.createdExpenses ?? 0) + (result?.createdIncomes ?? 0);
+      const skipped  = transactions.length - expenses.length - incomes.length;
+      setMessages(prev => prev.map(m =>
+        m.id === msgId
+          ? { ...m, pendingStatement: null, text: `Se registraron ${created} movimiento${created !== 1 ? 's' : ''}${skipped > 0 ? ` (${skipped} omitidos sin categoría)` : ''}.` }
+          : m,
+      ));
+    } catch {
+      setMessages(prev => prev.map(m => m.id === msgId ? { ...m, pendingStatement: null, text: 'Error al registrar los movimientos.' } : m));
+    }
+
+    window.dispatchEvent(new CustomEvent('gf:expense-created'));
+    setConfirmingId(null);
   }
 
   function handleSend(text?: string) { sendMessage(text ?? inputValue); }
@@ -714,6 +822,77 @@ export default function AiChat() {
                         </button>
                         <button
                           onClick={() => setMessages(prev => prev.map(m => m.id === msg.id ? { ...m, importPreview: null } : m))}
+                          disabled={confirmingId === msg.id}
+                          className="h-8 px-3 rounded-xl text-[12px] text-text-muted border border-line hover:bg-white/[0.05] disabled:opacity-50 transition-colors"
+                        >
+                          Cancelar
+                        </button>
+                      </div>
+                    </motion.div>
+                  )}
+
+                  {/* ── AI Statement preview ── */}
+                  {msg.pendingStatement && msg.pendingStatement.length > 0 && (
+                    <motion.div initial={{ opacity: 0, y: 4 }} animate={{ opacity: 1, y: 0 }} className="mt-2 ml-8 w-[calc(100%-2rem)] flex flex-col gap-2">
+                      <div className="rounded-xl border border-line bg-white/[0.03] overflow-hidden">
+                        <div className="px-3 py-2 border-b border-line flex items-center gap-2">
+                          <FileSpreadsheet className="w-3.5 h-3.5 text-text-muted" />
+                          <span className="text-[11px] text-text-muted font-medium">
+                            {msg.pendingStatement.filter(t => t.isExpense).length} gastos · {msg.pendingStatement.filter(t => !t.isExpense).length} ingresos
+                          </span>
+                        </div>
+                        <div className="max-h-52 overflow-y-auto divide-y divide-line/40">
+                          {msg.pendingStatement.map((tx, idx) => (
+                            <div key={idx} className="px-3 py-2">
+                              <div className="flex items-start justify-between gap-2">
+                                <div className="flex items-center gap-1.5 flex-1 min-w-0">
+                                  <span className={`text-[9px] font-bold px-1 py-0.5 rounded flex-shrink-0 ${tx.isExpense ? 'bg-red-500/15 text-red-400' : 'bg-emerald-500/15 text-emerald-400'}`}>
+                                    {tx.isExpense ? '−' : '+'}
+                                  </span>
+                                  <span className="text-[11px] text-text-soft truncate">{tx.description}</span>
+                                </div>
+                                <span className={`text-[11px] font-semibold flex-shrink-0 ${tx.isExpense ? 'text-text-soft' : 'text-emerald-400'}`}>
+                                  {tx.moneyType === 'USD' ? 'U$D' : '$'}{Number(tx.amount).toLocaleString('es-AR')}
+                                </span>
+                              </div>
+                              <div className="flex items-center gap-2 mt-1.5">
+                                {tx.isExpense ? (
+                                  <select
+                                    value={tx.categoryId ?? ''}
+                                    onChange={e => updateStatementCategory(msg.id, idx, Number(e.target.value))}
+                                    className="flex-1 text-[10px] bg-surface border border-line rounded px-1.5 py-0.5 text-text-dim focus:outline-none focus:border-accent/50"
+                                  >
+                                    {tx.needsNewCategory && tx.suggestedCategoryName && (
+                                      <option value="">Nueva: {tx.suggestedCategoryName}</option>
+                                    )}
+                                    {allCategories.map(c => (
+                                      <option key={c.id} value={c.id}>{c.name}</option>
+                                    ))}
+                                  </select>
+                                ) : (
+                                  <span className="text-[10px] text-emerald-400/70 flex-1">
+                                    {tx.source ?? 'Ingreso'}
+                                  </span>
+                                )}
+                                <span className="text-[9px] text-text-dim flex-shrink-0">
+                                  {tx.date ? new Date(tx.date + 'T00:00:00').toLocaleDateString('es-AR', { day: 'numeric', month: 'short' }) : ''}
+                                </span>
+                              </div>
+                            </div>
+                          ))}
+                        </div>
+                      </div>
+                      <div className="flex gap-1.5">
+                        <button
+                          onClick={() => confirmStatement(msg.id, msg.pendingStatement!)}
+                          disabled={confirmingId === msg.id}
+                          className="flex-1 h-8 rounded-xl text-[12px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/25 disabled:opacity-50 transition-colors flex items-center justify-center gap-1.5"
+                        >
+                          {confirmingId === msg.id ? <Loader2 className="w-3.5 h-3.5 animate-spin" /> : <CheckCircle className="w-3.5 h-3.5" />}
+                          Registrar todo
+                        </button>
+                        <button
+                          onClick={() => setMessages(prev => prev.map(m => m.id === msg.id ? { ...m, pendingStatement: null } : m))}
                           disabled={confirmingId === msg.id}
                           className="h-8 px-3 rounded-xl text-[12px] text-text-muted border border-line hover:bg-white/[0.05] disabled:opacity-50 transition-colors"
                         >
