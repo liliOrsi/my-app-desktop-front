@@ -12,12 +12,16 @@ import { useTheme, type Theme } from './ThemeProvider';
 
 /* ── Download URLs ─────────────────────────────────────────── */
 const WINDOWS_URL = 'https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/gastofacil.exe';
-const MAC_URL     = 'https://github.com/garageMitre/my-app-front-desktop/releases/download/v0.1.1/GastoFacil-0.1.1.dmg';
+const MAC_ARM_URL = 'https://github.com/liliOrsi/my-app-desktop-front/releases/download/v0.1.1/GastoFacil-0.1.1-arm64.dmg';
+const MAC_X64_URL = 'https://github.com/liliOrsi/my-app-desktop-front/releases/download/v0.1.1/GastoFacil-0.1.1-x64.dmg';
 
 function getDownloadInfo() {
   if (typeof window === 'undefined') return { url: WINDOWS_URL, label: 'Windows' };
   const ua = window.navigator.userAgent.toLowerCase();
-  if (ua.includes('mac os')) return { url: MAC_URL, label: 'Mac' };
+  if (ua.includes('mac os')) {
+    const isArm = /arm|apple m[0-9]/i.test(window.navigator.userAgent);
+    return { url: isArm ? MAC_ARM_URL : MAC_X64_URL, label: 'Mac' };
+  }
   return { url: WINDOWS_URL, label: 'Windows' };
 }
 
