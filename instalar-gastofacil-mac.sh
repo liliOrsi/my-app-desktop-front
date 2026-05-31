@@ -4,7 +4,7 @@
 
 APP_NAME="Gasto Fácil"
 APP_DIR="/Applications/${APP_NAME}.app"
-URL="https://my-app-front-desktop-production.up.railway.app/"
+URL="https://my-app-desktop-front-production.up.railway.app/"
 
 echo "Instalando ${APP_NAME}..."
 
@@ -15,7 +15,7 @@ mkdir -p "${APP_DIR}/Contents/Resources"
 # Script ejecutable principal
 cat > "${APP_DIR}/Contents/MacOS/${APP_NAME}" << 'APPSCRIPT'
 #!/bin/bash
-open "https://my-app-front-desktop-production.up.railway.app/"
+open "https://my-app-desktop-front-production.up.railway.app/"
 APPSCRIPT
 
 chmod +x "${APP_DIR}/Contents/MacOS/${APP_NAME}"
