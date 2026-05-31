@@ -1,5 +1,10 @@
 const { app, BrowserWindow, shell, session } = require('electron');
 
+// Fix for EXC_BREAKPOINT crash on macOS 15 with Electron/V8
+app.commandLine.appendSwitch('disable-gpu');
+app.commandLine.appendSwitch('disable-software-rasterizer');
+app.commandLine.appendSwitch('no-sandbox');
+
 let mainWindow = null;
 
 const APP_URL = 'https://my-app-front-desktop-production.up.railway.app/';
@@ -84,8 +89,8 @@ function createWindow() {
           </head>
           <body>
             <div class="card">
-              <h1>No se pudo cargar Gasto Fácil</h1>
-              <p>Revisá tu conexión a internet e intentá abrir la app nuevamente.</p>
+              <h1>No se pudo cargar Gasto F\u00e1cil</h1>
+              <p>Revis\u00e1 tu conexi\u00f3n a internet e intent\u00e1 abrir la app nuevamente.</p>
               <p style="font-size:12px;">${errorCode} - ${errorDescription}</p>
             </div>
           </body>
