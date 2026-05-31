@@ -1,9 +1,14 @@
 const { app, BrowserWindow, shell, session } = require('electron');
 
-// Fix for EXC_BREAKPOINT crash on macOS 15 with Electron/V8
+// Fixes for Intel integrated GPU + macOS 15 crash (EXC_BREAKPOINT in V8/Chromium)
 app.commandLine.appendSwitch('disable-gpu');
+app.commandLine.appendSwitch('disable-gpu-compositing');
+app.commandLine.appendSwitch('disable-gpu-rasterization');
+app.commandLine.appendSwitch('disable-gpu-sandbox');
 app.commandLine.appendSwitch('disable-software-rasterizer');
-app.commandLine.appendSwitch('no-sandbox');
+app.commandLine.appendSwitch('in-process-gpu');
+app.commandLine.appendSwitch('use-gl', 'swiftshader');
+app.disableHardwareAcceleration();
 
 let mainWindow = null;
 
@@ -41,7 +46,6 @@ function createWindow() {
   mainWindow.webContents.on('did-fail-load', async (_event, errorCode, errorDescription) => {
     console.error('Failed to load app:', errorCode, errorDescription);
 
-    // Stale/invalid session cookies can cause a redirect loop — clear and retry once
     if (errorCode === -310) {
       try {
         await session.defaultSession.clearStorageData({ storages: ['cookies'] });
@@ -59,32 +63,10 @@ function createWindow() {
           <head>
             <meta charset="UTF-8" />
             <style>
-              body {
-                margin: 0;
-                height: 100vh;
-                display: flex;
-                align-items: center;
-                justify-content: center;
-                background: #08090e;
-                color: #fff;
-                font-family: Arial, sans-serif;
-              }
-              .card {
-                max-width: 420px;
-                padding: 28px;
-                border-radius: 18px;
-                background: #11141d;
-                border: 1px solid #252b3a;
-                text-align: center;
-              }
-              h1 {
-                margin: 0 0 10px;
-                font-size: 24px;
-              }
-              p {
-                color: #9aa3b2;
-                line-height: 1.5;
-              }
+              body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center; background:#08090e; color:#fff; font-family:Arial,sans-serif; }
+              .card { max-width:420px; padding:28px; border-radius:18px; background:#11141d; border:1px solid #252b3a; text-align:center; }
+              h1 { margin:0 0 10px; font-size:24px; }
+              p { color:#9aa3b2; line-height:1.5; }
             </style>
           </head>
           <body>
@@ -106,18 +88,13 @@ function createWindow() {
 
 app.whenReady().then(() => {
   createWindow();
-
   app.on('activate', () => {
-    if (BrowserWindow.getAllWindows().length === 0) {
-      createWindow();
-    }
+    if (BrowserWindow.getAllWindows().length === 0) createWindow();
   });
 });
 
 app.on('window-all-closed', () => {
-  if (process.platform !== 'darwin') {
-    app.quit();
-  }
+  if (process.platform !== 'darwin') app.quit();
 });
 
 process.on('uncaughtException', (error) => {
