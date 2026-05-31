@@ -1,13 +1,6 @@
 const { app, BrowserWindow, shell, session } = require('electron');
 
-// Fixes for Intel integrated GPU + macOS 15 crash (EXC_BREAKPOINT in V8/Chromium)
-app.commandLine.appendSwitch('disable-gpu');
-app.commandLine.appendSwitch('disable-gpu-compositing');
-app.commandLine.appendSwitch('disable-gpu-rasterization');
-app.commandLine.appendSwitch('disable-gpu-sandbox');
-app.commandLine.appendSwitch('disable-software-rasterizer');
-app.commandLine.appendSwitch('in-process-gpu');
-app.commandLine.appendSwitch('use-gl', 'swiftshader');
+// Fix crash en macOS 15 con Intel: deshabilitar aceleración de hardware
 app.disableHardwareAcceleration();
 
 let mainWindow = null;
@@ -30,7 +23,6 @@ function createWindow() {
     },
   });
 
-  // Remove 'Electron' from user-agent so Google OAuth doesn't block with disallowed_useragent
   const ua = mainWindow.webContents.getUserAgent().replace(/\sElectron\/[\d.]+/, '');
   mainWindow.webContents.setUserAgent(ua);
 
@@ -60,8 +52,7 @@ function createWindow() {
       `data:text/html;charset=utf-8,${encodeURIComponent(`
         <!DOCTYPE html>
         <html>
-          <head>
-            <meta charset="UTF-8" />
+          <head><meta charset="UTF-8" />
             <style>
               body { margin:0; height:100vh; display:flex; align-items:center; justify-content:center; background:#08090e; color:#fff; font-family:Arial,sans-serif; }
               .card { max-width:420px; padding:28px; border-radius:18px; background:#11141d; border:1px solid #252b3a; text-align:center; }
