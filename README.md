@@ -2,7 +2,7 @@
 Translated Report (Full Report Below)
 -------------------------------------
 
-Process:               Gasto Fácil [2023]
+Process:               Gasto Fácil [2277]
 Path:                  /Applications/Gasto Fácil.app/Contents/MacOS/Gasto Fácil
 Identifier:            com.gastofacil.desktop
 Version:               0.1.1 (0.1.1)
@@ -10,7 +10,7 @@ Code Type:             X86-64 (Native)
 Parent Process:        launchd [1]
 User ID:               501
 
-Date/Time:             2026-05-31 15:24:14.9428 -0300
+Date/Time:             2026-05-31 15:44:53.4127 -0300
 OS Version:            macOS 15.7.2 (24G325)
 Report Version:        12
 Bridge OS Version:     10.1 (23P1072)
@@ -18,8 +18,8 @@ Anonymous UUID:        77F1CCC9-E394-2572-A5D0-FB57FF802010
 
 Sleep/Wake UUID:       F7BB088D-D286-4A22-8B63-880D36BBD75C
 
-Time Awake Since Boot: 3700 seconds
-Time Since Wake:       723 seconds
+Time Awake Since Boot: 5000 seconds
+Time Since Wake:       1961 seconds
 
 System Integrity Protection: enabled
 
@@ -29,30 +29,45 @@ Exception Type:        EXC_BREAKPOINT (SIGTRAP)
 Exception Codes:       0x0000000000000002, 0x0000000000000000
 
 Termination Reason:    Namespace SIGNAL, Code 5 Trace/BPT trap: 5
-Terminating Process:   exc handler [2023]
+Terminating Process:   exc handler [2277]
 
 Thread 0 Crashed:: CrBrowserMain Dispatch queue: com.apple.main-thread
-0   Electron Framework            	       0x11ae82bbb node::AsyncWrap::~AsyncWrap() + 647003
-1   Electron Framework            	       0x11cf4010d ares_llist_node_next + 1961901
-2   Electron Framework            	       0x119d93539 node::BaseObject::TransferForMessaging() + 113641
-3   Electron Framework            	       0x119d9311c node::BaseObject::TransferForMessaging() + 112588
-4   Electron Framework            	       0x11a44a85d v8::ScriptCompiler::ConsumeCodeCacheTask::Run() + 342077
-5   Electron Framework            	       0x11a816fbd v8::Exception::CreateMessage(v8::Isolate*, v8::Local<v8::Value>) + 15261
-6   Electron Framework            	       0x11a816d45 v8::Exception::CreateMessage(v8::Isolate*, v8::Local<v8::Value>) + 14629
-7   Electron Framework            	       0x11a357b71 v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 157089
-8   Electron Framework            	       0x11a3579c1 v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 156657
-9   Electron Framework            	       0x11cd8e6cb ares_llist_node_next + 185707
-10  Electron Framework            	       0x11a33ad4a v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 38778
-11  Electron Framework            	       0x11b44793f crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1277199
-12  Electron Framework            	       0x11b4488b8 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1281160
-13  Electron Framework            	       0x11b448715 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1280741
-14  Electron Framework            	       0x11a19c8a3 v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 175331
-15  Electron Framework            	       0x11a19c0c8 v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 173320
-16  Electron Framework            	       0x11ad9631e ElectronMain + 142
-17  dyld                          	    0x7ff819fe0530 start + 3056
+0   Electron Framework            	       0x11050bbbb node::AsyncWrap::~AsyncWrap() + 647003
+1   Electron Framework            	       0x11240c94a ares_llist_node_next + 141290
+2   Electron Framework            	       0x10fb04f67 v8::Isolate::GetHeapSpaceStatistics(v8::HeapSpaceStatistics*, unsigned long) + 79239
+3   Electron Framework            	       0x10fb04aa9 v8::Isolate::GetHeapSpaceStatistics(v8::HeapSpaceStatistics*, unsigned long) + 78025
+4   Electron Framework            	       0x10f56dc19 node::CustomBufferJSListener::OnStreamAlloc(unsigned long) + 99913
+5   Electron Framework            	       0x10f56d576 node::CustomBufferJSListener::OnStreamAlloc(unsigned long) + 98214
+6   Electron Framework            	       0x10f56d4c6 node::CustomBufferJSListener::OnStreamAlloc(unsigned long) + 98038
+7   Electron Framework            	       0x10f5f15d0 v8::V8::SetEntropySource(bool (*)(unsigned char*, unsigned long)) + 3008
+8   Electron Framework            	       0x10fa93689 v8::ScriptCompiler::ConsumeCodeCacheTask::Run() + 79465
+9   Electron Framework            	       0x10fa9362b v8::ScriptCompiler::ConsumeCodeCacheTask::Run() + 79371
+10  Electron Framework            	       0x110507175 node::AsyncWrap::~AsyncWrap() + 627989
+11  Electron Framework            	       0x110506e53 node::AsyncWrap::~AsyncWrap() + 627187
+12  Electron Framework            	       0x1105185f1 node::AsyncWrap::~AsyncWrap() + 698769
+13  Electron Framework            	       0x10fe902e6 v8::CppHeap::CollectStatistics(cppgc::HeapStatistics::DetailLevel) + 1067110
+14  Electron Framework            	       0x10f9e0b71 v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 157089
+15  Electron Framework            	       0x10f9e09c1 v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 156657
+16  Electron Framework            	       0x1124176cb ares_llist_node_next + 185707
+17  Electron Framework            	       0x10f9c3d4a v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>) + 38778
+18  Electron Framework            	       0x110ad093f crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1277199
+19  Electron Framework            	       0x110ad18b8 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1281160
+20  Electron Framework            	       0x110ad1715 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 1280741
+21  Electron Framework            	       0x10f8258a3 v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 175331
+22  Electron Framework            	       0x10f8250c8 v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 173320
+23  Electron Framework            	       0x11041f31e ElectronMain + 142
+24  dyld                          	    0x7ff819fe0530 start + 3056
 
-Thread 1:
-0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
+Thread 1::  Dispatch queue: com.apple.CoreAnalytics::Client XPC Send
+0   CoreAnalytics                 	    0x7ff822eaf287 invocation function for block in CoreAnalytics::Client::sendXpcMessage_sync(applesauce::xpc::dict, XPCMessagePriority, bool, bool) + 108
+1   libdispatch.dylib             	    0x7ff81a1e73a0 _dispatch_block_async_invoke2 + 85
+2   libdispatch.dylib             	    0x7ff81a1f09fc _dispatch_client_callout + 6
+3   libdispatch.dylib             	    0x7ff81a1e135f _dispatch_lane_serial_drain + 779
+4   libdispatch.dylib             	    0x7ff81a1e1dad _dispatch_lane_invoke + 382
+5   libdispatch.dylib             	    0x7ff81a1eab96 _dispatch_root_queue_drain_deferred_wlh + 275
+6   libdispatch.dylib             	    0x7ff81a1ea4e3 _dispatch_workloop_worker_thread + 688
+7   libsystem_pthread.dylib       	    0x7ff81a382861 _pthread_wqthread + 298
+8   libsystem_pthread.dylib       	    0x7ff81a381843 start_wqthread + 15
 
 Thread 2:
 0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
@@ -66,211 +81,301 @@ Thread 4:
 Thread 5:
 0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
 
-Thread 6:: ThreadPoolServiceThread
+Thread 6:
+0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
+
+Thread 7:
+0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
+
+Thread 8:
+0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
+
+Thread 9:: ThreadPoolServiceThread
 0   libsystem_kernel.dylib        	    0x7ff81a34d54a kevent64 + 10
-1   Electron Framework            	       0x119dc46be v8::Module::GetUnboundModuleScript() + 97918
-2   Electron Framework            	       0x11a2dcf7b node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 106203
-3   Electron Framework            	       0x1195bb11c node::StreamBase::GetFD() + 844
-4   Electron Framework            	       0x119a81dc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
-5   Electron Framework            	       0x119a81d18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
-6   Electron Framework            	       0x119a81cbd v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21357
-7   Electron Framework            	       0x11e0e91e4 ares_dns_rr_get_ttl + 3948708
-8   Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+1   Electron Framework            	       0x10f44d6be v8::Module::GetUnboundModuleScript() + 97918
+2   Electron Framework            	       0x10f965f7b node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 106203
+3   Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+4   Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+5   Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+6   Electron Framework            	       0x10f10acbd v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21357
+7   Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+8   Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
 9   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 10  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 7:: ThreadPoolForegroundWorker Dispatch queue: com.apple.SystemConfiguration.DNSConfiguration
+Thread 10:: ThreadPoolForegroundWorker
 0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
 1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
 2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
 3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
-4   libxpc.dylib                  	    0x7ff81a0a3069 _xpc_pipe_mach_msg + 49
-5   libxpc.dylib                  	    0x7ff81a0a28cc _xpc_pipe_routine + 384
-6   libxpc.dylib                  	    0x7ff81a07f02e _xpc_interface_routine + 173
-7   libxpc.dylib                  	    0x7ff81a083d39 _xpc_look_up_endpoint + 231
-8   libxpc.dylib                  	    0x7ff81a083bd7 _xpc_connection_bootstrap_look_up_slow + 399
-9   libxpc.dylib                  	    0x7ff81a0834be _xpc_connection_init + 800
-10  libxpc.dylib                  	    0x7ff81a0830f1 _xpc_connection_activate_if_needed + 570
-11  libxpc.dylib                  	    0x7ff81a085627 xpc_connection_resume + 73
-12  libsystem_configuration.dylib 	    0x7ff826a541e6 libSC_info_client_create + 221
-13  libsystem_configuration.dylib 	    0x7ff826a54091 __dns_configuration_copy_block_invoke + 97
-14  libdispatch.dylib             	    0x7ff81a1f09fc _dispatch_client_callout + 6
-15  libdispatch.dylib             	    0x7ff81a1e77e6 _dispatch_lane_barrier_sync_invoke_and_complete + 60
-16  libsystem_configuration.dylib 	    0x7ff826a53952 dns_configuration_copy + 80
-17  libresolv.9.dylib             	    0x7ff82cb3c715 res_9_vinit + 55
-18  Electron Framework            	       0x11b562e47 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2437655
-19  Electron Framework            	       0x11b562ddf crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2437551
-20  Electron Framework            	       0x11b555a0b crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2383323
-21  Electron Framework            	       0x11b5549e6 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2379190
-22  Electron Framework            	       0x11a28cb68 v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector() + 151880
-23  Electron Framework            	       0x11a28caf1 v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector() + 151761
-24  Electron Framework            	       0x118a40ac2 v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int) + 73458
-25  Electron Framework            	       0x118a40a35 v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int) + 73317
-26  Electron Framework            	       0x11889eea1 v8::SandboxHardwareSupport::InitializeBeforeThreadCreation() + 36385
-27  Electron Framework            	       0x11899fd6b v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const + 3467
-28  Electron Framework            	       0x11899f876 v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const + 2198
-29  Electron Framework            	       0x11898d56c v8::Value::Uint32Value(v8::Local<v8::Context>) const + 3132
-30  Electron Framework            	       0x11898cf1b v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1515
-31  Electron Framework            	       0x1196eb41d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
-32  Electron Framework            	       0x1196eb331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
-33  Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
-34  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-35  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
-
-Thread 8:: ThreadPoolBackgroundWorker
-0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
-1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
-2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
-3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
-4   Electron Framework            	       0x118ad98e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
-5   Electron Framework            	       0x118ad96bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
-6   Electron Framework            	       0x118ad965d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
-7   Electron Framework            	       0x118ad95ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
-8   Electron Framework            	       0x11898ce40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
-9   Electron Framework            	       0x1196eb44d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14205
-10  Electron Framework            	       0x1196eb35a v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13962
-11  Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10e16265d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
+7   Electron Framework            	       0x10e1625ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
+8   Electron Framework            	       0x10e015e40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
+9   Electron Framework            	       0x10ed7441d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
+10  Electron Framework            	       0x10ed74331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
+11  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
 12  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 13  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 9:
-0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
-
-Thread 10:: ThreadPoolForegroundWorker
-0   libsystem_kernel.dylib        	    0x7ff81a345452 __read_nocancel + 10
-1   libsystem_c.dylib             	    0x7ff81a231771 _sread + 16
-2   libsystem_c.dylib             	    0x7ff81a231720 __srefill1 + 24
-3   libsystem_c.dylib             	    0x7ff81a231971 __fread + 419
-4   libsystem_c.dylib             	    0x7ff81a23a6d2 fread + 74
-5   Electron Framework            	       0x119d17c39 v8::Symbol::GetIterator(v8::Isolate*) + 97145
-6   Electron Framework            	       0x119d17a05 v8::Symbol::GetIterator(v8::Isolate*) + 96581
-7   Electron Framework            	       0x11b51c5d1 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2148769
-8   Electron Framework            	       0x11b51be0d crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2146781
-9   Electron Framework            	       0x11b51bf22 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2147058
-10  Electron Framework            	       0x11b5549e6 crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*) + 2379190
-11  Electron Framework            	       0x11a28cb68 v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector() + 151880
-12  Electron Framework            	       0x11a28caf1 v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector() + 151761
-13  Electron Framework            	       0x118a40ac2 v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int) + 73458
-14  Electron Framework            	       0x118a40a35 v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int) + 73317
-15  Electron Framework            	       0x11889eea1 v8::SandboxHardwareSupport::InitializeBeforeThreadCreation() + 36385
-16  Electron Framework            	       0x11899fd6b v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const + 3467
-17  Electron Framework            	       0x11899f876 v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const + 2198
-18  Electron Framework            	       0x11898d56c v8::Value::Uint32Value(v8::Local<v8::Context>) const + 3132
-19  Electron Framework            	       0x11898cf1b v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1515
-20  Electron Framework            	       0x1196eb41d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
-21  Electron Framework            	       0x1196eb331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
-22  Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
-23  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-24  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
-
-Thread 11:: Chrome_IOThread
-0   libsystem_kernel.dylib        	    0x7ff81a34d54a kevent64 + 10
-1   Electron Framework            	       0x119dc46be v8::Module::GetUnboundModuleScript() + 97918
-2   Electron Framework            	       0x11a2dcf7b node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 106203
-3   Electron Framework            	       0x1195bb11c node::StreamBase::GetFD() + 844
-4   Electron Framework            	       0x119a81dc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
-5   Electron Framework            	       0x119a81d18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
-6   Electron Framework            	       0x11a17653f v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 18815
-7   Electron Framework            	       0x11e0e91e4 ares_dns_rr_get_ttl + 3948708
-8   Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
-9   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-10  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
-
-Thread 12:: MemoryInfra
+Thread 11:: ThreadPoolBackgroundWorker
 0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
 1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
 2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
 3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
-4   Electron Framework            	       0x118ad98e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
-5   Electron Framework            	       0x118ad96bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
-6   Electron Framework            	       0x1189584d3 v8::CodeEvent::GetScriptName() + 5363
-7   Electron Framework            	       0x1189581c5 v8::CodeEvent::GetScriptName() + 4581
-8   Electron Framework            	       0x1195bb11c node::StreamBase::GetFD() + 844
-9   Electron Framework            	       0x119a81dc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
-10  Electron Framework            	       0x119a81d18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
-11  Electron Framework            	       0x11e0e91e4 ares_dns_rr_get_ttl + 3948708
-12  Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10e16265d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
+7   Electron Framework            	       0x10e1625ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
+8   Electron Framework            	       0x10e015e40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
+9   Electron Framework            	       0x10ed7444d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14205
+10  Electron Framework            	       0x10ed7435a v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13962
+11  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+12  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+13  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 12:: ThreadPoolForegroundWorker
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10e16265d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
+7   Electron Framework            	       0x10e1625ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
+8   Electron Framework            	       0x10e015e40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
+9   Electron Framework            	       0x10ed7441d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
+10  Electron Framework            	       0x10ed74331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
+11  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+12  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+13  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 13:: Chrome_IOThread
+0   libsystem_kernel.dylib        	    0x7ff81a34d54a kevent64 + 10
+1   Electron Framework            	       0x10f44d6be v8::Module::GetUnboundModuleScript() + 97918
+2   Electron Framework            	       0x10f965f7b node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 106203
+3   Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+4   Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+5   Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+6   Electron Framework            	       0x10f7ff53f v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&) + 18815
+7   Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+8   Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+9   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+10  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 14:: MemoryInfra
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10dfe14d3 v8::CodeEvent::GetScriptName() + 5363
+7   Electron Framework            	       0x10dfe11c5 v8::CodeEvent::GetScriptName() + 4581
+8   Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+9   Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+10  Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+11  Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+12  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
 13  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 14  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 13:
+Thread 15:
 0   libsystem_pthread.dylib       	    0x7ff81a381834 start_wqthread + 0
 
-Thread 14:
-0   libsystem_kernel.dylib        	    0x7ff81a348822 kevent + 10
-1   Electron Framework            	       0x11ad959fb uv__io_poll + 1275
-2   Electron Framework            	       0x11ad82f45 uv_run + 485
-3   Electron Framework            	       0x11b176a40 node::WorkerThreadsTaskRunner::DelayedTaskScheduler::Start()::'lambda'(void*)::__invoke(void*) + 128
-4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
-
-Thread 15:
-0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
-1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
-2   Electron Framework            	       0x11ad90683 uv_cond_wait + 35
-3   Electron Framework            	       0x11b17435c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
-4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
-
 Thread 16:
-0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
-1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
-2   Electron Framework            	       0x11ad90683 uv_cond_wait + 35
-3   Electron Framework            	       0x11b17435c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
+0   libsystem_kernel.dylib        	    0x7ff81a348822 kevent + 10
+1   Electron Framework            	       0x11041e9fb uv__io_poll + 1275
+2   Electron Framework            	       0x11040bf45 uv_run + 485
+3   Electron Framework            	       0x1107ffa40 node::WorkerThreadsTaskRunner::DelayedTaskScheduler::Start()::'lambda'(void*)::__invoke(void*) + 128
 4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
 Thread 17:
 0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
 1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
-2   Electron Framework            	       0x11ad90683 uv_cond_wait + 35
-3   Electron Framework            	       0x11b17435c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
+2   Electron Framework            	       0x110419683 uv_cond_wait + 35
+3   Electron Framework            	       0x1107fd35c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
 4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
 Thread 18:
+0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
+2   Electron Framework            	       0x110419683 uv_cond_wait + 35
+3   Electron Framework            	       0x1107fd35c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
+4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 19:
+0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
+2   Electron Framework            	       0x110419683 uv_cond_wait + 35
+3   Electron Framework            	       0x1107fd35c node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel) + 1820
+4   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+5   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 20:
 0   libsystem_kernel.dylib        	    0x7ff81a343ac6 semaphore_wait_trap + 10
-1   Electron Framework            	       0x11ad90500 uv_sem_wait + 16
-2   Electron Framework            	       0x11b2f3f73 node::inspector::Agent::GetWsUrl() const + 67
+1   Electron Framework            	       0x110419500 uv_sem_wait + 16
+2   Electron Framework            	       0x11097cf73 node::inspector::Agent::GetWsUrl() const + 67
 3   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
 4   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 19:: NetworkConfigWatcher
-0   libsystem_kernel.dylib        	    0x7ff81a344eca __sysctl + 10
-1   libsystem_c.dylib             	    0x7ff81a22a956 sysctl + 102
-2   libsystem_info.dylib          	    0x7ff81a3cbeab getifaddrs + 183
-3   libsystem_info.dylib          	    0x7ff81a3cdf3e if_nametoindex + 27
-4   Electron Framework            	       0x11a2e5e94 node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 142836
-5   Electron Framework            	       0x11a2e5aa7 node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 141831
-6   Electron Framework            	       0x11a2e5989 node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 141545
-7   Electron Framework            	       0x11a2e5853 node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 141235
-8   Electron Framework            	       0x11ac24971 v8_inspector::String16::String16(char const*) + 726961
-9   Electron Framework            	       0x11e0e9135 ares_dns_rr_get_ttl + 3948533
-10  Electron Framework            	       0x1192292ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
-11  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
-12  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+Thread 21:: NetworkConfigWatcher
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   CoreFoundation                	    0x7ff81a46fb82 __CFRunLoopServiceMachPort + 145
+5   CoreFoundation                	    0x7ff81a46e5cf __CFRunLoopRun + 1430
+6   CoreFoundation                	    0x7ff81a46da02 CFRunLoopRunSpecific + 536
+7   Foundation                    	    0x7ff81b5b1ff3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 216
+8   Electron Framework            	       0x10f86e72d cxxbridge1$rust_vec$bool$len + 30125
+9   Electron Framework            	       0x10f86e5d2 cxxbridge1$rust_vec$bool$len + 29778
+10  Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+11  Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+12  Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+13  Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+14  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+15  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+16  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 20:
-0   libsystem_pthread.dylib       	    0x7ff81a381848 thread_start + 0
+Thread 22:: CrShutdownDetector
+0   libsystem_kernel.dylib        	    0x7ff81a3445b2 read + 10
+1   Electron Framework            	       0x110637e8c node::sqlite::UserDefinedFunction::xDestroy(void*) + 491564
+2   Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+3   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+4   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 21:
-0   libsystem_pthread.dylib       	    0x7ff81a381848 thread_start + 0
+Thread 23:: NetworkConfigWatcher
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   CoreFoundation                	    0x7ff81a46fb82 __CFRunLoopServiceMachPort + 145
+5   CoreFoundation                	    0x7ff81a46e5cf __CFRunLoopRun + 1430
+6   CoreFoundation                	    0x7ff81a46da02 CFRunLoopRunSpecific + 536
+7   Foundation                    	    0x7ff81b5b1ff3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 216
+8   Electron Framework            	       0x10f86e72d cxxbridge1$rust_vec$bool$len + 30125
+9   Electron Framework            	       0x10f86e5d2 cxxbridge1$rust_vec$bool$len + 29778
+10  Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+11  Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+12  Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+13  Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+14  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+15  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+16  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 22:
-0   libsystem_pthread.dylib       	    0x7ff81a381848 thread_start + 0
+Thread 24:: ThreadPoolForegroundWorker
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10e16265d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
+7   Electron Framework            	       0x10e1625ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
+8   Electron Framework            	       0x10e015e40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
+9   Electron Framework            	       0x10ed7441d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
+10  Electron Framework            	       0x10ed74331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
+11  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+12  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+13  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
-Thread 23:
-0   libsystem_pthread.dylib       	    0x7ff81a381848 thread_start + 0
+Thread 25:: ThreadPoolForegroundWorker
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   Electron Framework            	       0x10e1628e0 v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 85104
+5   Electron Framework            	       0x10e1626bd v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84557
+6   Electron Framework            	       0x10e16265d v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84461
+7   Electron Framework            	       0x10e1625ed v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long) + 84349
+8   Electron Framework            	       0x10e015e40 v8::Value::Uint32Value(v8::Local<v8::Context>) const + 1296
+9   Electron Framework            	       0x10ed7441d v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 14157
+10  Electron Framework            	       0x10ed74331 v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>) + 13921
+11  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+12  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+13  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 26:: CompositorTileWorker1
+0   libsystem_kernel.dylib        	    0x7ff81a3466f6 __psynch_cvwait + 10
+1   libsystem_pthread.dylib       	    0x7ff81a3862ae _pthread_cond_wait + 988
+2   Electron Framework            	       0x10e80ccfd node::AsyncResource::get_trigger_async_id() const + 60589
+3   Electron Framework            	       0x10ebed88d cppgc::internal::PersistentRegionBase::PersistentRegionBase(cppgc::internal::FatalOutOfMemoryHandler const&) + 7757
+4   Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+5   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+6   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 27:: Chrome_InProcGpuThread
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   CoreFoundation                	    0x7ff81a46fb82 __CFRunLoopServiceMachPort + 145
+5   CoreFoundation                	    0x7ff81a46e5cf __CFRunLoopRun + 1430
+6   CoreFoundation                	    0x7ff81a46da02 CFRunLoopRunSpecific + 536
+7   Foundation                    	    0x7ff81b5b1ff3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 216
+8   Electron Framework            	       0x10f86e72d cxxbridge1$rust_vec$bool$len + 30125
+9   Electron Framework            	       0x10f86e5d2 cxxbridge1$rust_vec$bool$len + 29778
+10  Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+11  Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+12  Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+13  Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+14  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+15  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+16  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 28:: Chrome_ChildIOThread
+0   libsystem_kernel.dylib        	    0x7ff81a34d54a kevent64 + 10
+1   Electron Framework            	       0x10f44d6be v8::Module::GetUnboundModuleScript() + 97918
+2   Electron Framework            	       0x10f965f7b node::PrincipalRealm::enhance_fatal_stack_after_inspector() const + 106203
+3   Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+4   Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+5   Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+6   Electron Framework            	       0x11502a6c3 ares_llist_len + 25379219
+7   Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+8   Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+9   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+10  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 29:: VizCompositorThread
+0   libsystem_kernel.dylib        	    0x7ff81a343b4a mach_msg2_trap + 10
+1   libsystem_kernel.dylib        	    0x7ff81a352704 mach_msg2_internal + 83
+2   libsystem_kernel.dylib        	    0x7ff81a34abc3 mach_msg_overwrite + 574
+3   libsystem_kernel.dylib        	    0x7ff81a343e3b mach_msg + 19
+4   CoreFoundation                	    0x7ff81a46fb82 __CFRunLoopServiceMachPort + 145
+5   CoreFoundation                	    0x7ff81a46e5cf __CFRunLoopRun + 1430
+6   CoreFoundation                	    0x7ff81a46da02 CFRunLoopRunSpecific + 536
+7   Foundation                    	    0x7ff81b5b1ff3 -[NSRunLoop(NSRunLoop) runMode:beforeDate:] + 216
+8   Electron Framework            	       0x10f86e72d cxxbridge1$rust_vec$bool$len + 30125
+9   Electron Framework            	       0x10f86e5d2 cxxbridge1$rust_vec$bool$len + 29778
+10  Electron Framework            	       0x10ec4411c node::StreamBase::GetFD() + 844
+11  Electron Framework            	       0x10f10adc5 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21621
+12  Electron Framework            	       0x10f10ad18 v8::ValueSerializer::Delegate::FreeBufferMemory(void*) + 21448
+13  Electron Framework            	       0x1137721e4 ares_dns_rr_get_ttl + 3948708
+14  Electron Framework            	       0x10e8b22ed v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef) + 175341
+15  libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+16  libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
+
+Thread 30:
+0   libsystem_kernel.dylib        	    0x7ff81a343ac6 semaphore_wait_trap + 10
+1   Electron Framework            	       0x110419500 uv_sem_wait + 16
+2   Electron Framework            	       0x1105c8164 node::sqlite::UserDefinedFunction::xDestroy(void*) + 33540
+3   libsystem_pthread.dylib       	    0x7ff81a385e05 _pthread_start + 115
+4   libsystem_pthread.dylib       	    0x7ff81a381857 thread_start + 15
 
 
 Thread 0 crashed with X86 Thread State (64-bit):
-  rax: 0x0000000000000000  rbx: 0x0000012c02fb7140  rcx: 0x0000000000000071  rdx: 0x000000000000007c
-  rdi: 0x00007ff7b252c3c0  rsi: 0x00007ff7b252c3e0  rbp: 0x00007ff7b252c440  rsp: 0x00007ff7b252c350
-   r8: 0x000000000000006e   r9: 0x0000012c00000000  r10: 0x0f0f0f0f0f0f0f0f  r11: 0x00007ecbaf5bb781
-  r12: 0x00007ff7b252c3e0  r13: 0xaaaaaaaaaaaaaaaa  r14: 0x0000000000000002  r15: 0x00007ff7b252c358
-  rip: 0x000000011ae82bbb  rfl: 0x0000000000000246  cr2: 0x0000000000000000
+  rax: 0x0000000000000000  rbx: 0x000001040302d4c0  rcx: 0x0000000000000071  rdx: 0x0000000000000070
+  rdi: 0x00007ff7bcea30a0  rsi: 0x00007ff7bcea30c0  rbp: 0x00007ff7bcea3120  rsp: 0x00007ff7bcea3030
+   r8: 0x000000000000006e   r9: 0x0000010400000000  r10: 0x0f0f0f0f0f0f0f0f  r11: 0x00007ef3b9f0afe1
+  r12: 0x00007ff7bcea30c0  r13: 0xaaaaaaaaaaaaaaaa  r14: 0x0000000000000003  r15: 0x00007ff7bcea3038
+  rip: 0x000000011050bbbb  rfl: 0x0000000000000246  cr2: 0x0000000000000000
   
-Logical CPU:     2
+Logical CPU:     0
 Error Code:      0x00000000 
 Trap Number:     3
 
@@ -289,23 +394,21 @@ Thread 0 instruction stream:
   49 8b 3e 4d 89 3e 48 85-ff 74 06 48 8b 07 ff 50  I.>M.>H..t.H...P
 
 Binary Images:
-       0x10d9d2000 -        0x10d9d3fff com.gastofacil.desktop (0.1.1) <4c4c449c-5555-3144-a12c-4139c48fff89> /Applications/Gasto Fácil.app/Contents/MacOS/Gasto Fácil
-       0x118847000 -        0x122e77fff com.github.Electron.framework (*) <4c4c446c-5555-3144-a125-6ff9ff1c32a3> /Applications/Gasto Fácil.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
-       0x10d9f9000 -        0x10da0dfff com.github.Squirrel (1.0) <4c4c441e-5555-3144-a154-ddfb92285a36> /Applications/Gasto Fácil.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel
-       0x10da70000 -        0x10dab3fff com.electron.reactive (3.1.0) <4c4c442a-5555-3144-a10d-2365d9b82e4d> /Applications/Gasto Fácil.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/ReactiveObjC
-       0x10da17000 -        0x10da22fff org.mantle.Mantle (1.0) <4c4c44d6-5555-3144-a14e-916174ccea73> /Applications/Gasto Fácil.app/Contents/Frameworks/Mantle.framework/Versions/A/Mantle
-       0x10dd0d000 -        0x10df0ffff libffmpeg.dylib (*) <4c4c4434-5555-3144-a14c-cedbf33f034a> /Applications/Gasto Fácil.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib
-       0x11650d000 -        0x116519fff libobjc-trampolines.dylib (*) <72642d3c-0206-38ee-9349-c720aee663ee> /usr/lib/libobjc-trampolines.dylib
+       0x10305b000 -        0x10305cfff com.gastofacil.desktop (0.1.1) <4c4c449c-5555-3144-a12c-4139c48fff89> /Applications/Gasto Fácil.app/Contents/MacOS/Gasto Fácil
+       0x10ded0000 -        0x118500fff com.github.Electron.framework (*) <4c4c446c-5555-3144-a125-6ff9ff1c32a3> /Applications/Gasto Fácil.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Electron Framework
+       0x103082000 -        0x103096fff com.github.Squirrel (1.0) <4c4c441e-5555-3144-a154-ddfb92285a36> /Applications/Gasto Fácil.app/Contents/Frameworks/Squirrel.framework/Versions/A/Squirrel
+       0x1030f9000 -        0x10313cfff com.electron.reactive (3.1.0) <4c4c442a-5555-3144-a10d-2365d9b82e4d> /Applications/Gasto Fácil.app/Contents/Frameworks/ReactiveObjC.framework/Versions/A/ReactiveObjC
+       0x1030a0000 -        0x1030abfff org.mantle.Mantle (1.0) <4c4c44d6-5555-3144-a14e-916174ccea73> /Applications/Gasto Fácil.app/Contents/Frameworks/Mantle.framework/Versions/A/Mantle
+       0x103396000 -        0x103598fff libffmpeg.dylib (*) <4c4c4434-5555-3144-a14c-cedbf33f034a> /Applications/Gasto Fácil.app/Contents/Frameworks/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib
+       0x10bb0d000 -        0x10bb19fff libobjc-trampolines.dylib (*) <72642d3c-0206-38ee-9349-c720aee663ee> /usr/lib/libobjc-trampolines.dylib
     0x7ff819fda000 -     0x7ff81a0746c7 dyld (*) <6b5ca9e7-21aa-36e9-9006-99ad808b943b> /usr/lib/dyld
                0x0 - 0xffffffffffffffff ??? (*) <00000000-0000-0000-0000-000000000000> ???
+    0x7ff822e93000 -     0x7ff822ec0d94 com.apple.analyticsd (1.0) <2b7a49e1-934a-3755-a1d8-ddc414d740ee> /System/Library/PrivateFrameworks/CoreAnalytics.framework/Versions/A/CoreAnalytics
+    0x7ff81a1d9000 -     0x7ff81a220339 libdispatch.dylib (*) <6ca6112a-70c8-39a2-8cfa-da2139709d3c> /usr/lib/system/libdispatch.dylib
     0x7ff81a380000 -     0x7ff81a38bfd7 libsystem_pthread.dylib (*) <a031f066-4daa-3801-9155-88106d874835> /usr/lib/system/libsystem_pthread.dylib
     0x7ff81a343000 -     0x7ff81a37fb6f libsystem_kernel.dylib (*) <482d57d2-374a-3244-84d0-d09d58d29b2e> /usr/lib/system/libsystem_kernel.dylib
-    0x7ff81a079000 -     0x7ff81a0bfbd5 libxpc.dylib (*) <c2d833c5-89af-3dae-ae71-af61769cab0c> /usr/lib/system/libxpc.dylib
-    0x7ff826a53000 -     0x7ff826a568df libsystem_configuration.dylib (*) <c9a0e3a0-375d-3d16-81eb-c5f9b4789f22> /usr/lib/system/libsystem_configuration.dylib
-    0x7ff81a1d9000 -     0x7ff81a220339 libdispatch.dylib (*) <6ca6112a-70c8-39a2-8cfa-da2139709d3c> /usr/lib/system/libdispatch.dylib
-    0x7ff82cb3c000 -     0x7ff82cb5862f libresolv.9.dylib (*) <86e1a133-a1a2-381d-9f67-2f4938764a0a> /usr/lib/libresolv.9.dylib
-    0x7ff81a224000 -     0x7ff81a2acb27 libsystem_c.dylib (*) <0251dd0c-67bc-3a58-a477-5e34d4d54f3e> /usr/lib/system/libsystem_c.dylib
-    0x7ff81a3c5000 -     0x7ff81a3f3477 libsystem_info.dylib (*) <cd7c41c5-ce28-3129-9b0e-b8d126b2a0c5> /usr/lib/system/libsystem_info.dylib
+    0x7ff81a3f4000 -     0x7ff81a8a8fe2 com.apple.CoreFoundation (6.9) <9b044a1f-5113-3cc1-83f3-a4ddbaf4ae65> /System/Library/Frameworks/CoreFoundation.framework/Versions/A/CoreFoundation
+    0x7ff81b557000 -     0x7ff81c348b61 com.apple.Foundation (6.9) <59a8cb7a-927e-30b2-b8f7-e03f4621d48f> /System/Library/Frameworks/Foundation.framework/Versions/C/Foundation
 
 External Modification Summary:
   Calls made by other processes targeting this process:
@@ -329,35 +432,36 @@ Writable regions: Total=1.2G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) u
 REGION TYPE                        SIZE    COUNT (non-coalesced) 
 ===========                     =======  ======= 
 Activity Tracing                   256K        1 
-ColorSync                           12K        2 
+ColorSync                           68K        3 
 CoreGraphics                         4K        1 
+CoreServices                       148K        1 
 Foundation                          16K        1 
 Kernel Alloc Once                    8K        1 
-MALLOC                           551.2M       29 
+MALLOC                           543.2M       28 
 MALLOC guard page                   48K       12 
-Memory Tag 253                    32.0G      956 
+Memory Tag 253                    32.0G      973 
 Memory Tag 255                     1.3T       78 
 Memory Tag 255 (reserved)          272K        5         reserved VM address space (unallocated)
 PROTECTED_MEMORY                     4K        1 
-STACK GUARD                       56.1M       24 
-Stack                            123.7M       24 
-VM_ALLOCATE                        216K        6 
+STACK GUARD                       56.1M       31 
+Stack                            164.8M       31 
+VM_ALLOCATE                         96K        6 
 __CTF                               824        1 
-__DATA                            34.5M      916 
-__DATA_CONST                     106.4M      936 
+__DATA                            34.5M      917 
+__DATA_CONST                     106.4M      937 
 __DATA_DIRTY                      2588K      342 
 __FONT_DATA                        2352        1 
 __INFO_FILTER                         8        1 
 __LINKEDIT                       163.3M        9 
 __OBJC_RO                         61.3M        1 
 __OBJC_RW                         2396K        2 
-__TEXT                             1.2G      953 
+__TEXT                             1.2G      954 
 __TPRO_CONST                         16        2 
-mapped file                      213.1M       19 
+mapped file                      220.0M       19 
 shared memory                     1304K       17 
 ===========                     =======  ======= 
-TOTAL                              1.4T     4341 
-TOTAL, minus reserved VM space     1.4T     4341 
+TOTAL                              1.4T     4376 
+TOTAL, minus reserved VM space     1.4T     4376 
 
 
 
@@ -365,30 +469,30 @@ TOTAL, minus reserved VM space     1.4T     4341
 Full Report
 -----------
 
-{"app_name":"Gasto Fácil","timestamp":"2026-05-31 15:24:20.00 -0300","app_version":"0.1.1","slice_uuid":"4c4c449c-5555-3144-a12c-4139c48fff89","build_version":"0.1.1","platform":1,"bundleID":"com.gastofacil.desktop","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 15.7.2 (24G325)","roots_installed":0,"name":"Gasto Fácil","incident_id":"F899E743-FB06-4791-9E56-729E851ED502"}
+{"app_name":"Gasto Fácil","timestamp":"2026-05-31 15:44:59.00 -0300","app_version":"0.1.1","slice_uuid":"4c4c449c-5555-3144-a12c-4139c48fff89","build_version":"0.1.1","platform":1,"bundleID":"com.gastofacil.desktop","share_with_app_devs":0,"is_first_party":0,"bug_type":"309","os_version":"macOS 15.7.2 (24G325)","roots_installed":0,"name":"Gasto Fácil","incident_id":"0E891CA9-E7F6-4956-BBCA-6E5ED2F2C35E"}
 {
-  "uptime" : 3700,
+  "uptime" : 5000,
   "procRole" : "Foreground",
   "version" : 2,
   "userID" : 501,
   "deployVersion" : 210,
   "modelCode" : "MacBookAir9,1",
-  "coalitionID" : 2359,
+  "coalitionID" : 2598,
   "osVersion" : {
     "train" : "macOS 15.7.2",
     "build" : "24G325",
     "releaseType" : "User"
   },
-  "captureTime" : "2026-05-31 15:24:14.9428 -0300",
+  "captureTime" : "2026-05-31 15:44:53.4127 -0300",
   "codeSigningMonitor" : 0,
-  "incident" : "F899E743-FB06-4791-9E56-729E851ED502",
-  "pid" : 2023,
+  "incident" : "0E891CA9-E7F6-4956-BBCA-6E5ED2F2C35E",
+  "pid" : 2277,
   "cpuType" : "X86-64",
   "roots_installed" : 0,
   "bug_type" : "309",
-  "procLaunch" : "2026-05-31 15:24:00.9918 -0300",
-  "procStartAbsTime" : 3748588495159,
-  "procExitAbsTime" : 3762509681064,
+  "procLaunch" : "2026-05-31 15:44:36.7723 -0300",
+  "procStartAbsTime" : 4984256191696,
+  "procExitAbsTime" : 5000744960304,
   "procName" : "Gasto Fácil",
   "procPath" : "\/Applications\/Gasto Fácil.app\/Contents\/MacOS\/Gasto Fácil",
   "bundleInfo" : {"CFBundleShortVersionString":"0.1.1","CFBundleVersion":"0.1.1","CFBundleIdentifier":"com.gastofacil.desktop"},
@@ -404,21 +508,21 @@ Full Report
   "codeSigningTrustLevel" : 4294967295,
   "codeSigningAuxiliaryInfo" : 0,
   "bootSessionUUID" : "909BDF01-86D0-4E86-98C9-40776E14C259",
-  "wakeTime" : 723,
+  "wakeTime" : 1961,
   "bridgeVersion" : {"build":"23P1072","train":"10.1"},
   "sleepWakeUUID" : "F7BB088D-D286-4A22-8B63-880D36BBD75C",
   "sip" : "enabled",
   "exception" : {"codes":"0x0000000000000002, 0x0000000000000000","rawCodes":[2,0],"type":"EXC_BREAKPOINT","signal":"SIGTRAP"},
-  "termination" : {"flags":0,"code":5,"namespace":"SIGNAL","indicator":"Trace\/BPT trap: 5","byProc":"exc handler","byPid":2023},
+  "termination" : {"flags":0,"code":5,"namespace":"SIGNAL","indicator":"Trace\/BPT trap: 5","byProc":"exc handler","byPid":2277},
   "os_fault" : {"process":"Gasto Fácil"},
   "extMods" : {"caller":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"system":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"targeted":{"thread_create":0,"thread_set_state":0,"task_for_pid":0},"warnings":0},
   "faultingThread" : 0,
-  "threads" : [{"queue":"com.apple.main-thread","instructionState":{"instructionStream":{"bytes":[137,199,255,145,8,1,0,0,72,137,199,232,181,187,5,0,72,137,199,232,205,187,5,0,132,192,116,20,72,141,53,106,220,100,6,186,22,0,0,0,72,137,223,232,101,175,83,255,72,139,125,160,72,199,69,160,0,0,0,0,72,133,255,116,6,72,139,7,255,80,8,68,138,125,192,65,128,231,1,233,176,252,255,255,49,201,235,137,15,11,232,70,90,241,255,204,15,11,15,31,0,85,72,137,229,65,87,65,86,83,80,72,137,251,72,184,170,170,170,170,170,170,170,170,76,141,117,224,73,137,6,76,137,247,232,250,182,4,255,69,49,255,76,137,123,16,15,87,192,15,17,3,73,139,62,72,139,7,72,141,53,163,219,100,6,186,14,0,0,0,72,137,217,255,80,16,73,139,62,77,137,62,72,133,255,116,6,72,139,7,255,80],"offset":96}},"frames":[{"imageOffset":40090555,"symbol":"node::AsyncWrap::~AsyncWrap()","symbolLocation":647003,"imageIndex":1},{"imageOffset":74420493,"symbol":"ares_llist_node_next","symbolLocation":1961901,"imageIndex":1},{"imageOffset":22332729,"symbol":"node::BaseObject::TransferForMessaging()","symbolLocation":113641,"imageIndex":1},{"imageOffset":22331676,"symbol":"node::BaseObject::TransferForMessaging()","symbolLocation":112588,"imageIndex":1},{"imageOffset":29374557,"symbol":"v8::ScriptCompiler::ConsumeCodeCacheTask::Run()","symbolLocation":342077,"imageIndex":1},{"imageOffset":33357757,"symbol":"v8::Exception::CreateMessage(v8::Isolate*, v8::Local<v8::Value>)","symbolLocation":15261,"imageIndex":1},{"imageOffset":33357125,"symbol":"v8::Exception::CreateMessage(v8::Isolate*, v8::Local<v8::Value>)","symbolLocation":14629,"imageIndex":1},{"imageOffset":28380017,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":157089,"imageIndex":1},{"imageOffset":28379585,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":156657,"imageIndex":1},{"imageOffset":72644299,"symbol":"ares_llist_node_next","symbolLocation":185707,"imageIndex":1},{"imageOffset":28261706,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":38778,"imageIndex":1},{"imageOffset":46139711,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1277199,"imageIndex":1},{"imageOffset":46143672,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1281160,"imageIndex":1},{"imageOffset":46143253,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1280741,"imageIndex":1},{"imageOffset":26564771,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":175331,"imageIndex":1},{"imageOffset":26562760,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":173320,"imageIndex":1},{"imageOffset":39121694,"symbol":"ElectronMain","symbolLocation":142,"imageIndex":1},{"imageOffset":25904,"symbol":"start","symbolLocation":3056,"imageIndex":7}],"id":62233,"triggered":true,"threadState":{"r13":{"value":12297829382473034410},"rax":{"value":0},"rflags":{"value":582},"cpu":{"value":2},"r14":{"value":2},"rsi":{"value":140701825418208},"r8":{"value":110},"cr2":{"value":0},"rdx":{"value":124},"r10":{"value":1085102592571150095},"r9":{"value":1288490188800},"r15":{"value":140701825418072},"rbx":{"value":1288540221760},"trap":{"value":3},"err":{"value":0},"r11":{"value":139413285484417},"rip":{"value":4746390459,"matchesCrashFrame":1},"rbp":{"value":140701825418304},"rsp":{"value":140701825418064},"r12":{"value":140701825418208},"rcx":{"value":113},"flavor":"x86_THREAD_STATE","rdi":{"value":140701825418176}},"name":"CrBrowserMain"},{"id":62425,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":4611},"r8":{"value":409603},"cr2":{"value":0},"rdx":{"value":123145412005888},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":123145412530176},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145412530176},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145412530176}}},{"id":62426,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":10499},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145412542464},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145413065592},"rbx":{"value":123145413066752},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145413066752},"r12":{"value":5193734},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145413066752}}},{"id":62428,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":10243},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145413079040},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145413602168},"rbx":{"value":123145413603328},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145413603328},"r12":{"value":5193733},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145413603328}}},{"id":62502,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":31747},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145413615616},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145414138752},"rbx":{"value":123145414139904},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145414139904},"r12":{"value":1982472},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145414139904}}},{"id":62517,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":43011},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145414152192},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145414675320},"rbx":{"value":123145414676480},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145414676480},"r12":{"value":5193734},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145414676480}}},{"id":62519,"name":"ThreadPoolServiceThread","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1271310878720},"rsi":{"value":0},"r8":{"value":4},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1288491108224},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1271311332976},"trap":{"value":133},"err":{"value":33554801},"r11":{"value":582},"rip":{"value":140703568287050},"rbp":{"value":123145423613328},"rsp":{"value":123145423613144},"r12":{"value":2147483648},"rcx":{"value":123145423613144},"flavor":"x86_THREAD_STATE","rdi":{"value":5}},"frames":[{"imageOffset":42314,"symbol":"kevent64","symbolLocation":10,"imageIndex":10},{"imageOffset":22533822,"symbol":"v8::Module::GetUnboundModuleScript()","symbolLocation":97918,"imageIndex":1},{"imageOffset":27877243,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":106203,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":19115197,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21357,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"threadState":{"r13":{"value":17231331847},"rax":{"value":0},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":195725954646016},"rsi":{"value":17231331847},"r8":{"value":4611689471581101059},"cr2":{"value":0},"rdx":{"value":841814840595},"r10":{"value":195725954653699},"r9":{"value":195725954646016},"r15":{"value":196},"rbx":{"value":1288491232600},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145432008944},"rsp":{"value":123145432008840},"r12":{"value":195725954653699},"rcx":{"value":123145432008840},"flavor":"x86_THREAD_STATE","rdi":{"value":1288491232600}},"id":62520,"name":"ThreadPoolForegroundWorker","queue":"com.apple.SystemConfiguration.DNSConfiguration","frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":10},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":10},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":10},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":10},{"imageOffset":172137,"symbol":"_xpc_pipe_mach_msg","symbolLocation":49,"imageIndex":11},{"imageOffset":170188,"symbol":"_xpc_pipe_routine","symbolLocation":384,"imageIndex":11},{"imageOffset":24622,"symbol":"_xpc_interface_routine","symbolLocation":173,"imageIndex":11},{"imageOffset":44345,"symbol":"_xpc_look_up_endpoint","symbolLocation":231,"imageIndex":11},{"imageOffset":43991,"symbol":"_xpc_connection_bootstrap_look_up_slow","symbolLocation":399,"imageIndex":11},{"imageOffset":42174,"symbol":"_xpc_connection_init","symbolLocation":800,"imageIndex":11},{"imageOffset":41201,"symbol":"_xpc_connection_activate_if_needed","symbolLocation":570,"imageIndex":11},{"imageOffset":50727,"symbol":"xpc_connection_resume","symbolLocation":73,"imageIndex":11},{"imageOffset":4582,"symbol":"libSC_info_client_create","symbolLocation":221,"imageIndex":12},{"imageOffset":4241,"symbol":"__dns_configuration_copy_block_invoke","symbolLocation":97,"imageIndex":12},{"imageOffset":96764,"symbol":"_dispatch_client_callout","symbolLocation":6,"imageIndex":13},{"imageOffset":59366,"symbol":"_dispatch_lane_barrier_sync_invoke_and_complete","symbolLocation":60,"imageIndex":13},{"imageOffset":2386,"symbol":"dns_configuration_copy","symbolLocation":80,"imageIndex":12},{"imageOffset":1813,"symbol":"res_9_vinit","symbolLocation":55,"imageIndex":14},{"imageOffset":47300167,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2437655,"imageIndex":1},{"imageOffset":47300063,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2437551,"imageIndex":1},{"imageOffset":47245835,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2383323,"imageIndex":1},{"imageOffset":47241702,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2379190,"imageIndex":1},{"imageOffset":27548520,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector()","symbolLocation":151880,"imageIndex":1},{"imageOffset":27548401,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector()","symbolLocation":151761,"imageIndex":1},{"imageOffset":2071234,"symbol":"v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int)","symbolLocation":73458,"imageIndex":1},{"imageOffset":2071093,"symbol":"v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int)","symbolLocation":73317,"imageIndex":1},{"imageOffset":360097,"symbol":"v8::SandboxHardwareSupport::InitializeBeforeThreadCreation()","symbolLocation":36385,"imageIndex":1},{"imageOffset":1412459,"symbol":"v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const","symbolLocation":3467,"imageIndex":1},{"imageOffset":1411190,"symbol":"v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const","symbolLocation":2198,"imageIndex":1},{"imageOffset":1336684,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":3132,"imageIndex":1},{"imageOffset":1335067,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1515,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62521,"name":"ThreadPoolBackgroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":117660629073920},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":117660629073920},"r9":{"value":117660629073920},"r15":{"value":32},"rbx":{"value":123145440414992},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145440414320},"rsp":{"value":123145440414216},"r12":{"value":117660629073920},"rcx":{"value":123145440414216},"flavor":"x86_THREAD_STATE","rdi":{"value":123145440414992}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":10},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":10},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":10},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":10},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352909,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14205,"imageIndex":1},{"imageOffset":15352666,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13962,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62522,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":0},"r8":{"value":278532},"cr2":{"value":0},"rdx":{"value":123145440428032},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145440952320},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145440952320}}},{"id":62523,"name":"ThreadPoolForegroundWorker","threadState":{"r13":{"value":1288490310432},"rax":{"value":213},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":214},"rsi":{"value":1288536208896},"r8":{"value":62523},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":5252},"r9":{"value":8},"r15":{"value":1288536208896},"rbx":{"value":140704669518256,"symbolLocation":0,"symbol":"usual"},"trap":{"value":133},"err":{"value":33554828},"r11":{"value":514},"rip":{"value":140703568254034},"rbp":{"value":123145449350288},"rsp":{"value":123145449350264},"r12":{"value":140704669518256,"symbolLocation":0,"symbol":"usual"},"rcx":{"value":123145449350264},"flavor":"x86_THREAD_STATE","rdi":{"value":33}},"frames":[{"imageOffset":9298,"symbol":"__read_nocancel","symbolLocation":10,"imageIndex":10},{"imageOffset":55153,"symbol":"_sread","symbolLocation":16,"imageIndex":15},{"imageOffset":55072,"symbol":"__srefill1","symbolLocation":24,"imageIndex":15},{"imageOffset":55665,"symbol":"__fread","symbolLocation":419,"imageIndex":15},{"imageOffset":91858,"symbol":"fread","symbolLocation":74,"imageIndex":15},{"imageOffset":21826617,"symbol":"v8::Symbol::GetIterator(v8::Isolate*)","symbolLocation":97145,"imageIndex":1},{"imageOffset":21826053,"symbol":"v8::Symbol::GetIterator(v8::Isolate*)","symbolLocation":96581,"imageIndex":1},{"imageOffset":47011281,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2148769,"imageIndex":1},{"imageOffset":47009293,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2146781,"imageIndex":1},{"imageOffset":47009570,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2147058,"imageIndex":1},{"imageOffset":47241702,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":2379190,"imageIndex":1},{"imageOffset":27548520,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector()","symbolLocation":151880,"imageIndex":1},{"imageOffset":27548401,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnArraySpeciesProtector()","symbolLocation":151761,"imageIndex":1},{"imageOffset":2071234,"symbol":"v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int)","symbolLocation":73458,"imageIndex":1},{"imageOffset":2071093,"symbol":"v8::String::NewFromOneByte(v8::Isolate*, unsigned char const*, v8::NewStringType, int)","symbolLocation":73317,"imageIndex":1},{"imageOffset":360097,"symbol":"v8::SandboxHardwareSupport::InitializeBeforeThreadCreation()","symbolLocation":36385,"imageIndex":1},{"imageOffset":1412459,"symbol":"v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const","symbolLocation":3467,"imageIndex":1},{"imageOffset":1411190,"symbol":"v8::internal::compiler::CompilationDependencies::FieldRepresentationDependencyOffTheRecord(v8::internal::compiler::MapRef, v8::internal::compiler::MapRef, v8::internal::InternalIndex, v8::internal::Representation) const","symbolLocation":2198,"imageIndex":1},{"imageOffset":1336684,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":3132,"imageIndex":1},{"imageOffset":1335067,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1515,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62524,"name":"Chrome_IOThread","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1288490811392},"rsi":{"value":0},"r8":{"value":1},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1288490451264},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1271311325296},"trap":{"value":133},"err":{"value":33554801},"r11":{"value":582},"rip":{"value":140703568287050},"rbp":{"value":123145457753456},"rsp":{"value":123145457753272},"r12":{"value":2147483648},"rcx":{"value":123145457753272},"flavor":"x86_THREAD_STATE","rdi":{"value":6}},"frames":[{"imageOffset":42314,"symbol":"kevent64","symbolLocation":10,"imageIndex":10},{"imageOffset":22533822,"symbol":"v8::Module::GetUnboundModuleScript()","symbolLocation":97918,"imageIndex":1},{"imageOffset":27877243,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":106203,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":26408255,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":18815,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62525,"name":"MemoryInfra","threadState":{"r13":{"value":17179869186},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":152845001162752},"rsi":{"value":17179869186},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":152845001162752},"r9":{"value":152845001162752},"r15":{"value":32},"rbx":{"value":123145466154064},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145466153392},"rsp":{"value":123145466153288},"r12":{"value":152845001162752},"rcx":{"value":123145466153288},"flavor":"x86_THREAD_STATE","rdi":{"value":123145466154064}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":10},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":10},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":10},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":10},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":1119443,"symbol":"v8::CodeEvent::GetScriptName()","symbolLocation":5363,"imageIndex":1},{"imageOffset":1118661,"symbol":"v8::CodeEvent::GetScriptName()","symbolLocation":4581,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62526,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":0},"r8":{"value":278532},"cr2":{"value":0},"rdx":{"value":123145414688768},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145415213056},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145415213056}}},{"id":62527,"frames":[{"imageOffset":22562,"symbol":"kevent","symbolLocation":10,"imageIndex":10},{"imageOffset":39119355,"symbol":"uv__io_poll","symbolLocation":1275,"imageIndex":1},{"imageOffset":39042885,"symbol":"uv_run","symbolLocation":485,"imageIndex":1},{"imageOffset":43186752,"symbol":"node::WorkerThreadsTaskRunner::DelayedTaskScheduler::Start()::'lambda'(void*)::__invoke(void*)","symbolLocation":128,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}],"threadState":{"r13":{"value":4294967295},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":123145474522864},"r8":{"value":1024},"cr2":{"value":0},"rdx":{"value":1},"r10":{"value":123145474522864},"r9":{"value":0},"r15":{"value":1288492452096},"rbx":{"value":0},"trap":{"value":133},"err":{"value":33554795},"r11":{"value":582},"rip":{"value":140703568267298},"rbp":{"value":123145474555680},"rsp":{"value":123145474522712},"r12":{"value":1288492451560},"rcx":{"value":123145474522712},"flavor":"x86_THREAD_STATE","rdi":{"value":15}}},{"id":62528,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":10},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":9},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}],"threadState":{"r13":{"value":19791209305344},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1288491500472},"rsi":{"value":19791209305344},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":4608},"r10":{"value":0},"r9":{"value":160},"r15":{"value":4608},"rbx":{"value":123145482956800},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145482956608},"rsp":{"value":123145482956456},"r12":{"value":123145482956480},"rcx":{"value":123145482956456},"flavor":"x86_THREAD_STATE","rdi":{"value":1288491500472}}},{"id":62529,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":10},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":9},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}],"threadState":{"r13":{"value":20890720933376},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1288491500472},"rsi":{"value":20890720933376},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":4864},"r10":{"value":0},"r9":{"value":160},"r15":{"value":4864},"rbx":{"value":123145491357696},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145491357504},"rsp":{"value":123145491357352},"r12":{"value":123145491357376},"rcx":{"value":123145491357352},"flavor":"x86_THREAD_STATE","rdi":{"value":1288491500472}}},{"id":62530,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":10},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":9},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}],"threadState":{"r13":{"value":21990232561408},"rax":{"value":260},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1288491500472},"rsi":{"value":21990232561408},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":5120},"r10":{"value":0},"r9":{"value":160},"r15":{"value":5120},"rbx":{"value":123145499758592},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145499758400},"rsp":{"value":123145499758248},"r12":{"value":123145499758272},"rcx":{"value":123145499758248},"flavor":"x86_THREAD_STATE","rdi":{"value":1288491500472}}},{"id":62537,"frames":[{"imageOffset":2758,"symbol":"semaphore_wait_trap","symbolLocation":10,"imageIndex":10},{"imageOffset":39097600,"symbol":"uv_sem_wait","symbolLocation":16,"imageIndex":1},{"imageOffset":44748659,"symbol":"node::inspector::Agent::GetWsUrl() const","symbolLocation":67,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":14},"rflags":{"value":582},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":36611},"r8":{"value":123145499803648},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":36612},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":4887438964},"trap":{"value":133},"err":{"value":16777252},"r11":{"value":582},"rip":{"value":140703568247494},"rbp":{"value":123145499803536},"rsp":{"value":123145499803512},"r12":{"value":0},"rcx":{"value":123145499803512},"flavor":"x86_THREAD_STATE","rdi":{"value":41475}}},{"id":62553,"name":"NetworkConfigWatcher","threadState":{"r13":{"value":123145508203136},"rax":{"value":0},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":1288495682560},"rsi":{"value":6},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":123145508202880},"r9":{"value":0},"r15":{"value":123145508202880},"rbx":{"value":123145508203016},"trap":{"value":133},"err":{"value":33554634},"r11":{"value":518},"rip":{"value":140703568252618},"rbp":{"value":123145508202816},"rsp":{"value":123145508202808},"r12":{"value":123145508202912},"rcx":{"value":123145508202808},"flavor":"x86_THREAD_STATE","rdi":{"value":123145508202912}},"frames":[{"imageOffset":7882,"symbol":"__sysctl","symbolLocation":10,"imageIndex":10},{"imageOffset":26966,"symbol":"sysctl","symbolLocation":102,"imageIndex":15},{"imageOffset":28331,"symbol":"getifaddrs","symbolLocation":183,"imageIndex":16},{"imageOffset":36670,"symbol":"if_nametoindex","symbolLocation":27,"imageIndex":16},{"imageOffset":27913876,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":142836,"imageIndex":1},{"imageOffset":27912871,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":141831,"imageIndex":1},{"imageOffset":27912585,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":141545,"imageIndex":1},{"imageOffset":27912275,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":141235,"imageIndex":1},{"imageOffset":37607793,"symbol":"v8_inspector::String16::String16(char const*)","symbolLocation":726961,"imageIndex":1},{"imageOffset":92938549,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948533,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":9},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":9}]},{"id":62554,"frames":[{"imageOffset":6216,"symbol":"thread_start","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":37891},"r8":{"value":123145508233216},"cr2":{"value":0},"rdx":{"value":4716663360,"symbolLocation":175168,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)"},"r10":{"value":0},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500808},"rbp":{"value":0},"rsp":{"value":123145508233216},"r12":{"value":0},"rcx":{"value":1288496326528},"flavor":"x86_THREAD_STATE","rdi":{"value":123145508233216}}},{"id":62555,"frames":[{"imageOffset":6216,"symbol":"thread_start","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":65283},"r8":{"value":123145516634112},"cr2":{"value":0},"rdx":{"value":4716663360,"symbolLocation":175168,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)"},"r10":{"value":0},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500808},"rbp":{"value":0},"rsp":{"value":123145516634112},"r12":{"value":0},"rcx":{"value":1288496327360},"flavor":"x86_THREAD_STATE","rdi":{"value":123145516634112}}},{"id":62556,"frames":[{"imageOffset":6216,"symbol":"thread_start","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":44035},"r8":{"value":123145525035008},"cr2":{"value":0},"rdx":{"value":4716663360,"symbolLocation":175168,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)"},"r10":{"value":0},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500808},"rbp":{"value":0},"rsp":{"value":123145525035008},"r12":{"value":0},"rcx":{"value":1288496329184},"flavor":"x86_THREAD_STATE","rdi":{"value":123145525035008}}},{"id":62557,"frames":[{"imageOffset":6216,"symbol":"thread_start","symbolLocation":0,"imageIndex":9}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":44547},"r8":{"value":123145533435904},"cr2":{"value":0},"rdx":{"value":4716663360,"symbolLocation":175168,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)"},"r10":{"value":0},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500808},"rbp":{"value":0},"rsp":{"value":123145533435904},"r12":{"value":0},"rcx":{"value":1288496328352},"flavor":"x86_THREAD_STATE","rdi":{"value":123145533435904}}}],
+  "threads" : [{"queue":"com.apple.main-thread","instructionState":{"instructionStream":{"bytes":[137,199,255,145,8,1,0,0,72,137,199,232,181,187,5,0,72,137,199,232,205,187,5,0,132,192,116,20,72,141,53,106,220,100,6,186,22,0,0,0,72,137,223,232,101,175,83,255,72,139,125,160,72,199,69,160,0,0,0,0,72,133,255,116,6,72,139,7,255,80,8,68,138,125,192,65,128,231,1,233,176,252,255,255,49,201,235,137,15,11,232,70,90,241,255,204,15,11,15,31,0,85,72,137,229,65,87,65,86,83,80,72,137,251,72,184,170,170,170,170,170,170,170,170,76,141,117,224,73,137,6,76,137,247,232,250,182,4,255,69,49,255,76,137,123,16,15,87,192,15,17,3,73,139,62,72,139,7,72,141,53,163,219,100,6,186,14,0,0,0,72,137,217,255,80,16,73,139,62,77,137,62,72,133,255,116,6,72,139,7,255,80],"offset":96}},"frames":[{"imageOffset":40090555,"symbol":"node::AsyncWrap::~AsyncWrap()","symbolLocation":647003,"imageIndex":1},{"imageOffset":72599882,"symbol":"ares_llist_node_next","symbolLocation":141290,"imageIndex":1},{"imageOffset":29577063,"symbol":"v8::Isolate::GetHeapSpaceStatistics(v8::HeapSpaceStatistics*, unsigned long)","symbolLocation":79239,"imageIndex":1},{"imageOffset":29575849,"symbol":"v8::Isolate::GetHeapSpaceStatistics(v8::HeapSpaceStatistics*, unsigned long)","symbolLocation":78025,"imageIndex":1},{"imageOffset":23714841,"symbol":"node::CustomBufferJSListener::OnStreamAlloc(unsigned long)","symbolLocation":99913,"imageIndex":1},{"imageOffset":23713142,"symbol":"node::CustomBufferJSListener::OnStreamAlloc(unsigned long)","symbolLocation":98214,"imageIndex":1},{"imageOffset":23712966,"symbol":"node::CustomBufferJSListener::OnStreamAlloc(unsigned long)","symbolLocation":98038,"imageIndex":1},{"imageOffset":24253904,"symbol":"v8::V8::SetEntropySource(bool (*)(unsigned char*, unsigned long))","symbolLocation":3008,"imageIndex":1},{"imageOffset":29111945,"symbol":"v8::ScriptCompiler::ConsumeCodeCacheTask::Run()","symbolLocation":79465,"imageIndex":1},{"imageOffset":29111851,"symbol":"v8::ScriptCompiler::ConsumeCodeCacheTask::Run()","symbolLocation":79371,"imageIndex":1},{"imageOffset":40071541,"symbol":"node::AsyncWrap::~AsyncWrap()","symbolLocation":627989,"imageIndex":1},{"imageOffset":40070739,"symbol":"node::AsyncWrap::~AsyncWrap()","symbolLocation":627187,"imageIndex":1},{"imageOffset":40142321,"symbol":"node::AsyncWrap::~AsyncWrap()","symbolLocation":698769,"imageIndex":1},{"imageOffset":33293030,"symbol":"v8::CppHeap::CollectStatistics(cppgc::HeapStatistics::DetailLevel)","symbolLocation":1067110,"imageIndex":1},{"imageOffset":28380017,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":157089,"imageIndex":1},{"imageOffset":28379585,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":156657,"imageIndex":1},{"imageOffset":72644299,"symbol":"ares_llist_node_next","symbolLocation":185707,"imageIndex":1},{"imageOffset":28261706,"symbol":"v8::DictionaryTemplate::New(v8::Isolate*, v8::MemorySpan<std::__Cr::basic_string_view<char, std::__Cr::char_traits<char>> const>)","symbolLocation":38778,"imageIndex":1},{"imageOffset":46139711,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1277199,"imageIndex":1},{"imageOffset":46143672,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1281160,"imageIndex":1},{"imageOffset":46143253,"symbol":"crdtp::ProtocolTypeTraits<std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>, void>::Deserialize(crdtp::DeserializerState*, std::__Cr::unique_ptr<node::inspector::protocol::Object, std::__Cr::default_delete<node::inspector::protocol::Object>>*)","symbolLocation":1280741,"imageIndex":1},{"imageOffset":26564771,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":175331,"imageIndex":1},{"imageOffset":26562760,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":173320,"imageIndex":1},{"imageOffset":39121694,"symbol":"ElectronMain","symbolLocation":142,"imageIndex":1},{"imageOffset":25904,"symbol":"start","symbolLocation":3056,"imageIndex":7}],"id":79438,"triggered":true,"threadState":{"r13":{"value":12297829382473034410},"rax":{"value":0},"rflags":{"value":582},"cpu":{"value":0},"r14":{"value":3},"rsi":{"value":140702003114176},"r8":{"value":110},"cr2":{"value":0},"rdx":{"value":112},"r10":{"value":1085102592571150095},"r9":{"value":1116691496960},"r15":{"value":140702003114040},"rbx":{"value":1116742014144},"trap":{"value":3},"err":{"value":0},"r11":{"value":139585261711329},"rip":{"value":4568693691,"matchesCrashFrame":1},"rbp":{"value":140702003114272},"rsp":{"value":140702003114032},"r12":{"value":140702003114176},"rcx":{"value":113},"flavor":"x86_THREAD_STATE","rdi":{"value":140702003114144}},"name":"CrBrowserMain"},{"id":79613,"threadState":{"r13":{"value":140704673925792,"symbolLocation":0,"symbol":"(anonymous namespace)::sFrameworkLogdom"},"rax":{"value":140704622817520,"symbolLocation":0,"symbol":"flogdom"},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":140704669851072,"symbolLocation":0,"symbol":"CoreAnalytics::Client::get()::client"},"rsi":{"value":1099513023716},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":7297576264},"r10":{"value":137438953472},"r9":{"value":784},"r15":{"value":1099513078184},"rbx":{"value":1099513078144},"trap":{"value":222},"err":{"value":0},"r11":{"value":123145386220208},"rip":{"value":140703714439815},"rbp":{"value":123145386219712},"rsp":{"value":123145386219504},"r12":{"value":1099513077056},"rcx":{"value":140704610345184,"symbolLocation":0,"symbol":"_xpc_dictionary_null_value"},"flavor":"x86_THREAD_STATE","rdi":{"value":1099513023632}},"queue":"com.apple.CoreAnalytics::Client XPC Send","frames":[{"imageOffset":115335,"symbol":"invocation function for block in CoreAnalytics::Client::sendXpcMessage_sync(applesauce::xpc::dict, XPCMessagePriority, bool, bool)","symbolLocation":108,"imageIndex":9},{"imageOffset":58272,"symbol":"_dispatch_block_async_invoke2","symbolLocation":85,"imageIndex":10},{"imageOffset":96764,"symbol":"_dispatch_client_callout","symbolLocation":6,"imageIndex":10},{"imageOffset":33631,"symbol":"_dispatch_lane_serial_drain","symbolLocation":779,"imageIndex":10},{"imageOffset":36269,"symbol":"_dispatch_lane_invoke","symbolLocation":382,"imageIndex":10},{"imageOffset":72598,"symbol":"_dispatch_root_queue_drain_deferred_wlh","symbolLocation":275,"imageIndex":10},{"imageOffset":70883,"symbol":"_dispatch_workloop_worker_thread","symbolLocation":688,"imageIndex":10},{"imageOffset":10337,"symbol":"_pthread_wqthread","symbolLocation":298,"imageIndex":11},{"imageOffset":6211,"symbol":"start_wqthread","symbolLocation":15,"imageIndex":11}]},{"id":79614,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":5123},"r8":{"value":409603},"cr2":{"value":0},"rdx":{"value":123145386233856},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":123145386758144},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145386758144},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145386758144}}},{"id":79635,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":16903},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145386770432},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145387293560},"rbx":{"value":123145387294720},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145387294720},"r12":{"value":5193733},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145387294720}}},{"id":79676,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":21779},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145387307008},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145387830136},"rbx":{"value":123145387831296},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145387831296},"r12":{"value":5193734},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145387831296}}},{"id":79701,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":34307},"r8":{"value":409602},"cr2":{"value":0},"rdx":{"value":123145387843584},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145388366712},"rbx":{"value":123145388367872},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145388367872},"r12":{"value":7094276},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145388367872}}},{"id":79702,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":31235},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145388380160},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145388903288},"rbx":{"value":123145388904448},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145388904448},"r12":{"value":5193734},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145388904448}}},{"id":79703,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":33554800},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":30987},"r8":{"value":409604},"cr2":{"value":0},"rdx":{"value":123145388916736},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":123145389439872},"rbx":{"value":123145389441024},"trap":{"value":133},"err":{"value":33554800},"r11":{"value":582},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145389441024},"r12":{"value":1982472},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145389441024}}},{"id":79704,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":0},"r8":{"value":278532},"cr2":{"value":0},"rdx":{"value":123145389453312},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145389977600},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145389977600}}},{"id":79708,"name":"ThreadPoolServiceThread","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116691794688},"rsi":{"value":0},"r8":{"value":4},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1116693057024},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1099512641136},"trap":{"value":133},"err":{"value":33554801},"r11":{"value":582},"rip":{"value":140703568287050},"rbp":{"value":123145398914448},"rsp":{"value":123145398914264},"r12":{"value":2147483648},"rcx":{"value":123145398914264},"flavor":"x86_THREAD_STATE","rdi":{"value":11}},"frames":[{"imageOffset":42314,"symbol":"kevent64","symbolLocation":10,"imageIndex":12},{"imageOffset":22533822,"symbol":"v8::Module::GetUnboundModuleScript()","symbolLocation":97918,"imageIndex":1},{"imageOffset":27877243,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":106203,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":19115197,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21357,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79709,"name":"ThreadPoolForegroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":117660629073920},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":117660629073920},"r9":{"value":117660629073920},"r15":{"value":32},"rbx":{"value":123145407315216},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145407314544},"rsp":{"value":123145407314440},"r12":{"value":117660629073920},"rcx":{"value":123145407314440},"flavor":"x86_THREAD_STATE","rdi":{"value":123145407315216}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79710,"name":"ThreadPoolBackgroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":112163070935040},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":112163070935040},"r9":{"value":112163070935040},"r15":{"value":32},"rbx":{"value":123145415716112},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145415715440},"rsp":{"value":123145415715336},"r12":{"value":112163070935040},"rcx":{"value":123145415715336},"flavor":"x86_THREAD_STATE","rdi":{"value":123145415716112}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352909,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14205,"imageIndex":1},{"imageOffset":15352666,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13962,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79713,"name":"ThreadPoolForegroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":142983756251136},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":142983756251136},"r9":{"value":142983756251136},"r15":{"value":32},"rbx":{"value":123145424117008},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145424116336},"rsp":{"value":123145424116232},"r12":{"value":142983756251136},"rcx":{"value":123145424116232},"flavor":"x86_THREAD_STATE","rdi":{"value":123145424117008}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79714,"name":"Chrome_IOThread","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116691796096},"rsi":{"value":0},"r8":{"value":1},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1116691668864},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1099512633456},"trap":{"value":133},"err":{"value":33554801},"r11":{"value":582},"rip":{"value":140703568287050},"rbp":{"value":123145432518000},"rsp":{"value":123145432517816},"r12":{"value":2147483648},"rcx":{"value":123145432517816},"flavor":"x86_THREAD_STATE","rdi":{"value":12}},"frames":[{"imageOffset":42314,"symbol":"kevent64","symbolLocation":10,"imageIndex":12},{"imageOffset":22533822,"symbol":"v8::Module::GetUnboundModuleScript()","symbolLocation":97918,"imageIndex":1},{"imageOffset":27877243,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":106203,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":26408255,"symbol":"v8::ObjectTemplate::SetHandler(v8::NamedPropertyHandlerConfiguration const&)","symbolLocation":18815,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79715,"name":"MemoryInfra","threadState":{"r13":{"value":17179869186},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":149563646148608},"rsi":{"value":17179869186},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":149563646148608},"r9":{"value":149563646148608},"r15":{"value":32},"rbx":{"value":123145440918608},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145440917936},"rsp":{"value":123145440917832},"r12":{"value":149563646148608},"rcx":{"value":123145440917832},"flavor":"x86_THREAD_STATE","rdi":{"value":123145440918608}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":1119443,"symbol":"v8::CodeEvent::GetScriptName()","symbolLocation":5363,"imageIndex":1},{"imageOffset":1118661,"symbol":"v8::CodeEvent::GetScriptName()","symbolLocation":4581,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79720,"frames":[{"imageOffset":6196,"symbol":"start_wqthread","symbolLocation":0,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":0},"rflags":{"value":512},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":0},"r8":{"value":278532},"cr2":{"value":0},"rdx":{"value":123145440931840},"r10":{"value":0},"r9":{"value":18446744073709551615},"r15":{"value":0},"rbx":{"value":0},"trap":{"value":0},"err":{"value":0},"r11":{"value":0},"rip":{"value":140703568500788},"rbp":{"value":0},"rsp":{"value":123145441456128},"r12":{"value":0},"rcx":{"value":0},"flavor":"x86_THREAD_STATE","rdi":{"value":123145441456128}}},{"id":79723,"frames":[{"imageOffset":22562,"symbol":"kevent","symbolLocation":10,"imageIndex":12},{"imageOffset":39119355,"symbol":"uv__io_poll","symbolLocation":1275,"imageIndex":1},{"imageOffset":39042885,"symbol":"uv_run","symbolLocation":485,"imageIndex":1},{"imageOffset":43186752,"symbol":"node::WorkerThreadsTaskRunner::DelayedTaskScheduler::Start()::'lambda'(void*)::__invoke(void*)","symbolLocation":128,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":4294967295},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1},"rsi":{"value":123145449823984},"r8":{"value":1024},"cr2":{"value":0},"rdx":{"value":1},"r10":{"value":123145449823984},"r9":{"value":0},"r15":{"value":1116693776640},"rbx":{"value":0},"trap":{"value":133},"err":{"value":33554795},"r11":{"value":582},"rip":{"value":140703568267298},"rbp":{"value":123145449856800},"rsp":{"value":123145449823832},"r12":{"value":1116693776104},"rcx":{"value":123145449823832},"flavor":"x86_THREAD_STATE","rdi":{"value":15}}},{"id":79724,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":12},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":11},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":20890720933376},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116692252728},"rsi":{"value":20890720933376},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":4864},"r10":{"value":0},"r9":{"value":160},"r15":{"value":4864},"rbx":{"value":123145458257920},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145458257728},"rsp":{"value":123145458257576},"r12":{"value":123145458257600},"rcx":{"value":123145458257576},"flavor":"x86_THREAD_STATE","rdi":{"value":1116692252728}}},{"id":79725,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":12},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":11},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":23089744189440},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116692252728},"rsi":{"value":23089744189440},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":5376},"r10":{"value":0},"r9":{"value":160},"r15":{"value":5376},"rbx":{"value":123145466658816},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145466658624},"rsp":{"value":123145466658472},"r12":{"value":123145466658496},"rcx":{"value":123145466658472},"flavor":"x86_THREAD_STATE","rdi":{"value":1116692252728}}},{"id":79726,"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":12},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":11},{"imageOffset":39097987,"symbol":"uv_cond_wait","symbolLocation":35,"imageIndex":1},{"imageOffset":43176796,"symbol":"node::WorkerThreadsTaskRunner::WorkerThreadsTaskRunner(int, node::PlatformDebugLogLevel)","symbolLocation":1820,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":21990232561408},"rax":{"value":260},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116692252728},"rsi":{"value":21990232561408},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":5120},"r10":{"value":0},"r9":{"value":160},"r15":{"value":5120},"rbx":{"value":123145475059712},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145475059520},"rsp":{"value":123145475059368},"r12":{"value":123145475059392},"rcx":{"value":123145475059368},"flavor":"x86_THREAD_STATE","rdi":{"value":1116692252728}}},{"id":79729,"frames":[{"imageOffset":2758,"symbol":"semaphore_wait_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":39097600,"symbol":"uv_sem_wait","symbolLocation":16,"imageIndex":1},{"imageOffset":44748659,"symbol":"node::inspector::Agent::GetWsUrl() const","symbolLocation":67,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":14},"rflags":{"value":582},"cpu":{"value":0},"r14":{"value":0},"rsi":{"value":39683},"r8":{"value":123145390022656},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":39684},"r9":{"value":419432703},"r15":{"value":0},"rbx":{"value":4709742196},"trap":{"value":133},"err":{"value":16777252},"r11":{"value":582},"rip":{"value":140703568247494},"rbp":{"value":123145390022544},"rsp":{"value":123145390022520},"r12":{"value":0},"rcx":{"value":123145390022520},"flavor":"x86_THREAD_STATE","rdi":{"value":39939}}},{"id":79741,"name":"NetworkConfigWatcher","threadState":{"r13":{"value":21592279046},"rax":{"value":268451845},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":159442070929408},"rsi":{"value":21592279046},"r8":{"value":181145792},"cr2":{"value":0},"rdx":{"value":8589934592},"r10":{"value":159442070929408},"r9":{"value":159442070929408},"r15":{"value":2},"rbx":{"value":123145483456048},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":518},"rip":{"value":140703568247626},"rbp":{"value":123145483455888},"rsp":{"value":123145483455784},"r12":{"value":159442070929408},"rcx":{"value":123145483455784},"flavor":"x86_THREAD_STATE","rdi":{"value":123145483456048}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":506754,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":145,"imageIndex":13},{"imageOffset":501199,"symbol":"__CFRunLoopRun","symbolLocation":1430,"imageIndex":13},{"imageOffset":498178,"symbol":"CFRunLoopRunSpecific","symbolLocation":536,"imageIndex":13},{"imageOffset":372723,"symbol":"-[NSRunLoop(NSRunLoop) runMode:beforeDate:]","symbolLocation":216,"imageIndex":14},{"imageOffset":26863405,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":30125,"imageIndex":1},{"imageOffset":26863058,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":29778,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79742,"name":"CrShutdownDetector","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":123145390050856},"rsi":{"value":123145390050856},"r8":{"value":123145390050769},"cr2":{"value":0},"rdx":{"value":4},"r10":{"value":1},"r9":{"value":18},"r15":{"value":19},"rbx":{"value":1116740915104},"trap":{"value":133},"err":{"value":33554435},"r11":{"value":582},"rip":{"value":140703568250290},"rbp":{"value":123145390051200},"rsp":{"value":123145390050840},"r12":{"value":4},"rcx":{"value":123145390050840},"flavor":"x86_THREAD_STATE","rdi":{"value":19}},"frames":[{"imageOffset":5554,"symbol":"read","symbolLocation":10,"imageIndex":12},{"imageOffset":41320076,"symbol":"node::sqlite::UserDefinedFunction::xDestroy(void*)","symbolLocation":491564,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79743,"name":"NetworkConfigWatcher","threadState":{"r13":{"value":21592279046},"rax":{"value":268451845},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":264995187195904},"rsi":{"value":21592279046},"r8":{"value":189546688},"cr2":{"value":0},"rdx":{"value":8589934592},"r10":{"value":264995187195904},"r9":{"value":264995187195904},"r15":{"value":2},"rbx":{"value":123145491856944},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":518},"rip":{"value":140703568247626},"rbp":{"value":123145491856784},"rsp":{"value":123145491856680},"r12":{"value":264995187195904},"rcx":{"value":123145491856680},"flavor":"x86_THREAD_STATE","rdi":{"value":123145491856944}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":506754,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":145,"imageIndex":13},{"imageOffset":501199,"symbol":"__CFRunLoopRun","symbolLocation":1430,"imageIndex":13},{"imageOffset":498178,"symbol":"CFRunLoopRunSpecific","symbolLocation":536,"imageIndex":13},{"imageOffset":372723,"symbol":"-[NSRunLoop(NSRunLoop) runMode:beforeDate:]","symbolLocation":216,"imageIndex":14},{"imageOffset":26863405,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":30125,"imageIndex":1},{"imageOffset":26863058,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":29778,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79744,"name":"ThreadPoolForegroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":190228396507136},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":190228396507136},"r9":{"value":190228396507136},"r15":{"value":32},"rbx":{"value":123145500261648},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145500260976},"rsp":{"value":123145500260872},"r12":{"value":190228396507136},"rcx":{"value":123145500260872},"flavor":"x86_THREAD_STATE","rdi":{"value":123145500261648}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79745,"name":"ThreadPoolForegroundWorker","threadState":{"r13":{"value":17179869442},"rax":{"value":268451845},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":191327908134912},"rsi":{"value":17179869442},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":191327908134912},"r9":{"value":191327908134912},"r15":{"value":32},"rbx":{"value":123145508662544},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":514},"rip":{"value":140703568247626},"rbp":{"value":123145508661872},"rsp":{"value":123145508661768},"r12":{"value":191327908134912},"rcx":{"value":123145508661768},"flavor":"x86_THREAD_STATE","rdi":{"value":123145508662544}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":2697440,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":85104,"imageIndex":1},{"imageOffset":2696893,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84557,"imageIndex":1},{"imageOffset":2696797,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84461,"imageIndex":1},{"imageOffset":2696685,"symbol":"v8::internal::StrongRootAllocatorBase::deallocate_impl(unsigned long*, unsigned long)","symbolLocation":84349,"imageIndex":1},{"imageOffset":1334848,"symbol":"v8::Value::Uint32Value(v8::Local<v8::Context>) const","symbolLocation":1296,"imageIndex":1},{"imageOffset":15352861,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":14157,"imageIndex":1},{"imageOffset":15352625,"symbol":"v8::ScriptCompiler::CreateCodeCache(v8::Local<v8::UnboundScript>)","symbolLocation":13921,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79746,"name":"CompositorTileWorker1","threadState":{"r13":{"value":4294967552},"rax":{"value":260},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116692603288},"rsi":{"value":4294967552},"r8":{"value":0},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":0},"r9":{"value":161},"r15":{"value":0},"rbx":{"value":123145517064192},"trap":{"value":133},"err":{"value":33554737},"r11":{"value":582},"rip":{"value":140703568258806},"rbp":{"value":123145517063856},"rsp":{"value":123145517063704},"r12":{"value":123145517063728},"rcx":{"value":123145517063704},"flavor":"x86_THREAD_STATE","rdi":{"value":1116692603288}},"frames":[{"imageOffset":14070,"symbol":"__psynch_cvwait","symbolLocation":10,"imageIndex":12},{"imageOffset":25262,"symbol":"_pthread_cond_wait","symbolLocation":988,"imageIndex":11},{"imageOffset":9686269,"symbol":"node::AsyncResource::get_trigger_async_id() const","symbolLocation":60589,"imageIndex":1},{"imageOffset":13752461,"symbol":"cppgc::internal::PersistentRegionBase::PersistentRegionBase(cppgc::internal::FatalOutOfMemoryHandler const&)","symbolLocation":7757,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79747,"name":"Chrome_InProcGpuThread","threadState":{"r13":{"value":21592279046},"rax":{"value":268451845},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":201223512784896},"rsi":{"value":21592279046},"r8":{"value":223150272},"cr2":{"value":0},"rdx":{"value":8589934592},"r10":{"value":201223512784896},"r9":{"value":201223512784896},"r15":{"value":2},"rbx":{"value":123145525460528},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":518},"rip":{"value":140703568247626},"rbp":{"value":123145525460368},"rsp":{"value":123145525460264},"r12":{"value":201223512784896},"rcx":{"value":123145525460264},"flavor":"x86_THREAD_STATE","rdi":{"value":123145525460528}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":506754,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":145,"imageIndex":13},{"imageOffset":501199,"symbol":"__CFRunLoopRun","symbolLocation":1430,"imageIndex":13},{"imageOffset":498178,"symbol":"CFRunLoopRunSpecific","symbolLocation":536,"imageIndex":13},{"imageOffset":372723,"symbol":"-[NSRunLoop(NSRunLoop) runMode:beforeDate:]","symbolLocation":216,"imageIndex":14},{"imageOffset":26863405,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":30125,"imageIndex":1},{"imageOffset":26863058,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":29778,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79748,"name":"Chrome_ChildIOThread","threadState":{"r13":{"value":0},"rax":{"value":4},"rflags":{"value":583},"cpu":{"value":0},"r14":{"value":1116691811584},"rsi":{"value":0},"r8":{"value":1},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1116741759808},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1116693463536},"trap":{"value":133},"err":{"value":33554801},"r11":{"value":582},"rip":{"value":140703568287050},"rbp":{"value":123145533865312},"rsp":{"value":123145533865128},"r12":{"value":2147483648},"rcx":{"value":123145533865128},"flavor":"x86_THREAD_STATE","rdi":{"value":26}},"frames":[{"imageOffset":42314,"symbol":"kevent64","symbolLocation":10,"imageIndex":12},{"imageOffset":22533822,"symbol":"v8::Module::GetUnboundModuleScript()","symbolLocation":97918,"imageIndex":1},{"imageOffset":27877243,"symbol":"node::PrincipalRealm::enhance_fatal_stack_after_inspector() const","symbolLocation":106203,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":118859459,"symbol":"ares_llist_len","symbolLocation":25379219,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79750,"name":"VizCompositorThread","threadState":{"r13":{"value":21592279046},"rax":{"value":268451845},"rflags":{"value":518},"cpu":{"value":0},"r14":{"value":210019605807104},"rsi":{"value":21592279046},"r8":{"value":239952064},"cr2":{"value":0},"rdx":{"value":8589934592},"r10":{"value":210019605807104},"r9":{"value":210019605807104},"r15":{"value":2},"rbx":{"value":123145542262320},"trap":{"value":133},"err":{"value":16777263},"r11":{"value":518},"rip":{"value":140703568247626},"rbp":{"value":123145542262160},"rsp":{"value":123145542262056},"r12":{"value":210019605807104},"rcx":{"value":123145542262056},"flavor":"x86_THREAD_STATE","rdi":{"value":123145542262320}},"frames":[{"imageOffset":2890,"symbol":"mach_msg2_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":63236,"symbol":"mach_msg2_internal","symbolLocation":83,"imageIndex":12},{"imageOffset":31683,"symbol":"mach_msg_overwrite","symbolLocation":574,"imageIndex":12},{"imageOffset":3643,"symbol":"mach_msg","symbolLocation":19,"imageIndex":12},{"imageOffset":506754,"symbol":"__CFRunLoopServiceMachPort","symbolLocation":145,"imageIndex":13},{"imageOffset":501199,"symbol":"__CFRunLoopRun","symbolLocation":1430,"imageIndex":13},{"imageOffset":498178,"symbol":"CFRunLoopRunSpecific","symbolLocation":536,"imageIndex":13},{"imageOffset":372723,"symbol":"-[NSRunLoop(NSRunLoop) runMode:beforeDate:]","symbolLocation":216,"imageIndex":14},{"imageOffset":26863405,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":30125,"imageIndex":1},{"imageOffset":26863058,"symbol":"cxxbridge1$rust_vec$bool$len","symbolLocation":29778,"imageIndex":1},{"imageOffset":14106908,"symbol":"node::StreamBase::GetFD()","symbolLocation":844,"imageIndex":1},{"imageOffset":19115461,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21621,"imageIndex":1},{"imageOffset":19115288,"symbol":"v8::ValueSerializer::Delegate::FreeBufferMemory(void*)","symbolLocation":21448,"imageIndex":1},{"imageOffset":92938724,"symbol":"ares_dns_rr_get_ttl","symbolLocation":3948708,"imageIndex":1},{"imageOffset":10363629,"symbol":"v8::internal::compiler::CompilationDependencies::DependOnOwnConstantDataProperty(v8::internal::compiler::JSObjectRef, v8::internal::compiler::MapRef, v8::internal::FieldIndex, v8::internal::compiler::ObjectRef)","symbolLocation":175341,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}]},{"id":79752,"frames":[{"imageOffset":2758,"symbol":"semaphore_wait_trap","symbolLocation":10,"imageIndex":12},{"imageOffset":39097600,"symbol":"uv_sem_wait","symbolLocation":16,"imageIndex":1},{"imageOffset":40862052,"symbol":"node::sqlite::UserDefinedFunction::xDestroy(void*)","symbolLocation":33540,"imageIndex":1},{"imageOffset":24069,"symbol":"_pthread_start","symbolLocation":115,"imageIndex":11},{"imageOffset":6231,"symbol":"thread_start","symbolLocation":15,"imageIndex":11}],"threadState":{"r13":{"value":0},"rax":{"value":14},"rflags":{"value":514},"cpu":{"value":0},"r14":{"value":1116691924072},"rsi":{"value":1},"r8":{"value":1116741096080},"cr2":{"value":0},"rdx":{"value":0},"r10":{"value":1099512626177},"r9":{"value":0},"r15":{"value":0},"rbx":{"value":1116691924072},"trap":{"value":133},"err":{"value":16777252},"r11":{"value":514},"rip":{"value":140703568247494},"rbp":{"value":123145550667664},"rsp":{"value":123145550667640},"r12":{"value":0},"rcx":{"value":123145550667640},"flavor":"x86_THREAD_STATE","rdi":{"value":49155}}}],
   "usedImages" : [
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4523368448,
+    "base" : 4345671680,
     "CFBundleShortVersionString" : "0.1.1",
     "CFBundleIdentifier" : "com.gastofacil.desktop",
     "size" : 8192,
@@ -430,7 +534,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4706299904,
+    "base" : 4528603136,
     "CFBundleIdentifier" : "com.github.Electron.framework",
     "size" : 174264320,
     "uuid" : "4c4c446c-5555-3144-a125-6ff9ff1c32a3",
@@ -441,7 +545,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4523528192,
+    "base" : 4345831424,
     "CFBundleShortVersionString" : "1.0",
     "CFBundleIdentifier" : "com.github.Squirrel",
     "size" : 86016,
@@ -453,7 +557,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4524015616,
+    "base" : 4346318848,
     "CFBundleShortVersionString" : "3.1.0",
     "CFBundleIdentifier" : "com.electron.reactive",
     "size" : 278528,
@@ -465,7 +569,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4523651072,
+    "base" : 4345954304,
     "CFBundleShortVersionString" : "1.0",
     "CFBundleIdentifier" : "org.mantle.Mantle",
     "size" : 49152,
@@ -477,7 +581,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 4526755840,
+    "base" : 4349059072,
     "size" : 2109440,
     "uuid" : "4c4c4434-5555-3144-a14c-cedbf33f034a",
     "path" : "\/Applications\/Gasto Fácil.app\/Contents\/Frameworks\/Electron Framework.framework\/Versions\/A\/Libraries\/libffmpeg.dylib",
@@ -486,7 +590,7 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64h",
-    "base" : 4669362176,
+    "base" : 4491104256,
     "size" : 53248,
     "uuid" : "72642d3c-0206-38ee-9349-c720aee663ee",
     "path" : "\/usr\/lib\/libobjc-trampolines.dylib",
@@ -510,6 +614,27 @@ Full Report
   {
     "source" : "P",
     "arch" : "x86_64",
+    "base" : 140703714324480,
+    "CFBundleShortVersionString" : "1.0",
+    "CFBundleIdentifier" : "com.apple.analyticsd",
+    "size" : 187797,
+    "uuid" : "2b7a49e1-934a-3755-a1d8-ddc414d740ee",
+    "path" : "\/System\/Library\/PrivateFrameworks\/CoreAnalytics.framework\/Versions\/A\/CoreAnalytics",
+    "name" : "CoreAnalytics",
+    "CFBundleVersion" : "1"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
+    "base" : 140703566761984,
+    "size" : 291642,
+    "uuid" : "6ca6112a-70c8-39a2-8cfa-da2139709d3c",
+    "path" : "\/usr\/lib\/system\/libdispatch.dylib",
+    "name" : "libdispatch.dylib"
+  },
+  {
+    "source" : "P",
+    "arch" : "x86_64",
     "base" : 140703568494592,
     "size" : 49112,
     "uuid" : "a031f066-4daa-3801-9155-88106d874835",
@@ -527,57 +652,27 @@ Full Report
   },
   {
     "source" : "P",
-    "arch" : "x86_64",
-    "base" : 140703565320192,
-    "size" : 289750,
-    "uuid" : "c2d833c5-89af-3dae-ae71-af61769cab0c",
-    "path" : "\/usr\/lib\/system\/libxpc.dylib",
-    "name" : "libxpc.dylib"
+    "arch" : "x86_64h",
+    "base" : 140703568969728,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.CoreFoundation",
+    "size" : 4935651,
+    "uuid" : "9b044a1f-5113-3cc1-83f3-a4ddbaf4ae65",
+    "path" : "\/System\/Library\/Frameworks\/CoreFoundation.framework\/Versions\/A\/CoreFoundation",
+    "name" : "CoreFoundation",
+    "CFBundleVersion" : "3603.1.401"
   },
   {
     "source" : "P",
     "arch" : "x86_64",
-    "base" : 140703776976896,
-    "size" : 14560,
-    "uuid" : "c9a0e3a0-375d-3d16-81eb-c5f9b4789f22",
-    "path" : "\/usr\/lib\/system\/libsystem_configuration.dylib",
-    "name" : "libsystem_configuration.dylib"
-  },
-  {
-    "source" : "P",
-    "arch" : "x86_64",
-    "base" : 140703566761984,
-    "size" : 291642,
-    "uuid" : "6ca6112a-70c8-39a2-8cfa-da2139709d3c",
-    "path" : "\/usr\/lib\/system\/libdispatch.dylib",
-    "name" : "libdispatch.dylib"
-  },
-  {
-    "source" : "P",
-    "arch" : "x86_64",
-    "base" : 140703878594560,
-    "size" : 116272,
-    "uuid" : "86e1a133-a1a2-381d-9f67-2f4938764a0a",
-    "path" : "\/usr\/lib\/libresolv.9.dylib",
-    "name" : "libresolv.9.dylib"
-  },
-  {
-    "source" : "P",
-    "arch" : "x86_64",
-    "base" : 140703567069184,
-    "size" : 559912,
-    "uuid" : "0251dd0c-67bc-3a58-a477-5e34d4d54f3e",
-    "path" : "\/usr\/lib\/system\/libsystem_c.dylib",
-    "name" : "libsystem_c.dylib"
-  },
-  {
-    "source" : "P",
-    "arch" : "x86_64",
-    "base" : 140703568777216,
-    "size" : 189560,
-    "uuid" : "cd7c41c5-ce28-3129-9b0e-b8d126b2a0c5",
-    "path" : "\/usr\/lib\/system\/libsystem_info.dylib",
-    "name" : "libsystem_info.dylib"
+    "base" : 140703587201024,
+    "CFBundleShortVersionString" : "6.9",
+    "CFBundleIdentifier" : "com.apple.Foundation",
+    "size" : 14621538,
+    "uuid" : "59a8cb7a-927e-30b2-b8f7-e03f4621d48f",
+    "path" : "\/System\/Library\/Frameworks\/Foundation.framework\/Versions\/C\/Foundation",
+    "name" : "Foundation",
+    "CFBundleVersion" : "3603.1.401"
   }
 ],
   "sharedCache" : {
@@ -585,14 +680,14 @@ Full Report
   "size" : 30064771072,
   "uuid" : "38dc59c5-c114-3b57-8e82-052011a8da76"
 },
-  "vmSummary" : "ReadOnly portion of Libraries: Total=1.4G resident=0K(0%) swapped_out_or_unallocated=1.4G(100%)\nWritable regions: Total=1.2G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=1.2G(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nColorSync                           12K        2 \nCoreGraphics                         4K        1 \nFoundation                          16K        1 \nKernel Alloc Once                    8K        1 \nMALLOC                           551.2M       29 \nMALLOC guard page                   48K       12 \nMemory Tag 253                    32.0G      956 \nMemory Tag 255                     1.3T       78 \nMemory Tag 255 (reserved)          272K        5         reserved VM address space (unallocated)\nPROTECTED_MEMORY                     4K        1 \nSTACK GUARD                       56.1M       24 \nStack                            123.7M       24 \nVM_ALLOCATE                        216K        6 \n__CTF                               824        1 \n__DATA                            34.5M      916 \n__DATA_CONST                     106.4M      936 \n__DATA_DIRTY                      2588K      342 \n__FONT_DATA                        2352        1 \n__INFO_FILTER                         8        1 \n__LINKEDIT                       163.3M        9 \n__OBJC_RO                         61.3M        1 \n__OBJC_RW                         2396K        2 \n__TEXT                             1.2G      953 \n__TPRO_CONST                         16        2 \nmapped file                      213.1M       19 \nshared memory                     1304K       17 \n===========                     =======  ======= \nTOTAL                              1.4T     4341 \nTOTAL, minus reserved VM space     1.4T     4341 \n",
+  "vmSummary" : "ReadOnly portion of Libraries: Total=1.4G resident=0K(0%) swapped_out_or_unallocated=1.4G(100%)\nWritable regions: Total=1.2G written=0K(0%) resident=0K(0%) swapped_out=0K(0%) unallocated=1.2G(100%)\n\n                                VIRTUAL   REGION \nREGION TYPE                        SIZE    COUNT (non-coalesced) \n===========                     =======  ======= \nActivity Tracing                   256K        1 \nColorSync                           68K        3 \nCoreGraphics                         4K        1 \nCoreServices                       148K        1 \nFoundation                          16K        1 \nKernel Alloc Once                    8K        1 \nMALLOC                           543.2M       28 \nMALLOC guard page                   48K       12 \nMemory Tag 253                    32.0G      973 \nMemory Tag 255                     1.3T       78 \nMemory Tag 255 (reserved)          272K        5         reserved VM address space (unallocated)\nPROTECTED_MEMORY                     4K        1 \nSTACK GUARD                       56.1M       31 \nStack                            164.8M       31 \nVM_ALLOCATE                         96K        6 \n__CTF                               824        1 \n__DATA                            34.5M      917 \n__DATA_CONST                     106.4M      937 \n__DATA_DIRTY                      2588K      342 \n__FONT_DATA                        2352        1 \n__INFO_FILTER                         8        1 \n__LINKEDIT                       163.3M        9 \n__OBJC_RO                         61.3M        1 \n__OBJC_RW                         2396K        2 \n__TEXT                             1.2G      954 \n__TPRO_CONST                         16        2 \nmapped file                      220.0M       19 \nshared memory                     1304K       17 \n===========                     =======  ======= \nTOTAL                              1.4T     4376 \nTOTAL, minus reserved VM space     1.4T     4376 \n",
   "legacyInfo" : {
   "threadTriggered" : {
     "name" : "CrBrowserMain",
     "queue" : "com.apple.main-thread"
   }
 },
-  "logWritingSignature" : "58567a1537cc68bfb8da85af69061ada7d6fff52",
+  "logWritingSignature" : "9cc60abca169631a650bae25ae3cbdf41912d0bb",
   "trialInfo" : {
   "rollouts" : [
     {
@@ -616,22 +711,3 @@ Full Report
 }
 }
 
-Model: MacBookAir9,1, BootROM 2094.40.1.0.0 (iBridge: 23.16.11072.0.0,0), 2 processors, Dual-Core Intel Core i3, 1,1 GHz, 8 GB, SMC 
-Graphics: Intel Iris Plus Graphics, Intel Iris Plus Graphics, Built-In
-Display: Color LCD, 2560 x 1600 Retina, Main, MirrorOff, Online
-Memory Module: BANK 0/ChannelA-DIMM0, 4 GB, LPDDR4X, 3733 MHz, Samsung, K3UH5H50MM-JGCJ
-Memory Module: BANK 2/ChannelB-DIMM0, 4 GB, LPDDR4X, 3733 MHz, Samsung, K3UH5H50MM-JGCJ
-AirPort: spairport_wireless_card_type_wifi (0x14E4, 0x870), wl0: Jul 26 2024 20:45:01 version 16.20.380.0.3.6.130 FWID 01-c866e60e
-AirPort: 
-Bluetooth: Version (null), 0 services, 0 devices, 0 incoming serial ports
-Network Service: Wi-Fi, AirPort, en0
-USB Device: USB31Bus
-USB Device: USB31Bus
-USB Device: T2Bus
-USB Device: Touch Bar Backlight
-USB Device: Apple Internal Keyboard / Trackpad
-USB Device: Headset
-USB Device: Ambient Light Sensor
-USB Device: FaceTime HD Camera (Built-in)
-USB Device: Apple T2 Controller
-Thunderbolt Bus: MacBook Air, Apple Inc., 86.0
