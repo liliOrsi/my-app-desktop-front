@@ -5,7 +5,7 @@ app.disableHardwareAcceleration();
 
 let mainWindow = null;
 
-const APP_URL = 'https://my-app-front-desktop-production.up.railway.app/';
+const APP_URL = 'https://my-app-desktop-front-production.up.railway.app/';
 
 function createWindow() {
   mainWindow = new BrowserWindow({
