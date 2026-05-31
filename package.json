@@ -34,7 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
-    "electron": "^41.5.1",
+    "electron": "^35.0.0",
     "electron-builder": "^26.8.1",
     "eslint": "^9",
     "eslint-config-next": "16.2.4",
@@ -43,7 +43,7 @@
   },
   "build": {
     "appId": "com.gastofacil.desktop",
-    "productName": "Gasto Fácil",
+    "productName": "Gasto F\u00e1cil",
     "directories": {
       "output": "dist"
     },
@@ -75,7 +75,7 @@
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
       "installerHeaderIcon": "build/icon.ico",
-      "shortcutName": "Gasto Fácil",
+      "shortcutName": "Gasto F\u00e1cil",
       "artifactName": "GastoFacil-Setup-${version}.${ext}"
     }
   }
