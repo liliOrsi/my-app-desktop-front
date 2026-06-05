@@ -174,10 +174,6 @@ type StatementTransaction = {
   categoryName: string | null;
   fromAccount: string;
   source: string | null;
-  needsNewCategory: boolean;
-  suggestedCategoryName: string | null;
-  suggestedCategoryIcon: string | null;
-  suggestedCategoryColor: string | null;
 };
 
 type Message = {
@@ -274,6 +270,51 @@ function useBrowserSpeaker() {
   return { speak, cancel, isSpeaking, supported };
 }
 
+/* ─── CategorySelect ─── */
+function CategorySelect({
+  value, options, onChange,
+}: { value: number | null; options: { id: number; name: string }[]; onChange: (id: number) => void }) {
+  const [open, setOpen] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const selected = options.find(o => o.id === value);
+
+  useEffect(() => {
+    if (!open) return;
+    const handler = (e: MouseEvent) => { if (ref.current && !ref.current.contains(e.target as Node)) setOpen(false); };
+    document.addEventListener('mousedown', handler);
+    return () => document.removeEventListener('mousedown', handler);
+  }, [open]);
+
+  return (
+    <div ref={ref} className="relative flex-1 min-w-0">
+      <button
+        type="button"
+        onClick={() => setOpen(p => !p)}
+        className="w-full flex items-center justify-between gap-1 px-1.5 py-0.5 rounded text-[10px] bg-white/[0.06] border border-line text-text-dim hover:border-accent/40 transition-colors"
+      >
+        <span className="truncate">{selected?.name ?? '— sin categoría —'}</span>
+        <svg viewBox="0 0 10 6" className="w-2 h-2 flex-shrink-0 opacity-50" fill="none" stroke="currentColor" strokeWidth="1.5">
+          <path d="M1 1l4 4 4-4" strokeLinecap="round" strokeLinejoin="round" />
+        </svg>
+      </button>
+      {open && (
+        <div className="absolute left-0 top-full mt-1 z-50 w-40 max-h-44 overflow-y-auto rounded-lg border border-line bg-surface shadow-xl">
+          {options.map(o => (
+            <button
+              key={o.id}
+              type="button"
+              onClick={() => { onChange(o.id); setOpen(false); }}
+              className={`w-full text-left px-2.5 py-1.5 text-[11px] transition-colors hover:bg-accent/10 hover:text-accent-soft ${o.id === value ? 'text-accent-soft bg-accent/5' : 'text-text-soft'}`}
+            >
+              {o.name}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
+
 const SUGGESTIONS = [
   { icon: TrendingUp, text: '¿Cuánto gasté este mes?' },
   { icon: PieChart,   text: '¿En qué categoría gasto más?' },
@@ -300,6 +341,8 @@ export default function AiChat() {
   const [confirmingId,    setConfirmingId]    = useState<number | null>(null);
   const [allCategories,   setAllCategories]   = useState<{ id: number; name: string }[]>([]);
   const [importCatId,     setImportCatId]     = useState<number | null>(null);
+  const [analyzingFile,   setAnalyzingFile]   = useState<string | null>(null);
+  const [statementBalance, setStatementBalance] = useState<string>('');
 
   useEffect(() => {
     if (!authToken) return;
@@ -402,7 +445,7 @@ export default function AiChat() {
 
   async function uploadFile(file: File) {
     setMessages(prev => [...prev, { id: Date.now(), text: `📎 ${file.name}`, sender: 'user', timestamp: new Date() }]);
-    setIsTyping(true);
+    setAnalyzingFile(file.name);
     try {
       const form = new FormData();
       form.append('file', file);
@@ -430,7 +473,7 @@ export default function AiChat() {
     } catch (e: unknown) {
       setMessages(prev => [...prev, { id: Date.now() + 1, text: `No pude analizar el archivo: ${(e as Error).message}`, sender: 'bot', timestamp: new Date() }]);
     } finally {
-      setIsTyping(false);
+      setAnalyzingFile(null);
       if (fileInputRef.current) fileInputRef.current.value = '';
     }
   }
@@ -528,7 +571,7 @@ export default function AiChat() {
             ...m,
             pendingStatement: m.pendingStatement.map((tx, i) =>
               i === txIdx
-                ? { ...tx, categoryId: catId, categoryName: cat?.name ?? tx.categoryName, needsNewCategory: false }
+                ? { ...tx, categoryId: catId, categoryName: cat?.name ?? tx.categoryName }
                 : tx
             ),
           }
@@ -536,62 +579,30 @@ export default function AiChat() {
     ));
   }
 
-  async function confirmStatement(msgId: number, transactions: StatementTransaction[]) {
+  async function confirmStatement(msgId: number, transactions: StatementTransaction[], balanceStr = '') {
     setConfirmingId(msgId);
 
-    // Pre-create any new categories deduped by name
-    const newCatMap: Record<string, number> = {};
-    let latestCats = allCategories;
-    try {
-      const r = await fetch(`${NESTJS_API}/categories`, { headers: authHeaders });
-      if (r.ok) latestCats = await r.json();
-    } catch { /* use cached */ }
+    const fallbackCatId = allCategories[0]?.id ?? 1;
 
-    for (const tx of transactions) {
-      if (tx.needsNewCategory && tx.categoryId === null && tx.suggestedCategoryName) {
-        const key = tx.suggestedCategoryName;
-        if (key in newCatMap) continue;
-        const existing = latestCats.find(c => c.name.toLowerCase() === key.toLowerCase());
-        if (existing) { newCatMap[key] = existing.id; continue; }
-        try {
-          const catRes = await fetch(`${NESTJS_API}/categories`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json', ...authHeaders },
-            body: JSON.stringify({ name: key, icon: tx.suggestedCategoryIcon ?? '💰', color: tx.suggestedCategoryColor ?? '#6C63FF' }),
-          });
-          if (catRes.ok) { newCatMap[key] = (await catRes.json()).id; }
-          else {
-            const r2 = await fetch(`${NESTJS_API}/categories`, { headers: authHeaders });
-            if (r2.ok) {
-              const found = (await r2.json()).find((c: { name: string; id: number }) => c.name.toLowerCase() === key.toLowerCase());
-              if (found) newCatMap[key] = found.id;
-            }
-          }
-        } catch { /* skip */ }
-      }
-    }
-
-    // Build ParsedRow arrays for /import/confirm — one call, creates batch + registers in Resumenes
     const expenses = transactions
-      .filter(tx => tx.isExpense)
-      .map(tx => {
-        let catId = tx.categoryId;
-        if (tx.needsNewCategory && catId === null && tx.suggestedCategoryName) catId = newCatMap[tx.suggestedCategoryName] ?? null;
-        return { date: tx.date, description: tx.description, amount: tx.amount, kind: 'expense' as const, categoryId: catId ?? undefined, type: tx.type };
-      })
-      .filter(tx => tx.categoryId !== undefined);
+      .filter(tx => tx.isExpense && tx.categoryId !== null)
+      .map(tx => ({ date: tx.date, description: tx.description, amount: tx.amount, kind: 'expense' as const, categoryId: tx.categoryId!, type: tx.type }));
 
     const incomes = transactions
       .filter(tx => !tx.isExpense)
       .map(tx => ({ date: tx.date, description: tx.description, amount: tx.amount, kind: 'income' as const, source: tx.source ?? 'OTHER' }));
 
-    const fallbackCatId = latestCats[0]?.id ?? 1;
-
     try {
       const res = await fetch(`${NESTJS_API}/import/confirm`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json', ...authHeaders },
-        body: JSON.stringify({ expenses, incomes, defaultCategoryId: fallbackCatId }),
+        body: JSON.stringify({
+          expenses,
+          incomes,
+          defaultCategoryId: fallbackCatId,
+          balanceAmount: balanceStr !== '' && !isNaN(Number(balanceStr)) ? Number(balanceStr) : 0,
+          balanceDate: [...expenses, ...incomes].map(t => t.date).sort().at(-1) ?? new Date().toISOString().slice(0, 10),
+        }),
       });
       const result = res.ok ? await res.json() : null;
       const created  = (result?.createdExpenses ?? 0) + (result?.createdIncomes ?? 0);
@@ -607,6 +618,7 @@ export default function AiChat() {
 
     window.dispatchEvent(new CustomEvent('gf:expense-created'));
     setConfirmingId(null);
+    setStatementBalance('');
   }
 
   function handleSend(text?: string) { sendMessage(text ?? inputValue); }
@@ -652,17 +664,16 @@ export default function AiChat() {
               {autoSpeak ? <Volume2 className="w-3.5 h-3.5" /> : <VolumeX className="w-3.5 h-3.5" />}
             </button>
           )}
-          {messages.length > 0 && (
-            <button
-              onClick={handleClear}
-              title="Limpiar conversación"
-              className="w-7 h-7 grid place-items-center rounded-lg text-text-dim hover:text-text-muted hover:bg-white/[0.05] transition-colors text-[9px]"
-            >
-              <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="1.5">
-                <path d="M2 4h12M6 4V2h4v2M3 4l1 9h8l1-9" strokeLinecap="round" strokeLinejoin="round" />
-              </svg>
-            </button>
-          )}
+          <button
+            onClick={handleClear}
+            title="Borrar historial"
+            disabled={messages.length === 0 && history.length === 0}
+            className="w-7 h-7 grid place-items-center rounded-lg text-text-dim hover:text-danger hover:bg-danger/10 disabled:opacity-25 disabled:cursor-not-allowed transition-colors"
+          >
+            <svg viewBox="0 0 16 16" className="w-3.5 h-3.5" fill="none" stroke="currentColor" strokeWidth="1.5">
+              <path d="M2 4h12M6 4V2h4v2M3 4l1 9h8l1-9" strokeLinecap="round" strokeLinejoin="round" />
+            </svg>
+          </button>
           <button
             onClick={close}
             aria-label="Cerrar asistente"
@@ -857,18 +868,11 @@ export default function AiChat() {
                               </div>
                               <div className="flex items-center gap-2 mt-1.5">
                                 {tx.isExpense ? (
-                                  <select
-                                    value={tx.categoryId ?? ''}
-                                    onChange={e => updateStatementCategory(msg.id, idx, Number(e.target.value))}
-                                    className="flex-1 text-[10px] bg-surface border border-line rounded px-1.5 py-0.5 text-text-dim focus:outline-none focus:border-accent/50"
-                                  >
-                                    {tx.needsNewCategory && tx.suggestedCategoryName && (
-                                      <option value="">Nueva: {tx.suggestedCategoryName}</option>
-                                    )}
-                                    {allCategories.map(c => (
-                                      <option key={c.id} value={c.id}>{c.name}</option>
-                                    ))}
-                                  </select>
+                                  <CategorySelect
+                                    value={tx.categoryId}
+                                    options={allCategories}
+                                    onChange={id => updateStatementCategory(msg.id, idx, id)}
+                                  />
                                 ) : (
                                   <span className="text-[10px] text-emerald-400/70 flex-1">
                                     {tx.source ?? 'Ingreso'}
@@ -882,9 +886,19 @@ export default function AiChat() {
                           ))}
                         </div>
                       </div>
+                      <div className="flex items-center gap-2 px-0.5">
+                        <span className="text-[10px] text-text-muted whitespace-nowrap">Saldo final</span>
+                        <input
+                          type="number"
+                          placeholder="Opcional"
+                          value={statementBalance}
+                          onChange={e => setStatementBalance(e.target.value)}
+                          className="flex-1 h-6 text-[10px] bg-white/[0.05] border border-line rounded px-2 text-text-soft placeholder:text-text-dim/40 focus:outline-none focus:border-accent/50"
+                        />
+                      </div>
                       <div className="flex gap-1.5">
                         <button
-                          onClick={() => confirmStatement(msg.id, msg.pendingStatement!)}
+                          onClick={() => confirmStatement(msg.id, msg.pendingStatement!, statementBalance)}
                           disabled={confirmingId === msg.id}
                           className="flex-1 h-8 rounded-xl text-[12px] font-semibold bg-emerald-500/15 text-emerald-400 border border-emerald-500/25 hover:bg-emerald-500/25 disabled:opacity-50 transition-colors flex items-center justify-center gap-1.5"
                         >
@@ -1004,9 +1018,35 @@ export default function AiChat() {
               ))}
             </AnimatePresence>
 
+            {/* Analyzing file animation */}
+            <AnimatePresence>
+              {analyzingFile && (
+                <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-start gap-2">
+                  <div className="w-6 h-6 rounded-lg bg-accent/20 border border-accent/25 grid place-items-center flex-shrink-0 mt-0.5">
+                    <Bot className="w-3 h-3 text-accent-soft" />
+                  </div>
+                  <div className="flex-1 rounded-2xl rounded-tl-sm bg-white/[0.05] border border-white/[0.08] px-3.5 py-3">
+                    <div className="flex items-center gap-2 mb-2">
+                      <Loader2 className="w-3.5 h-3.5 text-accent-soft animate-spin flex-shrink-0" />
+                      <span className="text-[12px] text-text-soft font-medium">Analizando extracto bancario…</span>
+                    </div>
+                    <p className="text-[10px] text-text-dim truncate mb-2">{analyzingFile}</p>
+                    <div className="h-1 w-full rounded-full bg-white/[0.06] overflow-hidden">
+                      <motion.div
+                        className="h-full rounded-full bg-accent/50"
+                        animate={{ x: ['-100%', '100%'] }}
+                        transition={{ duration: 1.6, repeat: Infinity, ease: 'easeInOut' }}
+                      />
+                    </div>
+                    <p className="text-[9px] text-text-dim/60 mt-1.5">Esto puede tardar hasta un minuto</p>
+                  </div>
+                </motion.div>
+              )}
+            </AnimatePresence>
+
             {/* Typing indicator */}
             <AnimatePresence>
-              {isTyping && (
+              {isTyping && !analyzingFile && (
                 <motion.div initial={{ opacity: 0, y: 6 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }} className="flex items-start gap-2">
                   <div className="w-6 h-6 rounded-lg bg-accent/20 border border-accent/25 grid place-items-center flex-shrink-0 mt-0.5">
                     <Bot className="w-3 h-3 text-accent-soft" />

@@ -151,6 +151,14 @@ export default function GastosPage() {
   const [pageSize, setPageSize]   = useState(10);
   const [selectedIds, setSelectedIds] = useState<Set<number>>(new Set());
   const [deletingBulk, setDeletingBulk] = useState(false);
+  const [catSearch, setCatSearch] = useState('');
+  const [sortCol, setSortCol] = useState<'date' | 'description' | 'category' | 'type' | 'moneyType' | 'amount'>('date');
+  const [sortDir, setSortDir] = useState<'asc' | 'desc'>('desc');
+
+  function toggleSort(col: typeof sortCol) {
+    if (sortCol === col) setSortDir(d => d === 'asc' ? 'desc' : 'asc');
+    else { setSortCol(col); setSortDir(col === 'amount' || col === 'date' ? 'desc' : 'asc'); }
+  }
 
   // Filter state
   const [showFilters, setShowFilters] = useState(false);
@@ -195,6 +203,7 @@ export default function GastosPage() {
     setEditing(null);
     setForm({ ...EMPTY_FORM, categoryId: cats[0] ? String(cats[0].id) : '' });
     setErrors({});
+    setCatSearch('');
     setPanelOpen(true);
   }
 
@@ -209,6 +218,7 @@ export default function GastosPage() {
       moneyType: g.moneyType,
     });
     setErrors({});
+    setCatSearch('');
     setPanelOpen(true);
   }
 
@@ -312,12 +322,16 @@ export default function GastosPage() {
     .filter(g => !filterType || g.type === filterType)
     .filter(g => !filterMoneyType || g.moneyType === filterMoneyType)
     .sort((a, b) => {
-      if (a.createdAt && b.createdAt) {
-        const diff = new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime();
-        if (diff !== 0) return diff;
+      const dir = sortDir === 'asc' ? 1 : -1;
+      switch (sortCol) {
+        case 'date':        return dir * (new Date(a.date).getTime() - new Date(b.date).getTime()) || b.id - a.id;
+        case 'description': return dir * a.description.localeCompare(b.description, 'es');
+        case 'category':    return dir * (getCat(a).name.localeCompare(getCat(b).name, 'es'));
+        case 'type':        return dir * a.type.localeCompare(b.type);
+        case 'moneyType':   return dir * a.moneyType.localeCompare(b.moneyType);
+        case 'amount':      return dir * (Number(a.amount) - Number(b.amount));
+        default:            return 0;
       }
-      const dateDiff = new Date(b.date).getTime() - new Date(a.date).getTime();
-      return dateDiff !== 0 ? dateDiff : b.id - a.id;
     });
 
   const totalFiltered = filtered.reduce((s, g) => s + Number(g.amount), 0);
@@ -537,8 +551,26 @@ export default function GastosPage() {
                           );
                         })()}
                       </th>
-                      {['Fecha', 'Descripción', 'Categoría', 'Tipo', 'Tipo Moneda', 'Monto', ''].map(h => (
-                        <th key={h} className={cn('text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] px-6 py-3.5', h === 'Monto' ? 'text-right' : 'text-left', h === '' ? 'w-36' : '')}>{h}</th>
+                      {([
+                        { key: 'date',        label: 'Fecha',      align: 'left'  },
+                        { key: 'description', label: 'Descripción',align: 'left'  },
+                        { key: 'category',    label: 'Categoría',  align: 'left'  },
+                        { key: 'type',        label: 'Tipo',       align: 'left'  },
+                        { key: 'moneyType',   label: 'Moneda',     align: 'left'  },
+                        { key: 'amount',      label: 'Monto',      align: 'right' },
+                        { key: null,          label: '',           align: 'left'  },
+                      ] as const).map(({ key, label, align }) => (
+                        <th key={label} className={cn('text-[10px] font-bold text-text-dim uppercase tracking-[0.18em] px-6 py-3.5', align === 'right' ? 'text-right' : 'text-left', key === null ? 'w-36' : '')}>
+                          {key ? (
+                            <button onClick={() => toggleSort(key)} className="inline-flex items-center gap-1 hover:text-text-soft transition-colors group">
+                              {label}
+                              <span className="flex flex-col gap-px opacity-40 group-hover:opacity-80 transition-opacity">
+                                <svg viewBox="0 0 8 5" className={cn('w-2 h-1.5', sortCol === key && sortDir === 'asc' ? 'opacity-100 text-accent-soft' : '')} fill="currentColor"><path d="M4 0L8 5H0z"/></svg>
+                                <svg viewBox="0 0 8 5" className={cn('w-2 h-1.5', sortCol === key && sortDir === 'desc' ? 'opacity-100 text-accent-soft' : '')} fill="currentColor"><path d="M4 5L0 0h8z"/></svg>
+                              </span>
+                            </button>
+                          ) : label}
+                        </th>
                       ))}
                     </tr>
                   </thead>
@@ -547,7 +579,7 @@ export default function GastosPage() {
                       {paginated.map((g, i) => {
                         const cat = getCat(g);
                         return (
-                          <motion.tr key={g.id} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.22, delay: i * 0.025 }} onClick={() => { if (!isImported(g)) openEdit(g); }} className={cn('group border-b border-line last:border-0 hover:bg-white/[0.02] transition-colors', isImported(g) ? 'cursor-default' : 'cursor-pointer', selectedIds.has(g.id) && 'bg-accent/[0.05]')}>
+                          <motion.tr key={g.id} initial={{ opacity: 0, x: -6 }} animate={{ opacity: 1, x: 0 }} transition={{ duration: 0.22, delay: i * 0.025 }} onClick={() => openEdit(g)} className={cn('group border-b border-line last:border-0 hover:bg-white/[0.02] transition-colors cursor-pointer', selectedIds.has(g.id) && 'bg-accent/[0.05]')}>
                             <td className="pl-5 pr-2 py-4 w-10" onClick={e => e.stopPropagation()}>
                               {isImported(g)
                                 ? <span title="Registro importado" className="flex justify-center"><Lock className="w-3.5 h-3.5 text-text-dim" /></span>
@@ -580,13 +612,11 @@ export default function GastosPage() {
                             </td>
                             <td className="px-3 py-4 w-36">
                               <div className="flex items-center justify-end gap-2 opacity-0 group-hover:opacity-100 transition-opacity" onClick={e => e.stopPropagation()}>
+                                <button onClick={() => openEdit(g)} className="w-8 h-8 grid place-items-center rounded-lg text-text-muted hover:text-text hover:bg-white/[0.06] transition-colors" aria-label="Editar">
+                                  <Pencil className="cursor-pointer w-3.5 h-3.5" />
+                                </button>
                                 {!isImported(g) && (
-                                  <>
-                                    <button onClick={() => openEdit(g)} className="w-8 h-8 grid place-items-center rounded-lg text-text-muted hover:text-text hover:bg-white/[0.06] transition-colors" aria-label="Editar">
-                                      <Pencil className="cursor-pointer w-3.5 h-3.5" />
-                                    </button>
-                                    <NativeDelete size="sm" showIcon compact onDelete={() => handleDelete(g.id)} />
-                                  </>
+                                  <NativeDelete size="sm" showIcon compact onDelete={() => handleDelete(g.id)} />
                                 )}
                               </div>
                             </td>
@@ -734,18 +764,32 @@ export default function GastosPage() {
                   {cats.length === 0 ? (
                     <p className="text-text-muted text-xs italic">Creá una categoría primero.</p>
                   ) : (
-                    <div className={cn('grid grid-cols-3 gap-1.5 p-2 rounded-2xl border bg-surface/40', errors.categoryId ? 'border-danger/40' : 'border-line')}>
-                      {cats.map(c => {
-                        const sel = String(form.categoryId) === String(c.id);
-                        return (
-                          <motion.button key={c.id} whileHover={{ y: -1 }} whileTap={{ scale: 0.96 }} onClick={() => setF('categoryId', String(c.id))}
-                            className={cn('flex flex-col items-center gap-1.5 px-2 py-2.5 rounded-xl text-[11px] font-semibold transition-all border', sel ? 'border-transparent ring-1' : 'bg-white/[0.02] border-transparent hover:bg-white/[0.05]')}
-                            style={sel ? { backgroundColor: c.color + '22', color: c.color, boxShadow: `0 0 0 1px ${c.color}66` } : { color: '#A8AEBE' }}>
-                            <CategoryGlyph name={c.name} color={c.color} size="sm" />
-                            <span className="truncate max-w-full">{c.name}</span>
-                          </motion.button>
-                        );
-                      })}
+                    <div className={cn('rounded-2xl border bg-surface/40', errors.categoryId ? 'border-danger/40' : 'border-line')}>
+                      <div className="relative px-2 pt-2">
+                        <Search className="absolute left-4 top-1/2 -translate-y-1/2 mt-1 w-3.5 h-3.5 text-text-dim pointer-events-none" />
+                        <input
+                          value={catSearch}
+                          onChange={e => setCatSearch(e.target.value)}
+                          placeholder="Buscar categoría…"
+                          className="w-full h-8 pl-8 pr-3 rounded-xl bg-white/[0.04] border border-line text-xs text-text-soft placeholder:text-text-dim focus:outline-none focus:border-accent/50 transition-colors"
+                        />
+                      </div>
+                      <div className="grid grid-cols-3 gap-1.5 p-2 max-h-48 overflow-y-auto">
+                        {cats.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).map(c => {
+                          const sel = String(form.categoryId) === String(c.id);
+                          return (
+                            <motion.button key={c.id} whileHover={{ y: -1 }} whileTap={{ scale: 0.96 }} onClick={() => { setF('categoryId', String(c.id)); setCatSearch(''); }}
+                              className={cn('flex flex-col items-center gap-1.5 px-2 py-2.5 rounded-xl text-[11px] font-semibold transition-all border', sel ? 'border-transparent ring-1' : 'bg-white/[0.02] border-transparent hover:bg-white/[0.05]')}
+                              style={sel ? { backgroundColor: c.color + '22', color: c.color, boxShadow: `0 0 0 1px ${c.color}66` } : { color: '#A8AEBE' }}>
+                              <CategoryGlyph name={c.name} color={c.color} size="sm" />
+                              <span className="truncate max-w-full">{c.name}</span>
+                            </motion.button>
+                          );
+                        })}
+                        {cats.filter(c => c.name.toLowerCase().includes(catSearch.toLowerCase())).length === 0 && (
+                          <p className="col-span-3 text-center text-xs text-text-dim py-3">Sin resultados</p>
+                        )}
+                      </div>
                     </div>
                   )}
                 </Field>
