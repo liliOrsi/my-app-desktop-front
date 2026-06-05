@@ -5,7 +5,7 @@
   "main": "electron/main.js",
   "scripts": {
     "dev": "next dev -p 3001",
-    "build": "NODE_OPTIONS='--max-old-space-size=4096' next build",
+    "build": "cross-env NODE_OPTIONS=--max-old-space-size=4096 next build",
     "start": "next start",
     "lint": "eslint",
     "electron": "electron .",
@@ -34,6 +34,7 @@
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
+    "cross-env": "^10.1.0",
     "electron": "^22.0.0",
     "electron-builder": "^26.8.1",
     "eslint": "^9",
@@ -43,7 +44,7 @@
   },
   "build": {
     "appId": "com.gastofacil.desktop",
-    "productName": "Gasto F\u00e1cil",
+    "productName": "Gasto Fácil",
     "directories": {
       "output": "dist"
     },
@@ -56,7 +57,10 @@
       "target": [
         {
           "target": "dmg",
-          "arch": ["x64", "arm64"]
+          "arch": [
+            "x64",
+            "arm64"
+          ]
         }
       ],
       "icon": "build/icon.icns",
@@ -75,7 +79,7 @@
       "installerIcon": "build/icon.ico",
       "uninstallerIcon": "build/icon.ico",
       "installerHeaderIcon": "build/icon.ico",
-      "shortcutName": "Gasto F\u00e1cil",
+      "shortcutName": "Gasto Fácil",
       "artifactName": "GastoFacil-Setup-${version}.${ext}"
     }
   }
