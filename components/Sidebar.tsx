@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { usePathname } from 'next/navigation';
 import { motion, LayoutGroup } from 'framer-motion';
 import { LayoutDashboard, ArrowLeftRight, Tag, TrendingUp, Calendar1Icon } from 'lucide-react';
+import { useTheme } from './ThemeProvider';
 
 const NAV = [
   { href: '/dashboard',     label: 'Dashboard',    icon: LayoutDashboard, color: '#A78BFA', glow: 'rgba(167,139,250,0.5)' },
@@ -15,6 +16,13 @@ const NAV = [
 
 export default function Sidebar() {
   const path = usePathname() || '/';
+  const { theme } = useTheme();
+  const LIGHT_THEMES = ['light', 'blue', 'daylight', 'frost', 'powder'] as const;
+  const isLight = LIGHT_THEMES.includes(theme as typeof LIGHT_THEMES[number]);
+
+  const inactiveColor  = isLight ? '#0D0E1C'            : '#FFFFFF';
+  const inactiveFilter = isLight ? 'none'               : 'drop-shadow(0 0 5px rgba(255,255,255,0.4))';
+  const hoverBg        = isLight ? 'rgba(0,0,0,0.10)'   : 'rgba(255,255,255,0.10)';
 
   return (
     <div className="pointer-events-none fixed bottom-6 left-1/2 z-50 -translate-x-1/2">
@@ -83,7 +91,7 @@ export default function Sidebar() {
                   {!active && (
                     <div
                       className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-150"
-                      style={{ background: 'var(--color-line)' }}
+                      style={{ background: hoverBg }}
                     />
                   )}
 
@@ -99,14 +107,14 @@ export default function Sidebar() {
                       ],
                     } : {
                       scale:  1,
-                      color:  'var(--color-text-muted)',
-                      filter: 'none',
+                      color:  inactiveColor,
+                      filter: inactiveFilter,
                     }}
                     transition={active
                       ? { duration: 1.3, repeat: Infinity, ease: 'easeInOut' }
                       : { duration: 0.15 }
                     }
-                    style={{ color: active ? item.color : 'var(--color-text-muted)' }}
+                    style={{ color: active ? item.color : inactiveColor, filter: active ? undefined : inactiveFilter }}
                     className="relative z-10"
                   >
                     <Icon
